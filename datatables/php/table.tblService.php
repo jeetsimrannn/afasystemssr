@@ -40,9 +40,9 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
 			->setFormatter( Format::datetime( 'Y-m-d H:i:s', 'Y-m-d H:i:s' ) ),
 		Field::inst( 'tblService.OrderID' ),
 		Field::inst( 'tblCustOrders.OrderNo' )
-		->where( 'tblService.ServiceID', '27', '=' )
 		
-	)
+		
+	)->where( 'tblService.ServiceID', '27', '=' )
 	->leftJoin( 'tblCustOrders', 'tblCustOrders.OrderID', '=', 'tblService.OrderID' )
 	->leftJoin( 'tblEmployee', 'tblEmployee.EmployeeID', '=', 'tblService.EmployeeID' )
 	// ->join(
