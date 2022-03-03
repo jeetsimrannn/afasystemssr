@@ -38,28 +38,33 @@ session_start();
 			</nav>
 	</header><!-- End Header -->
 		<h1 class="my-3">Welcome <?php
-                            $serverName = 'tcp:teamoffline.database.windows.net,1433';
-                            $uid = 'sim1999';
-                            $pwd = 'simran@99';
-                            $databaseName = 'TEAMOffline';
+							$serverName = "tcp:teamoffline.database.windows.net,1433";
+							$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
+							$conn = sqlsrv_connect( $serverName, $connectionInfo);
+							if( $conn === false ) {
+								die( print_r( sqlsrv_errors(), true));
+							}
 
-                            $connectionInfo = array( 'UID'=>$uid,
-                                                    'PWD'=>$pwd,
-                                                    'Database'=>$databaseName);
+							$sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='dlangen'";
+                                
+							$stmt = sqlsrv_query( $conn, $sql);
+							if( $stmt === false ) {
+								die( print_r( sqlsrv_errors(), true));
+							}
 
-                            $conn = sqlsrv_connect($serverName,$connectionInfo);
-                            if($conn){
-                                echo '';
-                            }else{
-                                echo 'Connection failure<br />';
-                            die(print_r(sqlsrv_errors(),TRUE));
-                            }
-                                $sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='".$_SESSION['user']."'";
-                                $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-                                $data=sqlsrv_fetch_field($result, SQLSRV_FETCH_ASSOC);
-                                echo $data;
-                            
-                            ?>
+							// Make the first (and in this case, only) row of the result set available for reading.
+							if( sqlsrv_fetch( $stmt ) === false) {
+								die( print_r( sqlsrv_errors(), true));
+							}
+
+							// Get the row fields. Field indices start at 0 and must be retrieved in order.
+							// Retrieving row fields by name is not supported by sqlsrv_get_field.
+							$FirstName = sqlsrv_get_field( $stmt, 0);
+							echo "FirstName: ";
+
+							$LastName = sqlsrv_get_field( $stmt, 1);
+							echo $LastName;
+							?>
 							<?php
 										$employee = $_SESSION['user'];
 										echo " ".$employee?>!
