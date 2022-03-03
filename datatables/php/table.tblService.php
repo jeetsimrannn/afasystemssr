@@ -40,7 +40,6 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
 			->setFormatter( Format::datetime( 'Y-m-d H:i:s', 'Y-m-d H:i:s' ) ),
 		Field::inst( 'tblService.OrderID' ),
 		Field::inst( 'tblCustOrders.OrderNo' )
-		->where( $key = "tblService.EmployeeID", $value = 27, $op = '=' )
 		
 	)
 	->leftJoin( 'tblCustOrders', 'tblCustOrders.OrderID', '=', 'tblService.OrderID' )
