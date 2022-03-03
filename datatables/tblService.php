@@ -45,7 +45,7 @@ session_start();
 								die( print_r( sqlsrv_errors(), true));
 							}
 
-							$sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='dlangen'";
+							$sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='".$_SESSION['user']."'";
                                 
 							$stmt = sqlsrv_query( $conn, $sql);
 							if( $stmt === false ) {
@@ -60,14 +60,12 @@ session_start();
 							// Get the row fields. Field indices start at 0 and must be retrieved in order.
 							// Retrieving row fields by name is not supported by sqlsrv_get_field.
 							$FirstName = sqlsrv_get_field( $stmt, 0);
-							echo "FirstName: ";
+							echo $FirstName;
 
 							$LastName = sqlsrv_get_field( $stmt, 1);
 							echo $LastName;
 							?>
-							<?php
-										$employee = $_SESSION['user'];
-										echo " ".$employee?>!
+							!
 		</h1>
 		<div class="container">
 			<table cellpadding="0" cellspacing="0" border="0" class="display nowrap" id="tblService" style="width:100%;">
