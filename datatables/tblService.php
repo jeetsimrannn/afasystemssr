@@ -37,36 +37,36 @@ session_start();
 				</div>
 			</nav>
 	</header><!-- End Header -->
-		<h1 class="my-3">Welcome <?php
-							$serverName = "tcp:teamoffline.database.windows.net,1433";
-							$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
-							$conn = sqlsrv_connect( $serverName, $connectionInfo);
-							if( $conn === false ) {
-								die( print_r( sqlsrv_errors(), true));
-							}
+		<h3 class="my-3">Welcome 
+			<?php
+				$serverName = "tcp:teamoffline.database.windows.net,1433";
+				$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
+				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				if( $conn === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				$sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='".$_SESSION['user']."'";
+                            
+				$stmt = sqlsrv_query( $conn, $sql);
+				if( $stmt === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				// Make the first (and in this case, only) row of the result set available for reading.
+				if( sqlsrv_fetch( $stmt ) === false) {
+					die( print_r( sqlsrv_errors(), true));
+				}
 
-							$sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='".$_SESSION['user']."'";
-                                
-							$stmt = sqlsrv_query( $conn, $sql);
-							if( $stmt === false ) {
-								die( print_r( sqlsrv_errors(), true));
-							}
+				// Get the row fields. Field indices start at 0 and must be retrieved in order.
+				// Retrieving row fields by name is not supported by sqlsrv_get_field.
+				$FirstName = sqlsrv_get_field( $stmt, 0);
+				echo $FirstName." ";
 
-							// Make the first (and in this case, only) row of the result set available for reading.
-							if( sqlsrv_fetch( $stmt ) === false) {
-								die( print_r( sqlsrv_errors(), true));
-							}
-
-							// Get the row fields. Field indices start at 0 and must be retrieved in order.
-							// Retrieving row fields by name is not supported by sqlsrv_get_field.
-							$FirstName = sqlsrv_get_field( $stmt, 0);
-							echo $FirstName." ";
-
-							$LastName = sqlsrv_get_field( $stmt, 1);
-							echo $LastName;
-							?>
-							!
-		</h1>
+				$LastName = sqlsrv_get_field( $stmt, 1);
+				echo $LastName;
+			?>!
+		</h3>
 		<div class="container">
 			<table cellpadding="0" cellspacing="0" border="0" class="display nowrap" id="tblService" style="width:100%;">
 				<thead>
