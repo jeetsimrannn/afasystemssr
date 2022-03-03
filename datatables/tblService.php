@@ -60,7 +60,7 @@ session_start();
 							// Get the row fields. Field indices start at 0 and must be retrieved in order.
 							// Retrieving row fields by name is not supported by sqlsrv_get_field.
 							$FirstName = sqlsrv_get_field( $stmt, 0);
-							echo $FirstName;
+							echo $FirstName." ";
 
 							$LastName = sqlsrv_get_field( $stmt, 1);
 							echo $LastName;
