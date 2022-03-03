@@ -16,8 +16,8 @@ body.jqueryui div.container {
 	margin: 0 auto;
 }
 
-body.dataTables h3,
-body.jqueryui h3 {
+body.dataTables h4,
+body.jqueryui h4 {
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Raleway', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 	font-weight: 100;
 	letter-spacing: 1px;
@@ -25,7 +25,7 @@ body.jqueryui h3 {
 	line-height: 1em;
 }
 
-h3 span {
+h4 span {
 	font-size: 0.5em;
 	line-height: 1em;
 }

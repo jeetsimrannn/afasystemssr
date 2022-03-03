@@ -37,7 +37,7 @@ session_start();
 				</div>
 			</nav>
 	</header><!-- End Header -->
-		<h3 class="my-3">Welcome 
+		<h4 class="my-3">Welcome 
 			<?php
 				$serverName = "tcp:teamoffline.database.windows.net,1433";
 				$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
@@ -66,7 +66,7 @@ session_start();
 				$LastName = sqlsrv_get_field( $stmt, 1);
 				echo $LastName;
 			?>!
-		</h3>
+		</h4>
 		<div class="container">
 			<table cellpadding="0" cellspacing="0" border="0" class="display nowrap" id="tblService" style="width:100%;">
 				<thead>

@@ -20,7 +20,7 @@ div.container {
 	margin: 0 auto;
 }
 
-h3 {
+h4 {
 	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Raleway', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
@@ -28,7 +28,7 @@ h3 {
 	line-height: 1em;
 }
 
-h3 span {
+h4 span {
 	font-size: 0.5em;
 	line-height: 1em;
 }
@@ -327,7 +327,7 @@ div.tabs>div {
 	box-shadow: 2px 2px 2px #bbb;
 }
 
-div.tabs>div h3 {
+div.tabs>div h4 {
 	border-bottom: none;
 	margin-top: 1em;
 }
@@ -369,7 +369,7 @@ div.column_half {
 		column-count: 1;
 	}
 
-	h3 span {
+	h4 span {
 		display: block;
 	}
 }
