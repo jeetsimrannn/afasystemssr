@@ -37,12 +37,32 @@ session_start();
 				</div>
 			</nav>
 	</header><!-- End Header -->
-	<?php
-		echo "hello".$_SESSION['user'];
-	?>
 		<h1 class="my-3">Welcome <?php
+                            $serverName = 'tcp:teamoffline.database.windows.net,1433';
+                            $uid = 'sim1999';
+                            $pwd = 'simran@99';
+                            $databaseName = 'TEAMOffline';
+
+                            $connectionInfo = array( 'UID'=>$uid,
+                                                    'PWD'=>$pwd,
+                                                    'Database'=>$databaseName);
+
+                            $conn = sqlsrv_connect($serverName,$connectionInfo);
+                            if($conn){
+                                echo '';
+                            }else{
+                                echo 'Connection failure<br />';
+                            die(print_r(sqlsrv_errors(),TRUE));
+                            }
+                                $sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='".$_SESSION['user']."'";
+                                $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                                $data=sqlsrv_fetch_field($result, SQLSRV_FETCH_ASSOC);
+                                echo $data;
+                            
+                            ?>
+							<?php
 										$employee = $_SESSION['user'];
-										echo "hello".$employee?>!
+										echo " ".$employee?>!
 		</h1>
 		<div class="container">
 			<table cellpadding="0" cellspacing="0" border="0" class="display nowrap" id="tblService" style="width:100%;">
