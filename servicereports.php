@@ -99,22 +99,10 @@
                  $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                  $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                 echo '<option value="'.$data['OrderID'].'">';
-                 echo $data['OrderNo']; 
-                 echo " || ".$data['CustomerName'];
-                //  echo        '<div class="container">';
-                //  echo           '<div class="row">';
-                //  echo               '<div class="col-xs-2">';
-                //  echo                    $data['OrderNo'];
-                //  echo                  '</div>';
-                //  echo                '<div class="col-xs-2 v-divider"></div>';
-                //  echo                '<div class="col-xs-2">';
-                //  echo                 $data['CustID'];
-                //  echo                  '</div>';
-                //  echo          '</div>';
-                //  echo      '</div>';
-
-
+                //  echo '<option value="'.$data['OrderID'].'">';
+                //  echo $data['OrderNo']; 
+                //  echo " || ".$data['CustomerName'];
+                 echo '<option value="'.$data['OrderNo'].'">';
                  echo "</option>";
              }
              ?>

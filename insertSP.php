@@ -1,6 +1,13 @@
 <?php  
         include "dbconnect.php";
-        
+        $tsql = "SELECT OrderID FROM dbo.tblCustOrders where OrderNo = ?";
+        $getName = sqlsrv_query($conn, $tsql, array($_POST['ordernos']));
+        if( $getName === false )  
+                die( FormatErrors( sqlsrv_errors() ) );  
+        if ( sqlsrv_fetch( $getName ) === false )  
+                die( FormatErrors( sqlsrv_errors() ) ); 
+        $name = sqlsrv_get_field( $getName, 0);  
+
         $input_exptype = $_POST['exptype'];
         $input_expamount = $_POST["expamount"];
         $input_expcurr = $_POST['expcurr'];
@@ -37,7 +44,9 @@
         for($index = 0 ; $index < count($input_exptype); $index ++){
             array_push($params1,array($ServiceID, SQLSRV_PARAM_IN),
                                 array($input_exptype[$index], SQLSRV_PARAM_IN), 
-                                array($input_expamount[$index], SQLSRV_PARAM_IN),
+                                // array($input_expamount[$index], SQLSRV_PARAM_IN),
+                                array($name, SQLSRV_PARAM_IN),
+
                                 array($input_expcurr[$index], SQLSRV_PARAM_IN),
                                 array($input_check1[$index], SQLSRV_PARAM_IN),
                                 array($input_check2[$index], SQLSRV_PARAM_IN),
