@@ -111,7 +111,7 @@
                  echo                 $data['CustID'];
                  echo                  '</div>';
                  echo          '</div>';
-                 echo      '</div>';
+                 echo      '</div>'; 
 
 
                  echo "</option>";
