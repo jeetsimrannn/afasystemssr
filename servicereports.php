@@ -85,7 +85,13 @@
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
-            <select name="orderno" id="orderno" class="selectpicker" data-live-search="true">
+            <select class="selectpicker" data-live-search="true">
+  <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+  <option data-tokens="mustard">Burger, Shake and a Smile</option>
+  <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+</select>
+
+<select name="orderno" id="orderno" class="selectpicker" data-live-search="true">
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
              $uid = 'sim1999';
