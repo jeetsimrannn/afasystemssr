@@ -99,19 +99,19 @@
                  $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                  echo '<option value="'.$data['OrderID'].'">';
-                //  echo $data['OrderNo']; 
-
-                 echo        '<div class="container">';
-                 echo           '<div class="row">';
-                 echo               '<div class="col-xs-2">';
-                 echo                    $data['OrderNo'];
-                 echo                  '</div>';
-                 echo                '<div class="col-xs-2 v-divider"></div>';
-                 echo                '<div class="col-xs-2">';
-                 echo                 $data['CustID'];
-                 echo                  '</div>';
-                 echo          '</div>';
-                 echo      '</div>'; 
+                 echo $data['OrderNo']; 
+                 echo " - ".$data['CustID'];
+                //  echo        '<div class="container">';
+                //  echo           '<div class="row">';
+                //  echo               '<div class="col-xs-2">';
+                //  echo                    $data['OrderNo'];
+                //  echo                  '</div>';
+                //  echo                '<div class="col-xs-2 v-divider"></div>';
+                //  echo                '<div class="col-xs-2">';
+                //  echo                 $data['CustID'];
+                //  echo                  '</div>';
+                //  echo          '</div>';
+                //  echo      '</div>';
 
 
                  echo "</option>";
