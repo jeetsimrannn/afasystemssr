@@ -100,7 +100,7 @@
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                  echo '<option value="'.$data['OrderID'].'">';
                  echo $data['OrderNo']; 
-                 echo " - ".$data['CustID'];
+                 echo " || ".$data['CustID'];
                 //  echo        '<div class="container">';
                 //  echo           '<div class="row">';
                 //  echo               '<div class="col-xs-2">';
