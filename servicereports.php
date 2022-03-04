@@ -77,8 +77,34 @@
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"   />
         </div>
         <div class="form-group mb-3 inputfield">
-            <label for="OrderNumber">Order Number</label>
-            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   />
+            <label for="orderno">Order Number</label>
+            <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
+            <select name="orderno" id="orderno" class="custom-select form-control"><option selected> Choose Order Number</option>
+             <?php
+             $serverName = 'tcp:teamoffline.database.windows.net,1433';
+             $uid = 'sim1999';
+             $pwd = 'simran@99';
+             $databaseName = 'TEAMOffline';
+             $connectionInfo = array( 'UID'=>$uid,
+                                     'PWD'=>$pwd,
+                                     'Database'=>$databaseName);
+             $conn = sqlsrv_connect($serverName,$connectionInfo);
+             if($conn){
+                 echo '';
+             }else{
+                 echo 'Connection failure<br />';
+             die(print_r(sqlsrv_errors(),TRUE));
+             }
+                 $sql = "SELECT * FROM dbo.tblCustOrders";
+                 $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                 while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                 echo '<option value="'.$data['OrderID'].'">';
+                 echo $data['OrderNo']; 
+                 echo "</option>";
+             }
+             ?>
+             </select>
+        
         </div>
         <div class="form-group mb-3 inputfield">
             <label for="travelfrom">Travel From</label>
