@@ -88,11 +88,7 @@
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
-            <select class="selectpicker" data-live-search="true">
-  <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-  <option data-tokens="mustard">Burger, Shake and a Smile</option>
-  <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-</select>
+            
 
 <select name="orderno" id="orderno" class="selectpicker" data-live-search="true">
              <?php
@@ -466,8 +462,6 @@ $('#headingTwo').on('click', function(e){
 </script> -->
 <script>
     $(document).ready(function(){
-        $(function() {
-            $('.selectpicker').selectpicker();
-        });
+        $('select').selectpicker();
     });
 </script>
