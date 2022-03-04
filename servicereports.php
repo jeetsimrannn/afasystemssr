@@ -95,12 +95,12 @@
                  echo 'Connection failure<br />';
              die(print_r(sqlsrv_errors(),TRUE));
              }
-                 $sql = "SELECT * FROM dbo.tblCustOrders";
+                 $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                  $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                  echo '<option value="'.$data['OrderID'].'">';
                  echo $data['OrderNo']; 
-                 echo " || ".$data['CustID'];
+                 echo " || ".$data['CustomerName'];
                 //  echo        '<div class="container">';
                 //  echo           '<div class="row">';
                 //  echo               '<div class="col-xs-2">';
