@@ -78,8 +78,8 @@
         </div>
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
-            <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
-            <select name="orderno" id="orderno" class="custom-select form-control nowrap"><option selected> Choose Order Number</option>
+            <input class="form-control" id="orderno" name="orderno" list="ordernos" placeholder="Enter Order Number"   />
+            <datalist id="ordernos"><option selected> Choose Order Number</option>
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
              $uid = 'sim1999';
@@ -117,7 +117,7 @@
                  echo "</option>";
              }
              ?>
-             </select>
+             </datalist>
         
         </div>
         <div class="form-group mb-3 inputfield">
