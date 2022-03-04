@@ -12,7 +12,6 @@
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-combobox/1.1.8/css/bootstrap-combobox.min.css">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
 
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -103,7 +102,7 @@
                  $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                  $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                 echo '<option value="'.$data['OrderID'].'">';
+                 echo '<option data-tokens="'.$data['CustomerName'].'" value="'.$data['OrderID'].'">';
                  echo $data['OrderNo']; 
                  echo " || ".$data['CustomerName'];
                 //  echo        '<div class="container">';
@@ -456,9 +455,8 @@ $('#headingTwo').on('click', function(e){
 </script> -->
 <script>
     $(document).ready(function(){
-  $('.combobox').combobox();
-  
-  // bonus: add a placeholder
-  $('.combobox').attr('placeholder', 'Enter Order Number');
+        $(function() {
+            $('.selectpicker').selectpicker();
+        });
     });
 </script>
