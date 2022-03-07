@@ -9,43 +9,21 @@
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
 
  <!-- MobiScroll CSS -->
- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.animation.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.android-ics.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.android.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.ios.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.ios7.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.jqm.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.sense-ui.css"/>
- <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.wp.css"/>
-
+  <link href="css/mobiscroll.jquery.min.css" rel="stylesheet">
+  <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
  <!-- Jquery -->
- <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <!-- Bootstrap CDN -->
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
  <!-- MobiScroll Javascript -->
- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
- <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.appframework.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.core.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.datetime.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.jqmwidget.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.list.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.android-ics.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.android.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.ios.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.ios7.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.jqm.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.wp.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.select.js"></script>
- <script src="assets\vendor\mobiscroll\js\mobiscroll.zepto.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+ <script src="js/mobiscroll.jquery.min.js"></script>
  
  <!-- <script src="assets/vendor/datepicker/datepicker.js"></script>
  <script src="assets/vendor/datepicker/datepicker.common.js"></script>
@@ -115,7 +93,7 @@
                 <input type="text" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
             </div>
             <div class="input-group">
-                <input id="input-picker" />
+            <input id="datepicker" placeholder="Please Select...">
             </div>
         </div>
         <div class="form-group mb-3 inputfield">
@@ -266,9 +244,8 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#input-picker').mobiscroll().datepicker({
-            controls: ['date'],
-            touchUi: true
+        $('#datepicker').mobiscroll().datepicker({
+            controls: ['date']
         });
         // $('#datepicker').datepicker();
         // autoclose: true;
