@@ -360,10 +360,13 @@
   });
 </script>
 
-<!-- <script>
-    $(#servicedate).datepicker({
-    autoPick: true;
-    autoHide: true;
-    date: new Date(2014, 1, 14) // Or '02/14/2014'
-    });
-</script> -->
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="datepicker"]').datepicker();
+        $(#servicedate).datepicker({
+        autoPick: true;
+        autoHide: true;
+        date: new Date(2014, 1, 14) // Or '02/14/2014'
+        });
+    }
+</script>
