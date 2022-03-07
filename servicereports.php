@@ -409,3 +409,5 @@
 			})
 		}
 	</script>
+
+<script type="text/javascript" src="assets\vendor\datepicker\jdate.min.js"></script>
