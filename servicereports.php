@@ -92,11 +92,8 @@
 
         <div class="form-group mb-3 inputfield">
             <label for="servicedate">Service Date</label>
-            <div class="input-group date" id="datepicker">
-                <input type="text" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
-            </div>
             <div class="input-group">
-            <input id="datepicker" placeholder="Please Select...">
+                <input class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
             </div>
         </div>
         <div class="form-group mb-3 inputfield">
@@ -247,7 +244,7 @@
 </html>
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#datepicker').mobiscroll().datepicker({
+        $('#servicedate').mobiscroll().datepicker({
             controls: ['date']
         });
         // $('#datepicker').datepicker();
