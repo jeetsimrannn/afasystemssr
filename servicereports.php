@@ -8,8 +8,9 @@
  <!-- Google Fonts -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
  <!-- Date Picker -->
- <link  href="assets/vendor/datepicker/datepicker.css" rel="stylesheet">
- <link  href="assets/vendor/datepicker/datepicker.min.css" rel="stylesheet">
+ <!-- <link  href="assets/vendor/datepicker/datepicker.css" rel="stylesheet">
+ <link  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet"> -->
+ <link  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -19,10 +20,12 @@
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
  <!-- Date Picker -->
- <script src="assets/vendor/datepicker/datepicker.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+ 
+ <!-- <script src="assets/vendor/datepicker/datepicker.js"></script>
  <script src="assets/vendor/datepicker/datepicker.common.js"></script>
  <script src="assets/vendor/datepicker/datepicker.esm.js"></script>
- <script src="assets/vendor/datepicker/datepicker.min.js"></script>
+ <script src="assets/vendor/datepicker/datepicker.min.js"></script> -->
 </head>
 
 <body>
@@ -85,7 +88,17 @@
             <label for="servicedate">Service Date</label>
             <input type="text" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" data-toggle="datepicker"/>
         </div>
-
+        <div class="col-12">
+            <label for="date" class="col-sm-1 col-form-label">Date</label>
+            <div class="input-group date" id="datepicker">
+                <input type="text" class="form-control">
+                <span class="input-group-append">
+                <span class="input-group-text bg-white d-block">
+                <i class="fa fa-calendar"></i>
+                </span>
+                </span>
+            </div>
+        </div> 
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
@@ -232,8 +245,13 @@
 
 </body>
 </html>
-
 <script type="text/javascript">
+    $(document).ready(function () {
+        $('#datepicker').datepicker();
+        autoclose: true;
+    });
+</script> 
+<!-- <script type="text/javascript">
     $(document).on(function() {
         $('[data-toggle="datepicker"]').datepicker();
         $('#servicedate').datepicker({
@@ -241,7 +259,7 @@
         autoHide: true;
         });
     });
-</script> 
+</script>  -->
 
 
 <script type="text/javascript">
