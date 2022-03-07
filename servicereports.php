@@ -7,13 +7,13 @@
  <link rel="stylesheet" href="assets\css\style.css"/>
  <!-- Google Fonts -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
-
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <!-- MobiScroll CSS -->
  <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet">
 
  
  <!-- MobiScroll Javascript -->
- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ 
  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
  <link href="assets\vendor\mobiscroll\css\mobiscroll.jquery.min.css" rel="stylesheet">
  <script src="assets\vendor\mobiscroll\js\mobiscroll.jquery.min.js"></script>
