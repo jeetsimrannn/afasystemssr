@@ -8,6 +8,9 @@
 
 <!-- Google Fonts -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
+ 
+ <!-- Date Picker -->
+ <link  href="assets/vendor/datepicker/datepicker.css" rel="stylesheet">
 
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -19,6 +22,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Date Picker -->
+ <script src="assets/vendor/datepicker/jquery.js"></script><!-- jQuery is required -->
+ <script src="assets/vendor/datepicker/datepicker.js"></script>
 </head>
 
 <body>
@@ -76,6 +83,12 @@
             <label for="name">Service ID</label>
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"   />
         </div>
+
+        <div class="form-group mb-3 inputfield">
+            <label for="servicedate">Service Date</label>
+            <input type="text" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" data-toggle="datepicker"/>
+        </div>
+
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
@@ -438,3 +451,11 @@ $('#headingTwo').on('click', function(e){
     });
 });
 </script> -->
+
+<script>
+$(#servicedate).datepicker({
+  autoPick: true;
+  autoHide: true;
+  date: new Date(2014, 1, 14) // Or '02/14/2014'
+});
+</script>
