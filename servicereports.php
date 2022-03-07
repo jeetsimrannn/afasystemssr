@@ -235,12 +235,10 @@
 
 <script type="text/javascript">
     $(document).on('click', '#submit', function() {
-        $.ajax({
-            type: "POST",
-            url: 'process.php',
-            success: function() {
-              "Attendance Log success"
-            }
+        $('[data-toggle="datepicker"]').datepicker();
+        $(#servicedate).datepicker({
+        autoPick: true;
+        autoHide: true;
         });
     });
 </script> 
@@ -363,13 +361,12 @@
   });
 </script>
 
-<script>
+<!-- <script>
     $(document).ready(function () {
         $('[data-toggle="datepicker"]').datepicker();
         $(#servicedate).datepicker({
         autoPick: true;
         autoHide: true;
-        date: new Date(2014, 1, 14) // Or '02/14/2014'
         });
     }
-</script>
+</script> -->
