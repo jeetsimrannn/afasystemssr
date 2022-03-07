@@ -18,9 +18,9 @@
  <link href="assets\vendor\mobiscroll\css\mobiscroll.jquery.min.css" rel="stylesheet">
  <script src="assets\vendor\mobiscroll\js\mobiscroll.jquery.min.js"></script> -->
  <!-- anypicker -->
- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/anypicker@latest/dist/anypicker-all.min.css" />
+ <!-- <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/anypicker@latest/dist/anypicker-all.min.css" />
  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/anypicker@latest/dist/anypicker.min.js"></script>
- <script type="text/javascript" src="//cdn.jsdelivr.net/npm/anypicker@latest/dist/i18n/anypicker-i18n.js"></script>
+ <script type="text/javascript" src="//cdn.jsdelivr.net/npm/anypicker@latest/dist/i18n/anypicker-i18n.js"></script> -->
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -99,6 +99,9 @@
                 <!-- <input class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/> -->
                 <input type="text" id="ip-ios" readonly>
             </div>
+            <div class="col-xs-6">
+					<input readonly class="form-control" type="text" id="date-group1-2" placeholder="YYYY-MM-DD">
+			</div>
         </div>
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
@@ -395,3 +398,14 @@
         });
     }
 </script> -->
+
+<script>
+		window.onload = function() {
+			new Jdate({
+				el: '#date-group1-2',
+				format: 'YYYY-MM-DD',
+				beginYear : 2000 ,
+				endYear: 2100
+			})
+		}
+	</script>
