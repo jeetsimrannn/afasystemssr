@@ -9,6 +9,7 @@
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
  <!-- Date Picker -->
  <link  href="assets/vendor/datepicker/datepicker.css" rel="stylesheet">
+ <link  href="assets/vendor/datepicker/datepicker.min.css" rel="stylesheet">
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -18,8 +19,10 @@
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
  <!-- Date Picker -->
- <script src="assets/vendor/datepicker/jquery.js"></script><!-- jQuery is required -->
  <script src="assets/vendor/datepicker/datepicker.js"></script>
+ <script src="assets/vendor/datepicker/datepicker.common.js"></script>
+ <script src="assets/vendor/datepicker/datepicker.esm.js"></script>
+ <script src="assets/vendor/datepicker/datepicker.min.js"></script>
 </head>
 
 <body>
