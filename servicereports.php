@@ -9,6 +9,7 @@
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
 
  <!-- MobiScroll CSS -->
+ <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
  <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.animation.css"/>
  <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.android-ics.css"/>
  <link rel="stylesheet" href="assets\vendor\mobiscroll\css\mobiscroll.scroller.android.css"/>
@@ -29,20 +30,22 @@
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
  <!-- MobiScroll Javascript -->
-<script src="assets\vendor\mobiscroll\js\mobiscroll.appframework.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.core.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.datetime.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.jqmwidget.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.list.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.android-ics.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.android.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.ios.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.ios7.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.jqm.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.wp.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.select.js"></script>
-<script src="assets\vendor\mobiscroll\js\mobiscroll.zepto.js"></script>
+ <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+ <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.appframework.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.core.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.datetime.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.jqmwidget.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.list.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.android-ics.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.android.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.ios.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.ios7.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.jqm.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.scroller.wp.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.select.js"></script>
+ <script src="assets\vendor\mobiscroll\js\mobiscroll.zepto.js"></script>
  
  <!-- <script src="assets/vendor/datepicker/datepicker.js"></script>
  <script src="assets/vendor/datepicker/datepicker.common.js"></script>
