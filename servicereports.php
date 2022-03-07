@@ -11,7 +11,16 @@
  <!-- MobiScroll CSS -->
  <!-- <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet"> -->
 
- 
+   <link rel="stylesheet"  href="assets\vendor\datepicker\jquery.ui.datepicker.mobile.css" /> 
+	
+	<script>
+		//reset type=date inputs to text
+		$( document ).bind( "mobileinit", function(){
+			$.mobile.page.prototype.options.degradeInputs.date = true;
+		});	
+	</script>
+	<script src="assets\vendor\datepicker\jQuery.ui.datepicker.js"></script>
+	<script src="assets\vendor\datepicker\jquery.ui.datepicker.mobile.js"></script>
  <!-- MobiScroll Javascript -->
  
  <!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -102,7 +111,10 @@
             <div class="col-xs-6">
 					<input readonly class="form-control" type="text" id="date-group1-2" placeholder="YYYY-MM-DD">
 			</div>
-        </div>
+        </div><div data-role="fieldcontain">
+	     	    <label for="date">Date Input:</label>
+	     	    <input type="date" name="date" id="date" value=""  />
+			</div>	
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
@@ -398,16 +410,3 @@
         });
     }
 </script> -->
-
-<script>
-		window.onload = function() {
-			new Rolldate({
-				el: '#date-group1-2',
-				format: 'YYYY-MM-DD',
-				beginYear: 2000,
-				endYear: 2100
-			})
-		}
-	</script>
-
-<script type="text/javascript" src="assets\vendor\datepicker\rolldate.min.js"></script>
