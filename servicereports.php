@@ -234,7 +234,7 @@
 </html>
 
 <script type="text/javascript">
-    $(document).on('click', '#submit', function() {
+    $(document).on(function() {
         $('[data-toggle="datepicker"]').datepicker();
         $(#servicedate).datepicker({
         autoPick: true;
