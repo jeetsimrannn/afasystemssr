@@ -236,7 +236,7 @@
 <script type="text/javascript">
     $(document).on(function() {
         $('[data-toggle="datepicker"]').datepicker();
-        $(#servicedate).datepicker({
+        $('#servicedate').datepicker({
         autoPick: true;
         autoHide: true;
         });
