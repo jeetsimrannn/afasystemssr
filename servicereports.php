@@ -401,13 +401,13 @@
 
 <script>
 		window.onload = function() {
-			new Jdate({
+			new Rolldate({
 				el: '#date-group1-2',
 				format: 'YYYY-MM-DD',
-				beginYear : 2000 ,
+				beginYear: 2000,
 				endYear: 2100
 			})
 		}
 	</script>
 
-<script type="text/javascript" src="assets\vendor\datepicker\jdate.min.js"></script>
+<script type="text/javascript" src="assets\vendor\datepicker\rolldate.min.js"></script>
