@@ -4,26 +4,20 @@
 <title>Service Report Form</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="assets\css\style.css"/>
-
-<!-- Google Fonts -->
+ <link rel="stylesheet" href="assets\css\style.css"/>
+ <!-- Google Fonts -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
- 
  <!-- Date Picker -->
  <link  href="assets/vendor/datepicker/datepicker.css" rel="stylesheet">
-
  <!-- Bootstrap CDN -->
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
+ <!-- Jquery -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <!-- Bootstrap CDN -->
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-  <!-- Date Picker -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+ <!-- Date Picker -->
  <script src="assets/vendor/datepicker/jquery.js"></script><!-- jQuery is required -->
  <script src="assets/vendor/datepicker/datepicker.js"></script>
 </head>
@@ -233,57 +227,6 @@
 </form>
 </div>
 
-        
-<?php  
-/*Connect using SQL Server authentication.*/  
-// $serverName = "tcp:teamoffline.database.windows.net,1433";  
-// $connectionOptions = array(  
-//     "Database" => "TEAMOffline",  
-//     "UID" => "sim1999",  
-//     "PWD" => "simran@99"  
-// );  
-// $conn = sqlsrv_connect($serverName, $connectionOptions);  
-  
-// if ($conn === false)  
-//     {  
-//     die(print_r(sqlsrv_errors() , true));  
-//     }  
-  
-// if (isset($_GET['action']))  
-//     {  
-//     if ($_GET['action'] == 'add')   
-//         {  
-//         $tsql =  "SELECT ExpenseID FROM tblServiceExpenses WHERE tblServiceExpenses.ExpenseType = ?";
-//         $getName = sqlsrv_query($conn, $tsql,array(&$_POST['exptype']));
-//         $name = sqlsrv_get_field( $getName, 0);
-//         echo($name);
-//         $insertSql = "INSERT INTO tblServiceExpenseLines (ServiceID,ExpenseID,Amount,CurrencyID)   
-//         VALUES (?,?,?,?)";  
-//         $params = array(&$_POST['ServiceID'], &$name, &$_POST['expamount'],&$_POST['expcurr']);  
-//         $stmt = sqlsrv_query($conn, $insertSql, $params);  
-//         if ($stmt === false)  
-//             {  
-//             /*Handle the case of a duplicte e-mail address.*/  
-//             $errors = sqlsrv_errors();  
-//             if ($errors[0]['code'] == 2601)  
-//                 {  
-//                 echo "The e-mail address you entered has already been used.</br>";  
-//                 }  
-  
-//             /*Die if other errors occurred.*/  
-//               else  
-//                 {  
-//                 die(print_r($errors, true));  
-//                 }  
-//             }  
-//           else  
-//             {  
-//             echo "Registration complete.</br>";  
-//             }  
-//         }  
-//     }  
-?>  
-
 </body>
 </html>
 
@@ -417,45 +360,10 @@
   });
 </script>
 
-<script>
-    // $('input[type="checkbox"]').on('change', function(){
-    //     $(this).val(this.checked ? 1 : 0);
-    // });
-    // $('#check1[]').on('change', function(){
-    // this.value = this.checked ? 1 : 0;
-    // // alert(this.value);
-    // }).change();
-
-    // $('#check2[]').on('change', function(){
-    // this.value = this.checked ? 1 : 0;
-    // // alert(this.value);
-    // }).change();
-
-    // $('#check3[]').on('change', function(){
-    // this.value = this.checked ? 1 : 0;
-    // // alert(this.value);
-    // }).change();
-
-</script>
-
 <!-- <script>
-$('#headingTwo').on('click', function(e){
-    e.preventDefault();
-    $.ajax({
-        url: 'consolenames.php',
-        type: 'GET',
-        success: function(data){
-            console.log(data); //will show George in the console
-            //otherwise it will show sql_srv errors.
-        }
+    $(#servicedate).datepicker({
+    autoPick: true;
+    autoHide: true;
+    date: new Date(2014, 1, 14) // Or '02/14/2014'
     });
-});
 </script> -->
-
-<script>
-$(#servicedate).datepicker({
-  autoPick: true;
-  autoHide: true;
-  date: new Date(2014, 1, 14) // Or '02/14/2014'
-});
-</script>
