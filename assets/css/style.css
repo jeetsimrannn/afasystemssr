@@ -14,17 +14,6 @@ form{
     margin: 20px;
 }
 
-input[type=date] {
-  display:block;
-  -webkit-appearance:button;
-  -moz-appearance:button;
-  appearance:button;
-}
-
-#servicedate{
-  text-align: left;
-}
-
 option {
   /* wrap text in compatible browsers */
   -moz-white-space: pre-wrap;
