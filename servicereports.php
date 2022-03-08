@@ -94,9 +94,6 @@
 <div class="submitmain">
 
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
-
-        
-
         <div class="form-group mb-3 inputfield">
             <label for="name">Service ID</label>
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"   />
@@ -105,16 +102,9 @@
         <div class="form-group mb-3 inputfield">
             <label for="servicedate">Service Date</label>
             <div class="input-group">
-                <!-- <input class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/> -->
-                <input type="text" id="ip-ios" readonly>
+                <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
             </div>
-            <div class="col-xs-6">
-					<input readonly class="form-control" type="text" id="date-group1-2" placeholder="YYYY-MM-DD">
-			</div>
-        </div><div data-role="fieldcontain">
-	     	    <label for="date">Date Input:</label>
-	     	    <input type="date" name="date" id="date" value=""  />
-			</div>	
+        </div>
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
@@ -261,28 +251,6 @@
 
 </body>
 </html>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#ip-ios").AnyPicker(
-				{
-					mode: "datetime",
-
-					dateTimeFormat: "MMMM d, yyyy",
-
-					theme: "iOS" // "Default", "iOS", "Android", "Windows"
-				});
-    });
-</script> 
-<!-- <script type="text/javascript">
-    $(document).on(function() {
-        $('[data-toggle="datepicker"]').datepicker();
-        $('#servicedate').datepicker({
-        autoPick: true;
-        autoHide: true;
-        });
-    });
-</script>  -->
-
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -400,13 +368,3 @@
     })
   });
 </script>
-
-<!-- <script>
-    $(document).ready(function () {
-        $('[data-toggle="datepicker"]').datepicker();
-        $(#servicedate).datepicker({
-        autoPick: true;
-        autoHide: true;
-        });
-    }
-</script> -->
