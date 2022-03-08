@@ -101,9 +101,7 @@
 
         <div class="form-group mb-3 inputfield">
             <label for="servicedate">Service Date</label>
-            <div >
                 <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
-            </div>
         </div>
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
