@@ -13,7 +13,9 @@ body {
 form{
     margin: 20px;
 }
+
 input::-webkit-date-and-time-value{ text-align:left; }
+
 option {
   /* wrap text in compatible browsers */
   -moz-white-space: pre-wrap;
