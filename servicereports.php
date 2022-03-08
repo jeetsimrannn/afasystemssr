@@ -131,7 +131,7 @@
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
-            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number...">
+            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..." value="<?php echo $srvid;?>">
             <datalist id="orderno">
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
