@@ -417,9 +417,9 @@ $(document).ready(function(){
 
 <script>
     $(document).ready(function() {
-        $("input[name='ordernos']").on('input', function(e){
+        $("input[name='ordernos']").on('change', function(e){
             var result = $( "#ServiceID" ).val();
-            $("#travelto").attr("value", result);
+            $("#travelto").attr("value", result+1);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
