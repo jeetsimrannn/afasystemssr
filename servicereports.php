@@ -419,7 +419,7 @@ $(document).ready(function(){
     $(document).ready(function() {
         $("input[name='ordernos']").on('input', function(e){
             var result = $( "#ServiceID" ).val();
-            document.getElementById("#travelto").innerHTML = result;
+            $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
