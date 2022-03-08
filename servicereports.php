@@ -10,7 +10,9 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
  <!-- MobiScroll CSS -->
  <!-- <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet"> -->
-
+ <script src=
+        "https://code.jquery.com/jquery-3.2.1.min.js">
+    </script>
    <!-- <link rel="stylesheet"  href="assets\vendor\datepicker\jquery.ui.datepicker.mobile.css" /> 
 	
 	<script>
