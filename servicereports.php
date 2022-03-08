@@ -131,24 +131,7 @@
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
-            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..." value="
-            <?php 
-                $sql1 = "SELECT max(ServiceID) from tblService";
-				$stmt = sqlsrv_query( $conn, $sql);
-				if( $stmt === false ) {
-					die( print_r( sqlsrv_errors(), true));
-				}
-				
-				// Make the first (and in this case, only) row of the result set available for reading.
-				if( sqlsrv_fetch( $stmt ) === false) {
-					die( print_r( sqlsrv_errors(), true));
-				}
-
-				// Get the row fields. Field indices start at 0 and must be retrieved in order.
-				// Retrieving row fields by name is not supported by sqlsrv_get_field.
-				$srvid = sqlsrv_get_field( $stmt, 0);
-				echo $srvid+1;?>
-            ">
+            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..."/>
             <datalist id="orderno">
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
