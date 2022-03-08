@@ -2,7 +2,6 @@
     include "dbconnect.php";
 
     $orderno = $_REQUEST['ordernos'];
-    if ($orderno !== "") {
         
         // Get corresponding first name and 
         // last name for that user id    
@@ -15,7 +14,6 @@
     
         // Get the first name
         $cust_name = $data["CustID"];
-    }
     // Store it in a array
     $resultarr = array("$cust_name");
     
