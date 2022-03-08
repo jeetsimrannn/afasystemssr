@@ -416,17 +416,19 @@ $(document).ready(function(){
 </script>
 
 <script>
-$('#ordernos').on('change', function(){
-    var result = $( "#ServiceID" ).val();
-    $("#travelto").html(result);
-//   var mainselection = this.value; // get the selection value
-//   $.ajax({
-//     type: "POST",  // method of sending data
-//     url: "subcategory.php", // name of PHP script
-//     data:'selection='+mainselection, // parameter name and value
-//     success: function(result){ // deal with the results
-//       $("#subcat-list").html(result); // insert in div above
-//       }
-//     });
-  });
+    $(document).ready(function() {
+        $("input[name='ordernos']").on('input', function(e){
+            var result = $( "#ServiceID" ).val();
+            document.getElementById("#travelto").innerHTML = result;
+        //   var mainselection = this.value; // get the selection value
+        //   $.ajax({
+        //     type: "POST",  // method of sending data
+        //     url: "subcategory.php", // name of PHP script
+        //     data:'selection='+mainselection, // parameter name and value
+        //     success: function(result){ // deal with the results
+        //       $("#subcat-list").html(result); // insert in div above
+        //       }
+        //     });
+        });
+    });
 </script>
