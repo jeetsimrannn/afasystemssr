@@ -11,7 +11,7 @@
  <!-- MobiScroll CSS -->
  <!-- <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet"> -->
 
-   <link rel="stylesheet"  href="assets\vendor\datepicker\jquery.ui.datepicker.mobile.css" /> 
+   <!-- <link rel="stylesheet"  href="assets\vendor\datepicker\jquery.ui.datepicker.mobile.css" />  -->
 	
 	<script>
 		//reset type=date inputs to text
@@ -19,8 +19,8 @@
 			$.mobile.page.prototype.options.degradeInputs.date = true;
 		});	
 	</script>
-	<script src="assets\vendor\datepicker\jQuery.ui.datepicker.js"></script>
-	<script src="assets\vendor\datepicker\jquery.ui.datepicker.mobile.js"></script>
+	<!-- <script src="assets\vendor\datepicker\jQuery.ui.datepicker.js"></script>
+	<script src="assets\vendor\datepicker\jquery.ui.datepicker.mobile.js"></script> -->
  <!-- MobiScroll Javascript -->
  
  <!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
