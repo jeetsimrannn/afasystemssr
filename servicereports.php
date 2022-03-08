@@ -254,8 +254,8 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-    $(".servicedate").datepicker();
-    $(".servicedate").datepicker("setDate", new Date());
+    $("#servicedate").datepicker();
+    $("#servicedate").datepicker("setDate", new Date());
 }); 
 </script>
 
