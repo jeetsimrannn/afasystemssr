@@ -418,7 +418,7 @@ $(document).ready(function(){
 <script>
 $('#ordernos').on('change', function(){
     var result = $( "#ServiceID" ).val();
-    $("#travelto32").html(result);
+    $("#travelto").html(result);
 //   var mainselection = this.value; // get the selection value
 //   $.ajax({
 //     type: "POST",  // method of sending data
