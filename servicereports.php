@@ -11,7 +11,7 @@
  <!-- MobiScroll CSS -->
  <!-- <link href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" rel="stylesheet"> -->
 
-   <link rel="stylesheet"  href="assets\vendor\datepicker\jquery.ui.datepicker.mobile.css" /> 
+   <!-- <link rel="stylesheet"  href="assets\vendor\datepicker\jquery.ui.datepicker.mobile.css" /> 
 	
 	<script>
 		//reset type=date inputs to text
@@ -20,7 +20,7 @@
 		});	
 	</script>
 	<script src="assets\vendor\datepicker\jQuery.ui.datepicker.js"></script>
-	<script src="assets\vendor\datepicker\jquery.ui.datepicker.mobile.js"></script>
+	<script src="assets\vendor\datepicker\jquery.ui.datepicker.mobile.js"></script> -->
  <!-- MobiScroll Javascript -->
  
  <!-- <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
@@ -101,8 +101,8 @@
 
         <div class="form-group mb-3 inputfield">
             <label for="servicedate">Service Date</label>
-            <div class="dates" style="position:relative;width:100%">
-                <input type="date" class="form-control hasDatepicker" id="servicedate" name="servicedate" placeholder="Enter Service Date" style="position:absolute;width:100%;left:0;text-align:left"/>
+            <div >
+                <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
             </div>
         </div>
         <div class="form-group mb-3 inputfield">
