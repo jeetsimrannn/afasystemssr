@@ -415,7 +415,7 @@ $(document).ready(function(){
     });
 </script>
 
-<script>
+<!-- <script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
@@ -431,7 +431,7 @@ $(document).ready(function(){
         //     });
         });
     });
-</script>
+</script> -->
 
 <script>
   
@@ -440,7 +440,7 @@ $(document).ready(function(){
   // assigned to this event
   function GetDetail(str) {
       if (str.length == 0) {
-          document.getElementById("ordernos").value = "";
+        $("#travelto").attr("value", "");
           return;
       }
       else {
@@ -462,9 +462,7 @@ $(document).ready(function(){
                   // string and store this array in
                   // a variable assign the value 
                   // received to first name input field
-                    
-                  document.getElementById
-                      ("travelto").value = myObj[0];
+                  $("#travelto").attr("value", myObj[0]);
               }
           };
 

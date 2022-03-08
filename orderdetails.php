@@ -6,7 +6,7 @@
         
         // Get corresponding first name and 
         // last name for that user id    
-        $sqlorder = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = '".$orderno."'";
+        $sqlorder = "SELECT CustID FROM tblCustOrders WHERE OrderID = '".$orderno."'";
         $result = sqlsrv_query($conn,$sqlorder) or die("Couldn't execut query");
         $data = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
 
@@ -14,7 +14,7 @@
         // $order_no = $data["OrderNo"];
     
         // Get the first name
-        $cust_name = $data["CustomerName"];
+        $cust_name = $data["CustID"];
     }
     // Store it in a array
     $resultarr = array("$cust_name");
