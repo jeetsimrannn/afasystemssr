@@ -242,7 +242,7 @@
                 "Mo", "Tu", "We", "Th", "Fr", "Sa"
             ],
             weekHeader: "Wk",
-            dateFormat: "dd/mm/yy",
+            dateFormat: "mm/dd/yy",
             firstDay: 0,
             isRTL: false,
             showMonthAfterYear: false,
@@ -262,7 +262,7 @@
             gotoCurrent: false,
             changeMonth: false,
             changeYear: false,
-            yearRange: "1950:2050",
+            yearRange: "c-10:c+10",
             showOtherMonths: false,
             selectOtherMonths: false,
             showWeek: false,
