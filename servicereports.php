@@ -96,7 +96,31 @@
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
         <div class="form-group mb-3 inputfield">
             <label for="name">Service ID</label>
-            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"   />
+            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled />
+            <?php
+				$serverName = "tcp:teamoffline.database.windows.net,1433";
+				$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
+				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				if( $conn === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				$sql = "SELECT max(ServiceID) from tblService";
+				$stmt = sqlsrv_query( $conn, $sql);
+				if( $stmt === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				// Make the first (and in this case, only) row of the result set available for reading.
+				if( sqlsrv_fetch( $stmt ) === false) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+
+				// Get the row fields. Field indices start at 0 and must be retrieved in order.
+				// Retrieving row fields by name is not supported by sqlsrv_get_field.
+				$srvid = sqlsrv_get_field( $stmt, 0);
+				echo $srvid+1;
+			?>
         </div>
 
         <div class="form-group mb-3 inputfield">
