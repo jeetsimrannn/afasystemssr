@@ -101,7 +101,7 @@
 
         <div class="form-group mb-3 inputfield">
             <label for="servicedate">Service Date</label>
-            <div class="input-group">
+            <div class="dates">
                 <input type="date" class="form-control hasDatepicker" id="servicedate" name="servicedate" placeholder="Enter Service Date" style="text-align: left!important;"/>
             </div>
         </div>

@@ -13,7 +13,15 @@ body {
 form{
     margin: 20px;
 }
-
+.dates{
+  position:relative;
+  width:100%
+}
+input[type="date"]{
+  position:absolute;
+  width:auto;
+  right:0;
+}
 option {
   /* wrap text in compatible browsers */
   -moz-white-space: pre-wrap;
