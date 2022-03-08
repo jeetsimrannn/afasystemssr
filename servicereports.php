@@ -154,7 +154,7 @@
                 //  echo '<option value="'.$data['OrderID'].'">';
                 //  echo $data['OrderNo']; 
                 //  echo " || ".$data['CustomerName'];
-                 echo '<option value="'.$data['OrderNo'].'">';
+                 echo '<option value="'.$data['OrderNo'].'" label="hello">';
                  echo "</option>";
              }
              ?>
@@ -417,9 +417,9 @@ $(document).ready(function(){
 
 <script>
     $(document).ready(function() {
-        $("#ordernos").on('change', function(e){
-            var result = $( "#ServiceID" ).val();
-            $("#travelto").attr("value", result+1);
+        $("#ordernos").on('change', function(){
+            var result = $( "#ordernos" ).val();
+            $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
