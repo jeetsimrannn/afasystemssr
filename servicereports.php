@@ -253,6 +253,13 @@
 </html>
 
 <script type="text/javascript">
+$(document).ready(function(){
+    $(".servicedate").datepicker();
+    $(".servicedate").datepicker("setDate", new Date());
+});
+</script>
+
+<script type="text/javascript">
   $(document).ready(function () {
 
     // allowed maximum input fields
