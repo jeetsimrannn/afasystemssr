@@ -52,7 +52,12 @@
 
 
 <?php
-	include "dbconnect.php";
+	$serverName = "tcp:teamoffline.database.windows.net,1433";
+    $connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
+    $conn = sqlsrv_connect( $serverName, $connectionInfo);
+    if( $conn === false ) {
+        die( print_r( sqlsrv_errors(), true));
+    }
 	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
 	$stmt = sqlsrv_query( $conn, $sql);
 	if( $stmt === false ) {
@@ -79,6 +84,12 @@
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
             value="<?php
 				
+$serverName = "tcp:teamoffline.database.windows.net,1433";
+$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+if( $conn === false ) {
+    die( print_r( sqlsrv_errors(), true));
+}
 				$sql2 = "SELECT max(ServiceID) from tblService";
 				$stmt2 = sqlsrv_query( $conn, $sql2);
 				if( $stmt2 === false ) {
@@ -108,6 +119,20 @@
             <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..."/>
             <datalist id="orderno">
              <?php
+             $serverName = 'tcp:teamoffline.database.windows.net,1433';
+             $uid = 'sim1999';
+             $pwd = 'simran@99';
+             $databaseName = 'TEAMOffline';
+             $connectionInfo = array('UID'=>$uid,
+                                     'PWD'=>$pwd,
+                                     'Database'=>$databaseName);
+             $conn = sqlsrv_connect($serverName,$connectionInfo);
+             if($conn){
+                 echo '';
+             }else{
+                 echo 'Connection failure<br />';
+             die(print_r(sqlsrv_errors(),TRUE));
+             }
                  $sql3 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                  $result = sqlsrv_query($conn,$sql3) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
@@ -378,7 +403,7 @@ $(document).ready(function(){
 <script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            var result = "<?php echo $custname; ?>";
+            var result = '<?php echo $custname; ?>';
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
