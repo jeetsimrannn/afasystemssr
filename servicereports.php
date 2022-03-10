@@ -49,49 +49,33 @@
 </head>
 
 <body>
-
+<?php
+             $serverName = 'tcp:teamoffline.database.windows.net,1433';
+             $uid = 'sim1999';
+             $pwd = 'simran@99';
+             $databaseName = 'TEAMOffline';
+             $connectionInfo = array('UID'=>$uid,
+                                     'PWD'=>$pwd,
+                                     'Database'=>$databaseName);
+             $conn = sqlsrv_connect($serverName,$connectionInfo);
+             if($conn){
+                 echo '';
+             }else{
+                 echo 'Connection failure<br />';
+             die(print_r(sqlsrv_errors(),TRUE));
+             }
+                 $sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
+                 $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                 while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                //  echo '<option value="'.$data['OrderID'].'">';
+                //  echo $data['OrderNo']; 
+                //  echo " || ".$data['CustomerName'];
+                 echo '<option value="'.$data['OrderNo'].'" label="hello">';
+                 echo "</option>";
+             }
+             ?>
 
 <?php require 'utilities/header.php'; ?>
-
-
-<?php 
-// $serverName = "tcp:teamoffline.database.windows.net,1433";
-// $options = array(  "UID" => "sim1999",  "PWD" => "simran@99",  "Database" => "TEAMOffline");
-// $conn = sqlsrv_connect($serverName, $options);
-
-// if( $conn === false )
-//      {
-//      echo "Could not connect.\n";
-//      die( print_r( sqlsrv_errors(), true));
-//      }
-
-// $ServiceID = &$_POST['6'];
-// $ExpenseID = &$_POST['NULL'];
-// $Amount = &$_POST['NULL'];
-// $CurrencyID= &$_POST['NULL'];
-// $AFACreditCard= &$_POST['NULL'];
-// $Receipt= &$_POST['NULL'];
-// $MarkupPercent= &$_POST['NULL'];
-// $Billable= &$_POST['NULL'];
-// $Notes= &$_POST['NULL'];
-
-
-// $query = "INSERT INTO dbo.tblServiceExpenseLines
-// (ServiceID,
-// ExpenseID,
-// Amount,
-// CurrencyID,
-// AFACreditCard,
-// Receipt,
-// MarkupPercent,
-// Billable,
-// Notes)
-//         VALUES(?,?,?,?,?,?,?,?,?)";
-// $params1 = array($ServiceID,$ExpenseID,$Amount,$CurrencyID,$AFACreditCard,$Receipt,$MarkupPercent,$Billable,$Notes);                       
-// $result = sqlsrv_query($conn,$query,$params1);
-
-// sqlsrv_close($conn);
-?>
 
 <div class="submitmain">
 
@@ -412,10 +396,10 @@ $(document).ready(function(){
     });
 </script>
 
-<!-- <script>
+<script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            var result = $( "#ordernos" ).val();
+            var result = "<?php echo $custname; ?>";
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
@@ -428,9 +412,9 @@ $(document).ready(function(){
         //     });
         });
     });
-</script> -->
+</script>
 
-<script>
+<!-- <script>
   
   // onkeyup event will occur when the user 
   // release the key and calls the function
@@ -470,4 +454,4 @@ $(document).ready(function(){
           xmlhttp.send();
       }
   }
-</script>
+</script> -->
