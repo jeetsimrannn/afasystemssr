@@ -374,15 +374,15 @@ $(document).ready(function(){
 <script type="text/javascript">
      $(document).ready(function() {
       $('#ordernos').keyup(function() {
-        var search = $( "#ordernos" ).val();
+        var ordernos = $( "#ordernos" ).val();
         $("#travelto").attr("value", "");
             $.ajax({
                 url:"orderdetails.php",
                 method:"POST",
-                data:{search: search}
+                data:{ordernos: ordernos}
                 dataType:"text",
                 success:function(data){
-                    $("#travelto").attr("value", search);
+                    $("#travelto").attr("value", data);
                 }
             });
           });
