@@ -1,32 +1,57 @@
 <?php
-    include "dbconnect.php";
+	include "dbconnect.php";
+	
 
-    $orderno = $_REQUEST['ordernos'];
-        
-        // Get corresponding first name and 
-        // last name for that user id  
 
-        // $tsql = "SELECT CustID FROM tblCustOrders WHERE OrderID = ?";
-        // $getName = sqlsrv_query($conn, $tsql, array($orderno));
-        // if( $getName === false )  
-        //         die( FormatErrors( sqlsrv_errors() ) );  
-        // if ( sqlsrv_fetch( $getName ) === false )  
-        //         die( FormatErrors( sqlsrv_errors() ) ); 
-        // $data = sqlsrv_get_field( $getName, 0); 
+    if(isset($_REQUEST["term"])){
+        // Prepare a select statement
+        $sql = "SELECT * FROM countries WHERE name LIKE ?";
+        $sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = ? ";
+	
+        if($stmt = mysqli_prepare($link, $sql)){
+            // Bind variables to the prepared statement as parameters
+            mysqli_stmt_bind_param($stmt, "s", $param_term);
+            
+            // Set parameters
+            $param_term = $_REQUEST["term"] . '%';
+            
+            // Attempt to execute the prepared statement
+            if(mysqli_stmt_execute($stmt)){
+                $result = mysqli_stmt_get_result($stmt);
+                
+                // Check number of rows in the result set
+                if(mysqli_num_rows($result) > 0){
+                    // Fetch result rows as an associative array
+                    while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                        echo "<p>" . $row["name"] . "</p>";
+                    }
+                } else{
+                    echo "<p>No matches found</p>";
+                }
+            } else{
+                echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            }
+        }
+         
+        // Close statement
+        mysqli_stmt_close($stmt);
+    }
 
-        $sqlorder = "SELECT CustID FROM tblCustOrders WHERE OrderID = '".$orderno."'";
-        $result = sqlsrv_query($conn,$sqlorder) or die("Couldn't execut query");
-        $data = sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC);
 
-        // Get the first name
-        // $order_no = $data["OrderNo"];
+
+	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID =" + result1 +" ";
+	$stmt = sqlsrv_query( $conn, $sql);
+	if( $stmt === false ) {
+		die( print_r( sqlsrv_errors(), true));
+	}
+	
+	// Make the first (and in this case, only) row of the result set available for reading.
+	if( sqlsrv_fetch( $stmt ) === false) {
+		die( print_r( sqlsrv_errors(), true));
+	}
     
-        // Get the first name
-        $cust_name = $data["CustID"];
-    // Store it in a array
-    $resultarr = array($cust_name);
-    
-    // Send in JSON encoded form
-    $myJSON = json_encode($resultarr);
-    echo $myJSON;
+	// Get the row fields. Field indices start at 0 and must be retrieved in order.
+	// Retrieving row fields by name is not supported by sqlsrv_get_field.
+	$custname = sqlsrv_get_field( $stmt, 0);
+    echo $custname;
 ?>
