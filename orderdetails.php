@@ -1,7 +1,7 @@
 <?php
 				include "dbconnect.php";
-				
-				$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='" + result1 +"'";
+				$orderno = $_POST['ordernos'];
+				$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='".$orderno."'";
 				$stmt = sqlsrv_query( $conn, $sql);
 				if( $stmt === false ) {
 					die( print_r( sqlsrv_errors(), true));
