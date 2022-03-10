@@ -70,7 +70,7 @@
 ?>
 
 <?php require 'utilities/header.php'; ?>
-
+<?php require 'root/sp_newSR.php'; ?>
 <div class="submitmain">
 
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
