@@ -374,11 +374,11 @@ $(document).ready(function(){
 <script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            
-            <?php
+            var result1 = $( "#ordernos" ).val();
+            var result = "<?php
 				include "dbconnect.php";
 				
-				$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
+				$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID =" + result1 +" ";
 				$stmt = sqlsrv_query( $conn, $sql);
 				if( $stmt === false ) {
 					die( print_r( sqlsrv_errors(), true));
@@ -392,7 +392,8 @@ $(document).ready(function(){
 				// Get the row fields. Field indices start at 0 and must be retrieved in order.
 				// Retrieving row fields by name is not supported by sqlsrv_get_field.
 				$custname = sqlsrv_get_field( $stmt, 0);
-			?>
+                echo $custname;
+			?>";
             var result = "<?php echo $custname; ?>";
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
