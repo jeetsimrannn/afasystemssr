@@ -49,31 +49,25 @@
 </head>
 
 <body>
+
 <?php
-             $serverName = 'tcp:teamoffline.database.windows.net,1433';
-             $uid = 'sim1999';
-             $pwd = 'simran@99';
-             $databaseName = 'TEAMOffline';
-             $connectionInfo = array('UID'=>$uid,
-                                     'PWD'=>$pwd,
-                                     'Database'=>$databaseName);
-             $conn = sqlsrv_connect($serverName,$connectionInfo);
-             if($conn){
-                 echo '';
-             }else{
-                 echo 'Connection failure<br />';
-             die(print_r(sqlsrv_errors(),TRUE));
-             }
-                 $sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
-                 $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-                 while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                //  echo '<option value="'.$data['OrderID'].'">';
-                //  echo $data['OrderNo']; 
-                //  echo " || ".$data['CustomerName'];
-                 echo '<option value="'.$data['OrderNo'].'" label="hello">';
-                 echo "</option>";
-             }
-             ?>
+				include "dbconnect.php";
+				
+				$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
+				$stmt = sqlsrv_query( $conn, $sql);
+				if( $stmt === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				// Make the first (and in this case, only) row of the result set available for reading.
+				if( sqlsrv_fetch( $stmt ) === false) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+
+				// Get the row fields. Field indices start at 0 and must be retrieved in order.
+				// Retrieving row fields by name is not supported by sqlsrv_get_field.
+				$custname = sqlsrv_get_field( $stmt, 0);
+			?>
 
 <?php require 'utilities/header.php'; ?>
 
