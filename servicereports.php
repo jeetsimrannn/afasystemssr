@@ -51,47 +51,25 @@
 <body>
 
 
-<?php require 'utilities/header.php'; ?>
+<?php
+	include "dbconnect.php";
+	$sql = "SELECT max(ServiceID) from tblService";
+	$stmt = sqlsrv_query( $conn, $sql);
+	if( $stmt === false ) {
+		die( print_r( sqlsrv_errors(), true));
+	}
+	
+	// Make the first (and in this case, only) row of the result set available for reading.
+	if( sqlsrv_fetch( $stmt ) === false) {
+		die( print_r( sqlsrv_errors(), true));
 
-
-<?php 
-// $serverName = "tcp:teamoffline.database.windows.net,1433";
-// $options = array(  "UID" => "sim1999",  "PWD" => "simran@99",  "Database" => "TEAMOffline");
-// $conn = sqlsrv_connect($serverName, $options);
-
-// if( $conn === false )
-//      {
-//      echo "Could not connect.\n";
-//      die( print_r( sqlsrv_errors(), true));
-//      }
-
-// $ServiceID = &$_POST['6'];
-// $ExpenseID = &$_POST['NULL'];
-// $Amount = &$_POST['NULL'];
-// $CurrencyID= &$_POST['NULL'];
-// $AFACreditCard= &$_POST['NULL'];
-// $Receipt= &$_POST['NULL'];
-// $MarkupPercent= &$_POST['NULL'];
-// $Billable= &$_POST['NULL'];
-// $Notes= &$_POST['NULL'];
-
-
-// $query = "INSERT INTO dbo.tblServiceExpenseLines
-// (ServiceID,
-// ExpenseID,
-// Amount,
-// CurrencyID,
-// AFACreditCard,
-// Receipt,
-// MarkupPercent,
-// Billable,
-// Notes)
-//         VALUES(?,?,?,?,?,?,?,?,?)";
-// $params1 = array($ServiceID,$ExpenseID,$Amount,$CurrencyID,$AFACreditCard,$Receipt,$MarkupPercent,$Billable,$Notes);                       
-// $result = sqlsrv_query($conn,$query,$params1);
-
-// sqlsrv_close($conn);
+	// Get the row fields. Field indices start at 0 and must be retrieved in order.
+	// Retrieving row fields by name is not supported by sqlsrv_get_field.
+	$srvid = sqlsrv_get_field( $stmt, 0);
+	echo $srvid+1;
 ?>
+
+<?php require 'utilities/header.php'; ?>
 
 <div class="submitmain">
 
@@ -100,7 +78,6 @@
             <label for="name">Service ID</label>
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
             value="<?php
-				include "dbconnect.php";
 				
 				$sql = "SELECT max(ServiceID) from tblService";
 				$stmt = sqlsrv_query( $conn, $sql);
@@ -131,20 +108,6 @@
             <input list="orderno" name="ordernos" id="ordernos" class="form-control" onkeyup="GetDetail(this.value)" placeholder="Enter Order Number..."/>
             <datalist id="orderno">
              <?php
-             $serverName = 'tcp:teamoffline.database.windows.net,1433';
-             $uid = 'sim1999';
-             $pwd = 'simran@99';
-             $databaseName = 'TEAMOffline';
-             $connectionInfo = array('UID'=>$uid,
-                                     'PWD'=>$pwd,
-                                     'Database'=>$databaseName);
-             $conn = sqlsrv_connect($serverName,$connectionInfo);
-             if($conn){
-                 echo '';
-             }else{
-                 echo 'Connection failure<br />';
-             die(print_r(sqlsrv_errors(),TRUE));
-             }
                  $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                  $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
