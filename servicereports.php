@@ -375,7 +375,7 @@ $(document).ready(function(){
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
             var result1 = $( "#ordernos" ).val();
-            var result = "<?php
+            <?php
 				include "dbconnect.php";
 				
 				$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='" + result1 +"'";
@@ -393,7 +393,8 @@ $(document).ready(function(){
 				// Retrieving row fields by name is not supported by sqlsrv_get_field.
 				$custname = sqlsrv_get_field( $stmt, 0);
                 echo $custname;
-			?>";
+			?>
+            var result = "<?php echo $custname;?>";
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
