@@ -51,30 +51,47 @@
 <body>
 
 
-<?php
-	$serverName = "tcp:teamoffline.database.windows.net,1433";
-    $connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
-    $conn = sqlsrv_connect( $serverName, $connectionInfo);
-    if( $conn === false ) {
-        die( print_r( sqlsrv_errors(), true));
-    }
-	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
-	$stmt = sqlsrv_query( $conn, $sql);
-	if( $stmt === false ) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-	
-	// Make the first (and in this case, only) row of the result set available for reading.
-	if( sqlsrv_fetch( $stmt ) === false) {
-		die( print_r( sqlsrv_errors(), true));
-
-	// Get the row fields. Field indices start at 0 and must be retrieved in order.
-	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$custname = sqlsrv_get_field( $stmt, 0);
-	
-?>
-
 <?php require 'utilities/header.php'; ?>
+
+
+<?php 
+// $serverName = "tcp:teamoffline.database.windows.net,1433";
+// $options = array(  "UID" => "sim1999",  "PWD" => "simran@99",  "Database" => "TEAMOffline");
+// $conn = sqlsrv_connect($serverName, $options);
+
+// if( $conn === false )
+//      {
+//      echo "Could not connect.\n";
+//      die( print_r( sqlsrv_errors(), true));
+//      }
+
+// $ServiceID = &$_POST['6'];
+// $ExpenseID = &$_POST['NULL'];
+// $Amount = &$_POST['NULL'];
+// $CurrencyID= &$_POST['NULL'];
+// $AFACreditCard= &$_POST['NULL'];
+// $Receipt= &$_POST['NULL'];
+// $MarkupPercent= &$_POST['NULL'];
+// $Billable= &$_POST['NULL'];
+// $Notes= &$_POST['NULL'];
+
+
+// $query = "INSERT INTO dbo.tblServiceExpenseLines
+// (ServiceID,
+// ExpenseID,
+// Amount,
+// CurrencyID,
+// AFACreditCard,
+// Receipt,
+// MarkupPercent,
+// Billable,
+// Notes)
+//         VALUES(?,?,?,?,?,?,?,?,?)";
+// $params1 = array($ServiceID,$ExpenseID,$Amount,$CurrencyID,$AFACreditCard,$Receipt,$MarkupPercent,$Billable,$Notes);                       
+// $result = sqlsrv_query($conn,$query,$params1);
+
+// sqlsrv_close($conn);
+?>
 
 <div class="submitmain">
 
@@ -83,16 +100,11 @@
             <label for="name">Service ID</label>
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
             value="<?php
+				include "dbconnect.php";
 				
-$serverName = "tcp:teamoffline.database.windows.net,1433";
-$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
-if( $conn === false ) {
-    die( print_r( sqlsrv_errors(), true));
-}
-				$sql2 = "SELECT max(ServiceID) from tblService";
-				$stmt2 = sqlsrv_query( $conn, $sql2);
-				if( $stmt2 === false ) {
+				$sql = "SELECT max(ServiceID) from tblService";
+				$stmt = sqlsrv_query( $conn, $sql);
+				if( $stmt === false ) {
 					die( print_r( sqlsrv_errors(), true));
 				}
 				
@@ -103,7 +115,7 @@ if( $conn === false ) {
 
 				// Get the row fields. Field indices start at 0 and must be retrieved in order.
 				// Retrieving row fields by name is not supported by sqlsrv_get_field.
-				$srvid = sqlsrv_get_field( $stmt2, 0);
+				$srvid = sqlsrv_get_field( $stmt, 0);
 				echo $srvid+1;
 			?>"
             />
@@ -116,7 +128,7 @@ if( $conn === false ) {
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
-            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..."/>
+            <input list="orderno" name="ordernos" id="ordernos" class="form-control" onkeyup="GetDetail(this.value)" placeholder="Enter Order Number..."/>
             <datalist id="orderno">
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
@@ -133,8 +145,8 @@ if( $conn === false ) {
                  echo 'Connection failure<br />';
              die(print_r(sqlsrv_errors(),TRUE));
              }
-                 $sql3 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-                 $result = sqlsrv_query($conn,$sql3) or die("Couldn't execut query");
+                 $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
+                 $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                 //  echo '<option value="'.$data['OrderID'].'">';
                 //  echo $data['OrderNo']; 
@@ -400,10 +412,10 @@ $(document).ready(function(){
     });
 </script>
 
-<script>
+<!-- <script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            var result = '<?php echo $custname; ?>';
+            var result = $( "#ordernos" ).val();
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
@@ -416,9 +428,9 @@ $(document).ready(function(){
         //     });
         });
     });
-</script>
+</script> -->
 
-<!-- <script>
+<script>
   
   // onkeyup event will occur when the user 
   // release the key and calls the function
@@ -458,4 +470,4 @@ $(document).ready(function(){
           xmlhttp.send();
       }
   }
-</script> -->
+</script>
