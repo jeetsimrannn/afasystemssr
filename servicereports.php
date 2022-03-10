@@ -100,12 +100,7 @@
             <label for="name">Service ID</label>
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
             value="<?php
-				$serverName = "tcp:teamoffline.database.windows.net,1433";
-				$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
-				$conn = sqlsrv_connect( $serverName, $connectionInfo);
-				if( $conn === false ) {
-					die( print_r( sqlsrv_errors(), true));
-				}
+				include "dbconnect.php";
 				
 				$sql = "SELECT max(ServiceID) from tblService";
 				$stmt = sqlsrv_query( $conn, $sql);
