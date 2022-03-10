@@ -373,7 +373,7 @@ $(document).ready(function(){
 
 <script type="text/javascript">
      $(document).ready(function() {
-      $('#ordernos').on('change', function() {
+      $('#ordernos').keyup(function() {
         var search = $( "#ordernos" ).val();
         $("#travelto").attr("value", "");
             $.ajax({
