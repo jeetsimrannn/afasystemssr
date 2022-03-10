@@ -394,7 +394,7 @@ $(document).ready(function(){
 				$custname = sqlsrv_get_field( $stmt, 0);
                 echo $custname;
 			?>";
-            $("#travelto").attr("value", result);
+            $("#travelto").attr("value", result1);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
