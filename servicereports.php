@@ -52,7 +52,6 @@
 
 <?php
 	include "dbconnect.php";
-	$orderno = $_POST['ordernos'];
 	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='3020004'";
 	$stmt = sqlsrv_query( $conn, $sql);
 	if( $stmt === false ) {
