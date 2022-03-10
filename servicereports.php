@@ -53,7 +53,7 @@
 
 <?php
 	include "dbconnect.php";
-	$sql = "SELECT max(ServiceID) from tblService";
+	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderID = 1";
 	$stmt = sqlsrv_query( $conn, $sql);
 	if( $stmt === false ) {
 		die( print_r( sqlsrv_errors(), true));
@@ -65,8 +65,8 @@
 
 	// Get the row fields. Field indices start at 0 and must be retrieved in order.
 	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$srvid = sqlsrv_get_field( $stmt, 0);
-	echo $srvid+1;
+	$custname = sqlsrv_get_field( $stmt, 0);
+	
 ?>
 
 <?php require 'utilities/header.php'; ?>
@@ -79,9 +79,9 @@
             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
             value="<?php
 				
-				$sql = "SELECT max(ServiceID) from tblService";
-				$stmt = sqlsrv_query( $conn, $sql);
-				if( $stmt === false ) {
+				$sql2 = "SELECT max(ServiceID) from tblService";
+				$stmt2 = sqlsrv_query( $conn, $sql2);
+				if( $stmt2 === false ) {
 					die( print_r( sqlsrv_errors(), true));
 				}
 				
@@ -92,7 +92,7 @@
 
 				// Get the row fields. Field indices start at 0 and must be retrieved in order.
 				// Retrieving row fields by name is not supported by sqlsrv_get_field.
-				$srvid = sqlsrv_get_field( $stmt, 0);
+				$srvid = sqlsrv_get_field( $stmt2, 0);
 				echo $srvid+1;
 			?>"
             />
@@ -108,8 +108,8 @@
             <input list="orderno" name="ordernos" id="ordernos" class="form-control" onkeyup="GetDetail(this.value)" placeholder="Enter Order Number..."/>
             <datalist id="orderno">
              <?php
-                 $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-                 $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                 $sql3 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
+                 $result = sqlsrv_query($conn,$sql3) or die("Couldn't execut query");
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                 //  echo '<option value="'.$data['OrderID'].'">';
                 //  echo $data['OrderNo']; 
@@ -375,10 +375,10 @@ $(document).ready(function(){
     });
 </script>
 
-<!-- <script>
+<script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            var result = $( "#ordernos" ).val();
+            var result = "<?php echo $custname; ?>";
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
@@ -391,9 +391,9 @@ $(document).ready(function(){
         //     });
         });
     });
-</script> -->
+</script>
 
-<script>
+<!-- <script>
   
   // onkeyup event will occur when the user 
   // release the key and calls the function
@@ -433,4 +433,4 @@ $(document).ready(function(){
           xmlhttp.send();
       }
   }
-</script>
+</script> -->
