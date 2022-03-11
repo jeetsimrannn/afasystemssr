@@ -5,7 +5,7 @@
         $tsql_callSP = "{call sp_tblService_NewItem(?,?,?,?,?,?,?,?,?,?)};";
 
         $EmployeeID = 0;
-        $TravelFrom = NULL;
+        $TravelFrom = "";
         $MileageAllowance = 0;
         $MileageAllowanceBillable = 0;
         $USExchange = 0;
