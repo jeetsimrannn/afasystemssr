@@ -1,5 +1,5 @@
 <div class="card-body">
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="exptype">Expense Type</label>
                             <select name="exptype[]" id="exptype" class="custom-select form-control"><option selected> Choose Expense Type</option>
                             <?php
@@ -34,11 +34,11 @@
                             <label for="exptype">Expense Type</label>
                             <input type="text" class="form-control" id="exptype" name="exptype" placeholder="Select Expense Type"/>
                         </div> -->
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="expamount">Amount</label>
                             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="expamount" name="expamount[]" placeholder="Enter Amount"/>
                         </div>
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="expcurr">Currency</label>
                             <!-- <input type="text" class="form-control" id="expcurr" name="expcurr" placeholder="Select Currency"/> -->
                             <select name="expcurr[]" id="expcurr" class="custom-select form-control"><option selected> Choose Currency</option>
@@ -85,12 +85,12 @@
                             </div>
                         </div>
 
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="expnotes">Notes</label>
                             <textarea type="text" class="form-control" id="expnotes" name="expnotes[]" rows="3"></textarea>
                         </div>
 
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="file">Scan Receipt</label>
                             <input type="file" class="form-control" id="file" name="file" />
                         </div>  

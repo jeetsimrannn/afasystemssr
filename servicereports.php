@@ -104,7 +104,7 @@
                             <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
                         </div>
                 </div>
-        <div class="form-group mb-3 inputfield">
+        <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
             <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..."/>
@@ -137,15 +137,15 @@
              </datalist>
         
         </div>
-        <div class="form-group mb-3 inputfield">
+        <div class="form-group mb-3  ">
             <label for="travelfrom">Travel From</label>
             <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="<?php echo $TravelFrom;?>"   />
         </div>
-        <div class="form-group mb-3 inputfield">
+        <div class="form-group mb-3  ">
             <label for="travelto">Travel To</label>
             <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"   />
         </div>
-        <div class="form-group mb-3 inputfield">
+        <div class="form-group mb-3  ">
             <label for="Customer">Customer</label>
             <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer"  />
         </div>
@@ -236,12 +236,12 @@
 
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                     <div class="card-body">
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="filedsp">File Description</label>
                             <input type="text" class="form-control" id="filedsp" name="filedsp" placeholder="Enter File Description"/>
                         </div>
 
-                        <div class="form-group mb-3 inputfield">
+                        <div class="form-group mb-3  ">
                             <label for="file">Select File</label>
                             <input type="file" class="form-control" id="file" name="file" />
                         </div>
