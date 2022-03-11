@@ -402,7 +402,7 @@
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
             // var result = $( "#ordernos" ).val();
-            var result = <?php echo $data['CustomerName'][1];?>;
+            var result = <?php echo $data['OrderNo'];?>;
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
