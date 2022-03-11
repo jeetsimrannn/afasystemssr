@@ -138,11 +138,23 @@
                  echo "</option>";
              }
              $array3 = array_combine($array1, $array2);
-             print_r($array3);
              ?>
              </datalist>
         
         </div>
+        <div>
+            <?php
+                echo "<pre>";
+                var_export($array1g);
+                echo "</pre>";
+                echo "<pre>";
+                var_export($array2);
+                echo "</pre>";
+                echo "<pre>";
+                var_export($array3);
+                echo "</pre>";
+            ?>
+            </div>
         <div class="form-group mb-3  ">
             <label for="travelfrom">Travel From</label>
             <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="<?php echo $TravelFrom;?>"   />
