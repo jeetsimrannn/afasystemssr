@@ -77,7 +77,7 @@
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
-                            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
+                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
                             value="<?php
                                 include "dbconnect.php";
                                 
@@ -107,7 +107,52 @@
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
+
             <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..."/>
+
+
+
+            <!-- <input type="text" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal">
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-body">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <br>
+                        <select id="myList" class="form-select form-control" size="5" aria-label="size 3 select example" onChange="copyTextValue(this);">
+                            <option style="display:none"></option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
+                    </div>
+                    </div>
+                </div>
+                </div> -->
+
+
+
+
+
             <datalist id="orderno">
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
@@ -422,18 +467,12 @@
 </script> -->
 <script>
     $(document).ready(function() {
-        const fruits = ["Banana", "Orange", "Apple", "Mango"];
         var passedArray = <?php echo json_encode($array3); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
+
             document.getElementById("demo").innerHTML = passedArray[result];
-            // var result = $( "#ordernos" ).val();
-            // var i =0;
-            // var result = passedArray[i];
-            // i++;
-            // var result1 = "<?php echo "<pre>";
-            //                         print_r($array3["result"]);
-            //                      echo "</pre>";?>;"
+            
             $("#travelto").attr("value", passedArray[result]);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
