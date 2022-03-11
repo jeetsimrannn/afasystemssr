@@ -2,7 +2,7 @@
         include "dbconnect.php";
 
 
-        $tsql_callSP = "{call sp_InserttblServiceExpenseLines(?,?,?,?,?,?,?,?,?,?)};";
+        $tsql_callSP = "{call sp_tblService_NewItem(?,?,?,?,?,?,?,?,?,?)};";
 
         $EmployeeID = 0;
         $TravelFrom = NULL;
