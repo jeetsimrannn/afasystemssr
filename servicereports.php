@@ -422,8 +422,9 @@
 </script> -->
 <script>
     $(document).ready(function() {
+        const fruits = ["Banana", "Orange", "Apple", "Mango"];
         $("#ordernos").on('change', function(){
-            const fruits = ["Banana", "Orange", "Apple", "Mango"];
+            
             document.getElementById("demo").innerHTML = fruits.pop();
             // var result = $( "#ordernos" ).val();
             
