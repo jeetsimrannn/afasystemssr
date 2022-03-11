@@ -434,7 +434,7 @@
             // var result1 = "<?php echo "<pre>";
             //                         print_r($array3["result"]);
             //                      echo "</pre>";?>;"
-            $("#travelto").attr("value", result);
+            $("#travelto").attr("value", passedArray[result]);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
