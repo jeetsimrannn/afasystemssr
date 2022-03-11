@@ -27,7 +27,7 @@
         $MileageAllowance= sqlsrv_get_field( $stmtNewSR, 1);
         $MileageAllowanceBillable= sqlsrv_get_field( $stmtNewSR, 2);
         $USExchange= sqlsrv_get_field( $stmtNewSR, 3);
-        $ServiceDate= sqlsrv_get_field( $stmtNewSR, 4, SQLSRV_PHPTYPE_STRING("UTF-8"));
+        $ServiceDateTime= sqlsrv_get_field( $stmtNewSR, 4, SQLSRV_PHPTYPE_STRING("UTF-8"));
         $MileageBillable= sqlsrv_get_field( $stmtNewSR, 5);
         $Processed= sqlsrv_get_field( $stmtNewSR, 6);
         $Submitted= sqlsrv_get_field( $stmtNewSR, 7);
@@ -42,7 +42,8 @@
         echo "\n" ;
         echo $USExchange;
         echo "\n" ;
-        echo $ServiceDate;
+        $SRDate = explode(' ', trim($ServiceDateTime))[0];
+        echo $SRDate;
         echo "\n" ;
         echo $MileageBillable;
         echo "\n" ;
