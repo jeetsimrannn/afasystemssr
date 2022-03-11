@@ -143,6 +143,7 @@
         
         </div>
         <div>
+        <p id="demo"></p>
             <?php
                 // echo "<pre>";
                 // print_r($array3["SP-5820"]);
@@ -419,6 +420,10 @@
           });
        });
 </script> -->
+<script>
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+</script>
 
 <script>
     $(document).ready(function() {
@@ -426,7 +431,7 @@
             var result = $( "#ordernos" ).val();
             
             var result1 = "<?php echo "<pre>";
-                                    print_r($array3["SP-5820"]);
+                                    print_r($array3["result"]);
                                  echo "</pre>";?>;"
             $("#travelto").attr("value", result1);
         //   var mainselection = this.value; // get the selection value
