@@ -126,15 +126,18 @@
              }
                  $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                  $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                 $array1 = array();
+                 $array2 = array();
                  while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                 //  echo '<option value="'.$data['OrderID'].'">';
                 //  echo $data['OrderNo']; 
                 //  echo " || ".$data['CustomerName'];
-                 $array3 = array_combine($data['OrderNo'], $data['CustomerName']);
+                array_push($array1, $data['OrderNo']);
+                array_push($array2, $data['CustomerName']);
                  echo '<option value="'.$data['OrderNo'].'" label="hello">';
                  echo "</option>";
              }
-             
+             $array3 = array_combine($array1, $array2);
              ?>
              </datalist>
         
