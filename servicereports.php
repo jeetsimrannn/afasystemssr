@@ -145,7 +145,17 @@
         <div>
             <?php
                 echo "<pre>";
-                var_export($array1g);
+                    print_r($array1); 
+                echo "</pre>";
+                echo "<pre>";
+                    print_r($array2); 
+                echo "</pre>";
+                echo "<pre>";
+                    print_r($array3); 
+                echo "</pre>";
+                echo "helooooooooooooooooooooooooooooooooooooooooooooooo";
+                echo "<pre>";
+                var_export($array1);
                 echo "</pre>";
                 echo "<pre>";
                 var_export($array2);
