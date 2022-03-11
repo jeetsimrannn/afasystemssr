@@ -5,27 +5,27 @@
         $tsql_callSP = "{call sp_tblService_NewItem(?,?,?,?,?,?,?,?,?,?)};";
 
         $EmployeeID = 0;
-        $TravelFrom = "";
-        $MileageAllowance = 0;
-        $MileageAllowanceBillable = 0;
-        $USExchange = 0;
-        $ServiceDate = NULL;
-        $MileageBillable = 0;
-        $Processed = 0;
-        $Submitted = 0;
-        $Reviewed = 0;
+        // $TravelFrom = "";
+        // $MileageAllowance = 0;
+        // $MileageAllowanceBillable = 0;
+        // $USExchange = 0;
+        // $ServiceDate = NULL;
+        // $MileageBillable = 0;
+        // $Processed = 0;
+        // $Submitted = 0;
+        // $Reviewed = 0;
 
         $params = array( 
             array($EmployeeID, SQLSRV_PARAM_IN),
-            array($TravelFrom, SQLSRV_PARAM_OUT),
-            array($MileageAllowance, SQLSRV_PARAM_OUT),
-            array($MileageAllowanceBillable, SQLSRV_PARAM_OUT),
-            array($USExchange, SQLSRV_PARAM_OUT),
-            array($ServiceDate, SQLSRV_PARAM_OUT),
-            array($MileageBillable, SQLSRV_PARAM_OUT),
-            array($Processed, SQLSRV_PARAM_OUT),
-            array($Submitted, SQLSRV_PARAM_OUT),
-            array($Reviewed, SQLSRV_PARAM_OUT)
+            array(&$TravelFrom, SQLSRV_PARAM_OUT),
+            array(&$MileageAllowance, SQLSRV_PARAM_OUT),
+            array(&$MileageAllowanceBillable, SQLSRV_PARAM_OUT),
+            array(&$USExchange, SQLSRV_PARAM_OUT),
+            array(&$ServiceDate, SQLSRV_PARAM_OUT),
+            array(&$MileageBillable, SQLSRV_PARAM_OUT),
+            array(&$Processed, SQLSRV_PARAM_OUT),
+            array(&$Submitted, SQLSRV_PARAM_OUT),
+            array(&$Reviewed, SQLSRV_PARAM_OUT)
           );
 
         $stmtNewSR = sqlsrv_query( $conn, $tsql_callSP, $params);  
