@@ -426,12 +426,12 @@
             const fruits = ["Banana", "Orange", "Apple", "Mango"];
             document.getElementById("demo").innerHTML = fruits.toString();
             fruits.pop();
-            var result = $( "#ordernos" ).val();
+            // var result = $( "#ordernos" ).val();
             
-            var result1 = "<?php echo "<pre>";
-                                    print_r($array3["result"]);
-                                 echo "</pre>";?>;"
-            $("#travelto").attr("value", result1);
+            // var result1 = "<?php echo "<pre>";
+            //                         print_r($array3["result"]);
+            //                      echo "</pre>";?>;"
+            // $("#travelto").attr("value", result1);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
