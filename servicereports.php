@@ -423,15 +423,15 @@
 <script>
     $(document).ready(function() {
         const fruits = ["Banana", "Orange", "Apple", "Mango"];
+        var passedArray = <?php echo json_encode($array2); ?>;
         $("#ordernos").on('change', function(){
-            
             document.getElementById("demo").innerHTML = fruits.pop();
             // var result = $( "#ordernos" ).val();
-            
+            var result = passedArray[1];
             // var result1 = "<?php echo "<pre>";
             //                         print_r($array3["result"]);
             //                      echo "</pre>";?>;"
-            // $("#travelto").attr("value", result1);
+            $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
