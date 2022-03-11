@@ -428,9 +428,9 @@
             var result = $( "#ordernos" ).val();
             document.getElementById("demo").innerHTML = passedArray[result];
             // var result = $( "#ordernos" ).val();
-            var i =0;
-            var result = passedArray[i];
-            i++;
+            // var i =0;
+            // var result = passedArray[i];
+            // i++;
             // var result1 = "<?php echo "<pre>";
             //                         print_r($array3["result"]);
             //                      echo "</pre>";?>;"
