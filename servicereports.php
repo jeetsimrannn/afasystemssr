@@ -144,19 +144,19 @@
         </div>
         <div>
             <?php
-                echo "<pre>";
-                print_r($array3["SP-5820"]);
-                echo "</pre>";
-                echo "<pre>";
-                var_export($array1);
-                echo "</pre>";
-                echo "<pre>";
-                var_export($array2);
-                echo "</pre>";
-                echo "<pre>";
-                var_export($array3);
-                echo "</pre>";
-                echo print_r($array3["SP-5820"]);
+                // echo "<pre>";
+                // print_r($array3["SP-5820"]);
+                // echo "</pre>";
+                // echo "<pre>";
+                // var_export($array1);
+                // echo "</pre>";
+                // echo "<pre>";
+                // var_export($array2);
+                // echo "</pre>";
+                // echo "<pre>";
+                // var_export($array3);
+                // echo "</pre>";
+                // echo print_r($array3["SP-5820"]);
             ?>
             </div>
         <div class="form-group mb-3  ">
@@ -425,7 +425,9 @@
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
             
-            var result1 = "<?php echo $array3['result']?>;"
+            var result1 = "<?php echo "<pre>";
+                                    print_r($array3["SP-5820"]);
+                                 echo "</pre>";?>;"
             $("#travelto").attr("value", result1);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
