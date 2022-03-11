@@ -35,22 +35,14 @@
         
         
         echo $TravelFrom;
-        echo "\n" ;
         echo $MileageAllowance;
-        echo "\n" ;
         echo $MileageAllowanceBillable;
-        echo "\n" ;
         echo $USExchange;
-        echo "\n" ;
         $SRDate = explode(' ', trim($ServiceDateTime))[0];
         echo $SRDate;
-        echo "\n" ;
         echo $MileageBillable;
-        echo "\n" ;
         echo $Processed;
-        echo "\n" ;
         echo $Submitted;
-        echo "\n" ;
         echo $Reviewed;
 
         sqlsrv_free_stmt( $stmtNewSR);
