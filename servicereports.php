@@ -427,7 +427,9 @@
         $("#ordernos").on('change', function(){
             document.getElementById("demo").innerHTML = fruits.pop();
             // var result = $( "#ordernos" ).val();
-            var result = passedArray[1];
+            var i =0;
+            var result = passedArray[i];
+            i++;
             // var result1 = "<?php echo "<pre>";
             //                         print_r($array3["result"]);
             //                      echo "</pre>";?>;"
