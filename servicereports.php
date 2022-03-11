@@ -401,8 +401,7 @@
 <script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            // var result = $( "#ordernos" ).val();
-            var result = <?php echo $custname; ?>
+            var result = $( "#ordernos" ).val();
             $("#travelto").attr("value", result);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
