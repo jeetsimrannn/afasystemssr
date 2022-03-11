@@ -153,6 +153,17 @@
             <input type="file" class="form-control" id="file" name="file" />
         </div> -->
 
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="MileageAllowance">MileageAllowance</label>
+                <input type="text" class="form-control" id="MileageAllowance" placeholder="" value="Mark">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="$USExchange">$US Exchange</label>
+                <input type="text" class="form-control" id="$USExchange" placeholder="" value="Otto">
+            </div>
+        </div>
+
         
 
         <!-- collapse form for expense line, hours and file attachment -->
