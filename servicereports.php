@@ -75,8 +75,7 @@
 
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
-                <div class="col mb-3">
-                        <div class="form-group mb-3 inputfield">
+                        <div class="col form-group mb-3 inputfield">
                             <label for="name">Service ID</label>
                             <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
                             value="<?php
@@ -99,14 +98,11 @@
                                 echo $srvid+1;
                                 ?>"
                             />
-                        </div>
-                    </div>
-                    <div class="col mb-3">             
-                        <div class="form-group mb-3 inputfield">
+                        </div> 
+                        <div class="col form-group mb-3 inputfield">
                             <label for="servicedate">Service Date</label>
                             <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
                         </div>
-                    </div>
                 </div>
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
