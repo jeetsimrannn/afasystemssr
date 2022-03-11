@@ -138,6 +138,7 @@
                  echo "</option>";
              }
              $array3 = array_combine($array1, $array2);
+             print_r($array3);
              ?>
              </datalist>
         
