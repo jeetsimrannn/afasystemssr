@@ -77,7 +77,7 @@
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
-                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
+                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly
                             value="<?php
                                 include "dbconnect.php";
                                 
