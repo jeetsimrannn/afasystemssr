@@ -133,6 +133,7 @@
                  echo '<option value="'.$data['OrderNo'].'" label="hello">';
                  echo "</option>";
              }
+             $array3 = array_combine($data['OrderNo'], $data['CustomerName']);
              ?>
              </datalist>
         
@@ -401,9 +402,10 @@
 <script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
-            // var result = $( "#ordernos" ).val();
-            var result = "<?php echo $custname;?>;"
-            $("#travelto").attr("value", result);
+            var result = $( "#ordernos" ).val();
+            
+            var result1 = "<?php echo $array3['result']?>;"
+            $("#travelto").attr("value", result1);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
