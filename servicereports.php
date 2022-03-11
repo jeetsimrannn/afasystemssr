@@ -130,10 +130,11 @@
                 //  echo '<option value="'.$data['OrderID'].'">';
                 //  echo $data['OrderNo']; 
                 //  echo " || ".$data['CustomerName'];
+                 $array3 = array_combine($data['OrderNo'], $data['CustomerName']);
                  echo '<option value="'.$data['OrderNo'].'" label="hello">';
                  echo "</option>";
              }
-             $array3 = array_combine($data['OrderNo'], $data['CustomerName']);
+             
              ?>
              </datalist>
         
