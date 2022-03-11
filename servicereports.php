@@ -74,35 +74,40 @@
 <div class="submitmain">
 
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
-        <div class="form-group mb-3 inputfield">
-            <label for="name">Service ID</label>
-            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
-            value="<?php
-				include "dbconnect.php";
-				
-				$sql = "SELECT max(ServiceID) from tblService";
-				$stmt = sqlsrv_query( $conn, $sql);
-				if( $stmt === false ) {
-					die( print_r( sqlsrv_errors(), true));
-				}
-				
-				// Make the first (and in this case, only) row of the result set available for reading.
-				if( sqlsrv_fetch( $stmt ) === false) {
-					die( print_r( sqlsrv_errors(), true));
-				}
+            <div class="form-row row">
+                <div class="col mb-3">
+                        <div class="form-group mb-3 inputfield">
+                            <label for="name">Service ID</label>
+                            <input type="number" pattern="[0-9]*" inputmode="numeric" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID"  disabled 
+                            value="<?php
+                                include "dbconnect.php";
+                                
+                                $sql = "SELECT max(ServiceID) from tblService";
+                                $stmt = sqlsrv_query( $conn, $sql);
+                                if( $stmt === false ) {
+                                    die( print_r( sqlsrv_errors(), true));
+                                }
+                                
+                                // Make the first (and in this case, only) row of the result set available for reading.
+                                if( sqlsrv_fetch( $stmt ) === false) {
+                                    die( print_r( sqlsrv_errors(), true));
+                                }
 
-				// Get the row fields. Field indices start at 0 and must be retrieved in order.
-				// Retrieving row fields by name is not supported by sqlsrv_get_field.
-				$srvid = sqlsrv_get_field( $stmt, 0);
-				echo $srvid+1;
-			?>"
-            />
-        </div>
-
-        <div class="form-group mb-3 inputfield">
-            <label for="servicedate">Service Date</label>
-                <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
-        </div>
+                                // Get the row fields. Field indices start at 0 and must be retrieved in order.
+                                // Retrieving row fields by name is not supported by sqlsrv_get_field.
+                                $srvid = sqlsrv_get_field( $stmt, 0);
+                                echo $srvid+1;
+                                ?>"
+                            />
+                        </div>
+                    </div>
+                    <div class="col mb-3">             
+                        <div class="form-group mb-3 inputfield">
+                            <label for="servicedate">Service Date</label>
+                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
+                        </div>
+                    </div>
+                </div>
         <div class="form-group mb-3 inputfield">
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
@@ -153,12 +158,12 @@
             <input type="file" class="form-control" id="file" name="file" />
         </div> -->
 
-        <div class="form-row">
-            <div class="col-md-4 mb-3">
+        <div class="form-row row">
+            <div class="col mb-3">
                 <label for="MileageAllowance">MileageAllowance</label>
                 <input type="text" class="form-control" id="MileageAllowance" placeholder="" value="Mark">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col mb-3">
                 <label for="$USExchange">$US Exchange</label>
                 <input type="text" class="form-control" id="$USExchange" placeholder="" value="Otto">
             </div>
