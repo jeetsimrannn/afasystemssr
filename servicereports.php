@@ -425,7 +425,8 @@
         const fruits = ["Banana", "Orange", "Apple", "Mango"];
         var passedArray = <?php echo json_encode($array3); ?>;
         $("#ordernos").on('change', function(){
-            document.getElementById("demo").innerHTML = passedArray['3020004'];
+            var result = $( "#ordernos" ).val();
+            document.getElementById("demo").innerHTML = passedArray[result];
             // var result = $( "#ordernos" ).val();
             var i =0;
             var result = passedArray[i];
