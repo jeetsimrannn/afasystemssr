@@ -35,17 +35,26 @@
             die( print_r( sqlsrv_errors(), true));  
         }  
 
-        sqlsrv_next_result($stmtNewSR); 
+        if( sqlsrv_fetch( $stmtNewSR ) === false)
+        {
+            echo "Error in retrieving row.\n";
+            die( print_r( sqlsrv_errors(), true));
+        }
+
+        $name = sqlsrv_get_field( $stmt, 0);
+        echo "$name: ".$name;
+
+        // sqlsrv_next_result($stmtNewSR); 
         
-        echo $TravelFrom;
-        echo $MileageAllowance;
-        echo $MileageAllowanceBillable;
-        echo $USExchange;
-        echo $ServiceDate;
-        echo $MileageBillable;
-        echo $Processed;
-        echo $Submitted;
-        echo $Reviewed;
+        // echo $TravelFrom;
+        // echo $MileageAllowance;
+        // echo $MileageAllowanceBillable;
+        // echo $USExchange;
+        // echo $ServiceDate;
+        // echo $MileageBillable;
+        // echo $Processed;
+        // echo $Submitted;
+        // echo $Reviewed;
 
         sqlsrv_free_stmt( $stmtNewSR);
         sqlsrv_close( $conn);
