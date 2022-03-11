@@ -101,7 +101,7 @@
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
-                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date"/>
+                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
                         </div>
                 </div>
         <div class="form-group mb-3 inputfield">
@@ -139,7 +139,7 @@
         </div>
         <div class="form-group mb-3 inputfield">
             <label for="travelfrom">Travel From</label>
-            <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="8 Tilbury Ave, Brampton, Ontario"   />
+            <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="<?php echo $TravelFrom;?>"   />
         </div>
         <div class="form-group mb-3 inputfield">
             <label for="travelto">Travel To</label>
@@ -157,11 +157,11 @@
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">MileageAllowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" value="Mark">
+                <input type="text" class="form-control" id="MileageAllowance" placeholder="" value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
                 <label for="$USExchange">$US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" value="Otto">
+                <input type="text" class="form-control" id="$USExchange" placeholder="" value="<?php echo $SRDate;?>" />
             </div>
         </div>
 
@@ -386,7 +386,7 @@ $(document).ready(function(){
   });
 </script>
 
-<script>
+<!-- <script>
     $(document).ready(function() {
     var date = new Date();
 
@@ -400,7 +400,7 @@ $(document).ready(function(){
     var today = year + "-" + month + "-" + day;       
     $("#servicedate").attr("value", today);
     });
-</script>
+</script> -->
 <!-- 
 <script type="text/javascript">
      $(document).ready(function() {
