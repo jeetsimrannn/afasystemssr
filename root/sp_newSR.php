@@ -5,7 +5,7 @@
         $tsql_callSP = "{call sp_InserttblServiceExpenseLines(?,?,?,?,?,?,?,?,?,?)};";
 
         $EmployeeID = 0;
-        $TravelFrom = "";
+        $TravelFrom = NULL;
         $MileageAllowance = 0;
         $MileageAllowanceBillable = 0;
         $USExchange = 0;
