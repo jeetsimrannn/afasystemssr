@@ -161,7 +161,7 @@
             </div>
             <div class="col mb-3">
                 <label for="$USExchange">$US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" value="<?php echo $SRDate;?>" />
+                <input type="text" class="form-control" id="$USExchange" placeholder="" value="<?php echo $MileageAllowanceBillable;?>" />
             </div>
         </div>
 
@@ -261,13 +261,6 @@
 
 </body>
 </html>
-
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#servicedate").datepicker();
-    $("#servicedate").datepicker("setDate", new Date());
-}); 
-</script>
 
 <script type="text/javascript">
   $(document).ready(function () {
@@ -386,21 +379,6 @@ $(document).ready(function(){
   });
 </script>
 
-<!-- <script>
-    $(document).ready(function() {
-    var date = new Date();
-
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-
-    if (month < 10) month = "0" + month;
-    if (day < 10) day = "0" + day;
-
-    var today = year + "-" + month + "-" + day;       
-    $("#servicedate").attr("value", today);
-    });
-</script> -->
 <!-- 
 <script type="text/javascript">
      $(document).ready(function() {
