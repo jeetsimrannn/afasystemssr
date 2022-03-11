@@ -421,13 +421,11 @@
        });
 </script> -->
 <script>
-const fruits = ["Banana", "Orange", "Apple", "Mango"];
-document.getElementById("demo").innerHTML = fruits.toString();
-</script>
-
-<script>
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
+            const fruits = ["Banana", "Orange", "Apple", "Mango"];
+            document.getElementById("demo").innerHTML = fruits.toString();
+            fruits.pop();
             var result = $( "#ordernos" ).val();
             
             var result1 = "<?php echo "<pre>";
