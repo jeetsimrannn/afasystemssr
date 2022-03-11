@@ -424,8 +424,7 @@
     $(document).ready(function() {
         $("#ordernos").on('change', function(){
             const fruits = ["Banana", "Orange", "Apple", "Mango"];
-            document.getElementById("demo").innerHTML = fruits.toString();
-            fruits.pop();
+            document.getElementById("demo").innerHTML = fruits.pop();
             // var result = $( "#ordernos" ).val();
             
             // var result1 = "<?php echo "<pre>";
