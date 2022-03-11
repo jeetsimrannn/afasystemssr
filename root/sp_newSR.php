@@ -5,15 +5,15 @@
         $tsql_callSP = "{call sp_tblService_NewItem(?,?,?,?,?,?,?,?,?,?)};";
 
         $EmployeeID = 0;
-        // $TravelFrom = "";
-        // $MileageAllowance = 0;
-        // $MileageAllowanceBillable = 0;
-        // $USExchange = 0;
-        // $ServiceDate = '2022-03-10 20:44:27.510';
-        // $MileageBillable = 0;
-        // $Processed = 0;
-        // $Submitted = 0;
-        // $Reviewed = 0;
+        $TravelFrom = "";
+        $MileageAllowance = 0;
+        $MileageAllowanceBillable = 0;
+        $USExchange = 0;
+        $ServiceDate = '2022-03-10 20:44:27.510';
+        $MileageBillable = 0;
+        $Processed = 0;
+        $Submitted = 0;
+        $Reviewed = 0;
 
         $params = array( 
             array($EmployeeID, SQLSRV_PARAM_IN)
@@ -37,15 +37,15 @@
 
         sqlsrv_next_result($stmtNewSR); 
         
-        echo @TravelFrom;
-        echo @MileageAllowance;
-        echo @MileageAllowanceBillable;
-        echo @USExchange;
-        echo @ServiceDate;
-        echo @MileageBillable;
-        echo @Processed;
-        echo @Submitted;
-        echo @Reviewed;
+        echo $TravelFrom;
+        echo $MileageAllowance;
+        echo $MileageAllowanceBillable;
+        echo $USExchange;
+        echo $ServiceDate;
+        echo $MileageBillable;
+        echo $Processed;
+        echo $Submitted;
+        echo $Reviewed;
 
         sqlsrv_free_stmt( $stmtNewSR);
         sqlsrv_close( $conn);
