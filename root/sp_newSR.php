@@ -1,11 +1,8 @@
 <?php  
         include "dbconnect.php";
 
-
         $tsql_callSP = "{call sp_tblService_NewItem(?)};";
-
         $EmployeeID = 0;
-
         $params = array( 
             array($EmployeeID, SQLSRV_PARAM_IN)
           );
@@ -33,17 +30,19 @@
         $Submitted= sqlsrv_get_field( $stmtNewSR, 7);
         $Reviewed= sqlsrv_get_field( $stmtNewSR, 8);
         
-        
-        echo $TravelFrom;
-        echo $MileageAllowance;
-        echo $MileageAllowanceBillable;
-        echo $USExchange;
+        // trim the datetime to just date 
         $SRDate = explode(' ', trim($ServiceDateTime))[0];
-        echo $SRDate;
-        echo $MileageBillable;
-        echo $Processed;
-        echo $Submitted;
-        echo $Reviewed;
+        
+        // echo $TravelFrom;
+        // echo $MileageAllowance;
+        // echo $MileageAllowanceBillable;
+        // echo $USExchange;
+        
+        // echo $SRDate;
+        // echo $MileageBillable;
+        // echo $Processed;
+        // echo $Submitted;
+        // echo $Reviewed;
 
         sqlsrv_free_stmt( $stmtNewSR);
         sqlsrv_close( $conn);
