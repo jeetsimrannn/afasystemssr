@@ -132,8 +132,8 @@
                 //  echo '<option value="'.$data['OrderID'].'">';
                 //  echo $data['OrderNo']; 
                 //  echo " || ".$data['CustomerName'];
-                array_push($array1, $data['OrderNo']);
-                array_push($array2, $data['CustomerName']);
+                array_push($array1, '"'.$data['OrderNo'].'"');
+                array_push($array2, '"'.$data['CustomerName'].'"');
                  echo '<option value="'.$data['OrderNo'].'" label="hello">';
                  echo "</option>";
              }
