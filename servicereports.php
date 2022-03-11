@@ -145,6 +145,9 @@
         <div>
             <?php
                 echo "<pre>";
+                print_r($array3["SP-5820"]);
+                echo "</pre>";
+                echo "<pre>";
                 var_export($array1);
                 echo "</pre>";
                 echo "<pre>";
@@ -153,6 +156,7 @@
                 echo "<pre>";
                 var_export($array3);
                 echo "</pre>";
+                echo print_r($array3["SP-5820"]);
             ?>
             </div>
         <div class="form-group mb-3  ">
