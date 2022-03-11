@@ -2,7 +2,7 @@
         include "dbconnect.php";
 
 
-        $tsql_callSP = "{call sp_tblService_NewItem(?,?,?,?,?,?,?,?,?,?)};";
+        $tsql_callSP = "{call sp_tblService_NewItem(?)};";
 
         $EmployeeID = 0;
         $TravelFrom = "";
@@ -41,7 +41,7 @@
             die( print_r( sqlsrv_errors(), true));
         }
 
-        $name = sqlsrv_get_field( $stmt, 0);
+        $name = sqlsrv_get_field( $stmtNewSR, 0);
         echo "$name: ".$name;
 
         // sqlsrv_next_result($stmtNewSR); 
