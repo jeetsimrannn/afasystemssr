@@ -16,7 +16,7 @@
             die( print_r( sqlsrv_errors(), true));
         }
 
-        while ($data1=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+        while ($data1=sqlsrv_fetch_array($stmtOrderInfo , SQLSRV_FETCH_ASSOC)){
              echo $data1['OrderID'];
              echo $data1['OrderNo'];
              echo $data1['CustomerName'];
