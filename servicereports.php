@@ -196,7 +196,7 @@
                     <input class="form-control" id="myInput" type="text" placeholder="Search..">
                         <br>
                     <div class="m-4">
-                        <div class="list-group w-50">
+                        <div class="list-group">
 
                         <?php
                                 $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
