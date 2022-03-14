@@ -467,6 +467,7 @@
     $(document).ready(function() {
         var passedArray = <?php echo json_encode($arrCustomerName); ?>;
         var passedArray2 = <?php echo json_encode($arrFullAddress); ?>;
+        var passedArray3 = <?php echo json_encode($arrCurrencyID); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
@@ -478,6 +479,7 @@
             else{
                 $("#Customer").attr("value", passedArray[result]);
                 $("#travelto").attr("value", passedArray2[result]);
+                $("#expcurr").attr("value", passedArray3[result]);
             }
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
