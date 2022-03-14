@@ -334,8 +334,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   }
 }
 
-
-
 .userfrm_err span {
   width: 80%;
   height: 35px;
@@ -345,4 +343,11 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 .userfrm_err input {
   border: 1px solid #D83D5A;
+}
+
+.list-group{
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
 }

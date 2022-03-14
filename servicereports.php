@@ -186,7 +186,7 @@
         </div> -->
 
         <div class="col-xs-4">
-        <input type="text" class="form-control" placeholder="Select order number" data-toggle="modal" data-target="#exampleModal"  id="destination">
+        <input type="text" class="form-control" placeholder="Select Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
             </div>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -202,10 +202,10 @@
                                 $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                                 $result5 = sqlsrv_query($conn,$sql5) or die("Couldn't execut query");
                                 while ($data5=sqlsrv_fetch_array($result5, SQLSRV_FETCH_ASSOC)){
-                                echo '<label class="list-group-item">';
+                                echo '<label class="list-group-item" style="width:100%">';
                                 echo '<input type="radio" class="form-check-input me-1" name="gender">';
                                 echo $data5['OrderNo'];
-                                echo '<span style="color:grey;font-weight:light;font-size:1rem;">';
+                                echo '<span style="color:grey;font-weight:light;font-size:0.8rem;"> ';
                                 echo $data5['CustomerName'];
                                 echo '</span></label>';
                                 }
