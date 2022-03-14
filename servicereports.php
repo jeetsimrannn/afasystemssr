@@ -198,7 +198,7 @@
                 var_export($arrCustomerName);
                 echo "</pre>";
                 echo "<pre>";
-                var_export($arrary3);
+                var_export($array3);
                 echo "</pre>";
                 // echo "<pre>";
                 // var_export($arrCurrencyID);
