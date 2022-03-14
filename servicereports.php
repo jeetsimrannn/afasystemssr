@@ -206,11 +206,11 @@
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
                 <label for="$USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" value="<?php echo $MileageAllowanceBillable;?>" />
+                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
             </div>
         </div>
 
