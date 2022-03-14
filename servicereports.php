@@ -467,7 +467,7 @@
 </script> -->
 <script>
     $(document).ready(function() {
-        var passedArray = <?php echo json_encode($array3); ?>;
+        var passedArray = <?php echo json_encode($arrCustomerName); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
