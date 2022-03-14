@@ -193,7 +193,7 @@
         
             <input type="text" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-body">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
