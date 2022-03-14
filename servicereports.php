@@ -191,8 +191,7 @@
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>      
         
-            <input type="text" name="ornos" id="ornos" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal">
-            
+            <input type="text" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
