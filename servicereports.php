@@ -198,7 +198,7 @@
                     <div class="modal-body">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                             <br>
-                        <select id="myList" class="form-select form-control" size="5" aria-label="size 3 select example" onChange="copyTextValue(this);">
+                        <select id="myList" class="form-select form-control" size="5" aria-label="size 6 multiple select example" onChange="copyTextValue(this);">
                             <option style="display:none"></option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
