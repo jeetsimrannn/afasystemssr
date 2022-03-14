@@ -219,15 +219,15 @@
         <div>
         <p id="demo"></p>
             <?php
-                echo "<pre>";
-                print_r($arrCustomerName["SP-5820"]);
-                echo "</pre>";
-                echo "<pre>";
-                var_export($arrCustomerName);
-                echo "</pre>";
-                echo "<pre>";
-                var_export($array3);
-                echo "</pre>";
+                // echo "<pre>";
+                // print_r($arrCustomerName["SP-5820"]);
+                // echo "</pre>";
+                // echo "<pre>";
+                // var_export($arrCustomerName);
+                // echo "</pre>";
+                // echo "<pre>";
+                // var_export($array3);
+                // echo "</pre>";
                 // echo "<pre>";
                 // var_export($arrCurrencyID);
                 // echo "</pre>";
