@@ -71,6 +71,7 @@
 
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_newSR.php'; ?>
+<?php require 'root/sp_frmCustOrderInfo.php'; ?>
 <div class="submitmain">
 
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
@@ -181,7 +182,7 @@
                 array_push($array2, $data['CustomerName']);
                  echo '<option value="'.$data['OrderNo'].'" label="hello">';
                  echo "</option>";
-             }
+                }
              $array3 = array_combine($array1, $array2);
              ?>
              </datalist>
