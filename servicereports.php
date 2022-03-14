@@ -46,6 +46,94 @@
  <script src="assets/vendor/datepicker/datepicker.common.js"></script>
  <script src="assets/vendor/datepicker/datepicker.esm.js"></script>
  <script src="assets/vendor/datepicker/datepicker.min.js"></script> -->
+
+
+ <style>
+     * {
+  scrollbar-width: thin;
+    scrollbar-color: #BBB #EEE;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #C0C3C6;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 3px solid #C0C3C6;
+}
+
+table {
+    width: 400px;
+    margin: 0 auto;
+    background: #EEE;
+    font-family: Arial;
+    padding: 10px 30px;
+  border-radius: 5px;
+  box-shadow: 0 5px 5px -5px #000;
+    --border: 1px solid #ABC;
+}
+table td {
+  padding-bottom: 10px;
+}
+table h4 {
+  text-align: center;
+  color: #567;
+  border: 1px solid #567;
+  border-radius: 3px;
+  padding: 15px 0;
+}
+input {
+    padding: 10px;
+    font-size: 1em;
+    width: calc(100% - 20px);
+    border: var(--border);
+    border-radius: 3px;
+}
+input[list]:focus {
+    outline: none;
+}
+input[list] + div[list] {
+    display: none;
+    position: absolute;
+    width: 100%;
+    max-height: 164px;
+    overflow-y: auto;
+    max-width: 330px;
+    background: #FFF;
+    border: var(--border);
+    border-top: none;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 3px 3px -3px #333;
+    z-index: 100;
+}
+input[list] + div[list] span {
+    display: block;
+    padding: 7px 5px 7px 20px;
+    color: #069;
+    text-decoration: none;
+    cursor: pointer;
+}
+input[list] + div[list] span:not(:last-child) {
+  border-bottom: 1px solid #EEE;
+}
+input[list] + div[list] span:hover {
+    background: rgba(100, 120, 140, .2);
+}
+
+table .instructions {
+  font-size: .9em;
+  color: #900;
+}
+table .instructions b {
+  color: #123;
+}
+</style>
 </head>
 
 <body>
@@ -109,51 +197,7 @@
             <label for="orderno">Order Number</label>
             <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
 
-            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number..."/>
-
-
-
-            <!-- <input type="text" name="ordernos" id="ordernos" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal">
-            
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-body">
-                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                            <br>
-                        <select id="myList" class="form-select form-control" size="5" aria-label="size 3 select example" onChange="copyTextValue(this);">
-                            <option style="display:none"></option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
-                    </div>
-                    </div>
-                </div>
-                </div> -->
-
-
-
-
-
+            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Select Order Number"/>
             <datalist id="orderno">
              <?php
              $serverName = 'tcp:teamoffline.database.windows.net,1433';
@@ -188,14 +232,14 @@
              </datalist>
         </div>
 
-        <div class="form-group mb-3  ">
+        <!-- <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>      
         
             <input type="text" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog-centered" role="document">
                     <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="modal-bo\dy">
                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                             <br>
                         <select id="myList" class="form-select form-control" size="5" aria-label="size 6 multiple select example" onChange="copyTextValue(this);">
@@ -227,7 +271,23 @@
                 </div>
                 </div>
     
-        </div>
+        </div> -->
+
+
+        <div>Programming languages</div>
+            <input type="text" name="language" list="list-language">
+            <div list="list-language">
+                <span>CSharp</span>
+                <span>Delphi</span>
+                <span>Flutter</span>
+                <span>Java</span>
+                <span>Java Script</span>
+                <span>PHP</span>
+                <span>Python</span>
+                <span>Ruby</span>
+                <span>SAP</span>
+                <span>Visual Basic</span>
+            </div>
 
 
         <div class="form-group mb-3  ">
@@ -595,4 +655,66 @@ return;
  var selectedOptionValue = selectedOption.value;
  document.getElementById("destination").value = selectedOptionValue;
 }
+</script>
+
+<script>
+    $(document).on('dblclick', 'input[list]', function(event){
+    event.preventDefault();
+        var str = $(this).val();
+    $('div[list='+$(this).attr('list')+'] span').each(function(k, obj){
+            if($(this).html().toLowerCase().indexOf(str.toLowerCase()) < 0){
+                $(this).hide();
+            }
+        })
+    $('div[list='+$(this).attr('list')+']').toggle(100);
+    $(this).focus();
+})
+
+$(document).on('blur', 'input[list]', function(event){
+        event.preventDefault();
+        var list = $(this).attr('list');
+        setTimeout(function(){
+            $('div[list='+list+']').hide(100);
+        }, 100);
+    })
+
+    $(document).on('click', 'div[list] span', function(event){
+        event.preventDefault();
+        var list = $(this).parent().attr('list');
+        var item = $(this).html();
+        $('input[list='+list+']').val(item);
+        $('div[list='+list+']').hide(100);
+    })
+
+$(document).on('keyup', 'input[list]', function(event){
+        event.preventDefault();
+        var list = $(this).attr('list');
+    var divList =  $('div[list='+$(this).attr('list')+']');
+    if(event.which == 27){ // esc
+        $(divList).hide(200);
+        $(this).focus();
+    }
+    else if(event.which == 13){ // enter
+        if($('div[list='+list+'] span:visible').length == 1){
+            var str = $('div[list='+list+'] span:visible').html();
+            $('input[list='+list+']').val(str);
+            $('div[list='+list+']').hide(100);
+        }
+    }
+    else if(event.which == 9){ // tab
+        $('div[list]').hide();
+    }
+    else {
+        $('div[list='+list+']').show(100);
+        var str  = $(this).val();
+        $('div[list='+$(this).attr('list')+'] span').each(function(){
+          if($(this).html().toLowerCase().indexOf(str.toLowerCase()) < 0){
+            $(this).hide(200);
+          }
+          else {
+            $(this).show(200);
+          }
+        })
+      }
+    })
 </script>
