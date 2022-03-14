@@ -198,11 +198,11 @@
                 var_export($arrCustomerName);
                 echo "</pre>";
                 echo "<pre>";
-                var_export($arrFullAddress);
+                var_export($arrary3);
                 echo "</pre>";
-                echo "<pre>";
-                var_export($arrCurrencyID);
-                echo "</pre>";
+                // echo "<pre>";
+                // var_export($arrCurrencyID);
+                // echo "</pre>";
                 // echo print_r($array3["SP-5820"]);
             ?>
             </div>
@@ -468,7 +468,7 @@
 </script> -->
 <script>
     $(document).ready(function() {
-        var arr1 = <?php echo json_encode($arrCustomerName); ?>;
+        var arr1 = <?php echo json_encode($array3); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
