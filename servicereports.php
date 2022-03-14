@@ -468,16 +468,15 @@
 </script> -->
 <script>
     $(document).ready(function() {
-        var arrCustomerName = <?php echo json_encode($arrCustomerName); ?>;
-        var arrFullAddress = <?php echo json_encode($arrFullAddress); ?>;.
-        var arrCurrencyID = <?php echo json_encode($arrCurrencyID); ?>;
+        var arr1 = <?php echo json_encode($arrCustomerName); ?>;
+        var arr2 = <?php echo json_encode($arrFullAddress); ?>;.
+        var arr3 = <?php echo json_encode($arrCurrencyID); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
-            // document.getElementById("demo").innerHTML = passedArray[result];
+            document.getElementById("demo").innerHTML = passedArray[result];
             
-            $("#travelto").attr("value", arrFullAddress[result]);
-            $("#ordernos").attr("value", arrCustomerName[result]);
+            $("#travelto").attr("value", arr1[result]);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
