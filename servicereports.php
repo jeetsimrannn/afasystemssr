@@ -215,7 +215,9 @@
                                         $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                                         while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                                         echo '<label class="list-group-item" style="width:100%">';
-                                        echo '<input type="radio" class="form-check-input me-1" name="orderno">';
+                                        echo '<input type="radio" class="form-check-input me-1" name="orderno" value="';
+                                        echo $data['OrderNo'];
+                                        echo '">';
                                         echo $data['OrderNo'];
                                         echo '<span style="color:grey;font-weight:light;font-size:0.8rem;"> ';
                                         echo $data['CustomerName'];
