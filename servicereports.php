@@ -186,8 +186,51 @@
              $array3 = array_combine($array1, $array2);
              ?>
              </datalist>
-        
         </div>
+
+        <div class="form-group mb-3  ">
+            <label for="orderno">Order Number</label>      
+        
+            <input type="text" name="ornos" id="ornos" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal">
+            
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-body">
+                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <br>
+                        <select id="myList" class="form-select form-control" size="5" aria-label="size 3 select example" onChange="copyTextValue(this);">
+                            <option style="display:none"></option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                            </select>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
+    
+        </div>
+
+
         <div class="form-group mb-3  ">
             <label for="travelfrom">Travel From</label>
             <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="<?php echo $TravelFrom;?>"   />
@@ -530,3 +573,27 @@
       }
   }
 </script> -->
+
+
+
+<script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myList option").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+</script>
+
+<script>
+function copyTextValue(selectedOption) {
+if(selectedOption.selectedIndex <= 0){
+document.getElementById("destination").value = '';
+return;
+}
+ var selectedOptionValue = selectedOption.value;
+ document.getElementById("destination").value = selectedOptionValue;
+}
+</script>
