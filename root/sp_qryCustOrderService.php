@@ -3,18 +3,8 @@
 
         $tsql_callSP1 = "{call sp_qryCustOrderService};";
 
-        $stmtOrderInfo = sqlsrv_query( $conn, $tsql_callSP1);  
-        if(  $stmtOrderInfo === false )  
-        {  
-            echo "Error in executing statement 3.\n";  
-            die( print_r( sqlsrv_errors(), true));  
-        }  
-
-        if( sqlsrv_fetch(  $stmtOrderInfo ) === false)
-        {
-            echo "Error in retrieving row.\n";
-            die( print_r( sqlsrv_errors(), true));
-        }
+        $stmtOrderInfo = sqlsrv_query( $conn, $tsql_callSP1) or die("Couldn't execut query");
+        
         $onlyOrderNo = array();
         $onlyCustomerName = array(); 
         $onlyFullAddress = array();
