@@ -194,15 +194,15 @@
                 // echo "<pre>";
                 // print_r($array3["SP-5820"]);
                 // echo "</pre>";
-                // echo "<pre>";
-                // var_export($array1);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($array2);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($array3);
-                // echo "</pre>";
+                echo "<pre>";
+                var_export($arrCustomerName);
+                echo "</pre>";
+                echo "<pre>";
+                var_export($arrFullAddress);
+                echo "</pre>";
+                echo "<pre>";
+                var_export($arrCurrencyID);
+                echo "</pre>";
                 // echo print_r($array3["SP-5820"]);
             ?>
             </div>
@@ -468,13 +468,13 @@
 </script> -->
 <script>
     $(document).ready(function() {
-        var passedArray = <?php echo json_encode($array3); ?>;
+        var arr1 = <?php echo json_encode($arrCustomerName); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
             document.getElementById("demo").innerHTML = passedArray[result];
             
-            $("#travelto").attr("value", passedArray[result]);
+            $("#travelto").attr("value", arr1[result]);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
