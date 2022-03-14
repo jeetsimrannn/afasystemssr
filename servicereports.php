@@ -471,7 +471,7 @@
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
-            document.getElementById("demo").innerHTML = passedArray[result];
+            // document.getElementById("demo").innerHTML = passedArray[result];
             
             $("#travelto").attr("value", passedArray[result]);
         //   var mainselection = this.value; // get the selection value
