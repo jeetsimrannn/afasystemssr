@@ -597,7 +597,7 @@
         });
 </script>
 
-<script>
+<!-- <script>
     $(document).ready(function(){
         $("input[type='radio'][name='orderno']").click(function() {
             var string = "";
@@ -607,7 +607,7 @@
             $("#ordernos").val(string);
         });
     });
-</script>
+</script> -->
 
 <!-- <script>
     function copyTextValue(selectedOption) {
