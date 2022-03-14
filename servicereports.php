@@ -467,13 +467,13 @@
 </script> -->
 <script>
     $(document).ready(function() {
-        var arr1 = <?php echo json_encode($array3); ?>;
+        var passedArray = <?php echo json_encode($array3); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
             document.getElementById("demo").innerHTML = passedArray[result];
             
-            $("#travelto").attr("value", arr1[result]);
+            $("#travelto").attr("value", passedArray[result]);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
