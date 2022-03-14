@@ -136,7 +136,7 @@
                 //  echo " || ".$data['CustomerName'];
                 array_push($array1, $data['OrderNo']);
                 array_push($array2, $data['CustomerName']);
-                 echo '<option value="'.$data['OrderNo'].'" label="hello">';
+                 echo '<option value="'.$data['OrderNo']  .  '('. $data['CustomerName'] .')'  . '" label="hello">';
                  echo "</option>";
                 }
              $array3 = array_combine($array1, $array2);
@@ -247,7 +247,7 @@
                             <div class="wrapper-expenseline">
                                 <button class="btn btn-primary add-btn-expenseline">Add More</button>
                                 
-                            </div> 
+                            </div>  
                         </div>  
                     </div> 
                     <!-- <div class="card-body">
@@ -471,9 +471,14 @@
             var result = $( "#ordernos" ).val();
 
             // document.getElementById("demo").innerHTML = passedArray[result];
-            
-            $("#Customer").attr("value", passedArray[result]);
-            $("#travelto").attr("value", passedArray2[result]);
+            if(passedArray[result] == ""){
+                $("#Customer").attr("value", "");
+                $("#travelto").attr("value", "");
+            }
+            else{
+                $("#Customer").attr("value", passedArray[result]);
+                $("#travelto").attr("value", passedArray2[result]);
+            }
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
