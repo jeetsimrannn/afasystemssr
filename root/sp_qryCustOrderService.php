@@ -4,7 +4,7 @@
         $tsql_callSP1 = "{call sp_qryCustOrderService};";
 
         $stmtOrderInfo = sqlsrv_query( $conn, $tsql_callSP1) or die("Couldn't execut query");
-        
+
         $onlyOrderNo = array();
         $onlyCustomerName = array(); 
         $onlyFullAddress = array();
@@ -19,7 +19,4 @@
         $arrCustomerName = array_combine($onlyOrderNo, $onlyCustomerName);
         $arrFullAddress = array_combine($onlyOrderNo, $onlyFullAddress);
         $arrCurrencyID = array_combine($onlyOrderNo, $onlyCurrencyID);
-        
-        sqlsrv_free_stmt($stmtOrderInfo);
-        sqlsrv_close( $conn);
 ?>  
