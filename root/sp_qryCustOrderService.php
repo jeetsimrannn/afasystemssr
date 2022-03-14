@@ -30,4 +30,6 @@
         $arrFullAddress = array_combine($onlyOrderNo, $onlyFullAddress);
         $arrCurrencyID = array_combine($onlyOrderNo, $onlyCurrencyID);
         
+        sqlsrv_free_stmt($stmtOrderInfo);
+        sqlsrv_close( $conn);
 ?>  

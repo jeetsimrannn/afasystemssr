@@ -469,7 +469,7 @@
 <script>
     $(document).ready(function() {
         var arr1 = <?php echo json_encode($arrCustomerName); ?>;
-        var arr2 = <?php echo json_encode($arrFullAddress); ?>;.
+        var arr2 = <?php echo json_encode($arrFullAddress); ?>;
         var arr3 = <?php echo json_encode($arrCurrencyID); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
