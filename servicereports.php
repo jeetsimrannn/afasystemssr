@@ -136,7 +136,7 @@
                 //  echo " || ".$data['CustomerName'];
                 array_push($array1, $data['OrderNo']);
                 array_push($array2, $data['CustomerName']);
-                 echo '<option value="'.$data['OrderNo']  .  ' ('. $data['CustomerName'] .')'  . '" label="hello">';
+                 echo '<option value="'.$data['OrderNo']  .  ' ('. $data['CustomerName'] .')'  . '">';
                  echo "</option>";
                 }
              $array3 = array_combine($array1, $array2);
