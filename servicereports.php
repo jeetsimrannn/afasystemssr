@@ -186,7 +186,7 @@
         </div> -->
 
         <div class="col-xs-4">
-        <input type="text" class="form-control" placeholder="Select Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
+        <input type="text" class="form-control" placeholder="Select Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination" readonly style="background-color: #ffffff;">
             </div>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
