@@ -215,7 +215,7 @@
                                         $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                                         while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                                         echo '<label class="list-group-item" style="width:100%">';
-                                        echo '<input type="radio" class="form-check-input me-1" name="gender">';
+                                        echo '<input type="radio" class="form-check-input me-1" name="orderno">';
                                         echo $data['OrderNo'];
                                         echo '<span style="color:grey;font-weight:light;font-size:0.8rem;"> ';
                                         echo $data['CustomerName'];
@@ -596,6 +596,18 @@
 </script>
 
 <script>
+    $(document).ready(function(){
+        $("input[type='radio'][name='orderno']").click(function() {
+            var string = "";
+            $("input:checked").each(function() {
+                string += $(this).val();
+            });
+            $("#ordernos").val(string);
+        });
+    });
+</script>
+
+<!-- <script>
     function copyTextValue(selectedOption) {
     if(selectedOption.selectedIndex <= 0){
     document.getElementById("ordernos").value = '';
@@ -604,4 +616,4 @@
     var selectedOptionValue = selectedOption.value;
     document.getElementById("ordernos").value = selectedOptionValue;
     }
-</script>
+</script> -->
