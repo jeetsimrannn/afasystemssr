@@ -199,23 +199,9 @@
                         <div class="list-group w-50">
 
                         <?php
-                            $serverName = 'tcp:teamoffline.database.windows.net,1433';
-                            $uid = 'sim1999';
-                            $pwd = 'simran@99';
-                            $databaseName = 'TEAMOffline';
-                            $connectionInfo = array('UID'=>$uid,
-                                                    'PWD'=>$pwd,
-                                                    'Database'=>$databaseName);
-                            $conn = sqlsrv_connect($serverName,$connectionInfo);
-                            if($conn){
-                                echo '';
-                            }else{
-                                echo 'Connection failure<br />';
-                            die(print_r(sqlsrv_errors(),TRUE));
-                            }
                                 $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                                 $result5 = sqlsrv_query($conn,$sql5) or die("Couldn't execut query");
-                                while ($data5=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                                while ($data5=sqlsrv_fetch_array($result5, SQLSRV_FETCH_ASSOC)){
                                 echo '<label class="list-group-item">';
                                 echo '<input type="radio" class="form-check-input me-1" name="gender">';
                                 echo $data5['OrderNo'];
