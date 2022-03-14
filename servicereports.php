@@ -274,7 +274,13 @@ table .instructions b {
         </div> -->
 
 
-        <div>Programming languages</div>
+        <table width="400">
+    <tr>
+        <td> <h4>DATALIST STYLING ALTERNATIVE</h4> </td>
+    </tr>
+    <tr>
+        <td>
+            <div>Programming languages</div>
             <input type="text" name="language" list="list-language">
             <div list="list-language">
                 <span>CSharp</span>
@@ -288,6 +294,40 @@ table .instructions b {
                 <span>SAP</span>
                 <span>Visual Basic</span>
             </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div>Cities</div>
+            <input type="text" name="cities" list="list-cities">
+            <div list="list-cities">
+                <span>Athens</span>
+                <span>Beijing</span>
+                <span>Berlin</span>
+                <span>Cairo</span>
+                <span>Lisbon</span>
+        <span>London</span>
+        <span>Mexico City</span>
+                <span>Moscow</span>
+                <span>New York</span>
+                <span>Rio de Janeiro</span>
+                <span>Rome</span>
+                <span>Tokyo</span>
+            </div>
+        </td>
+    </tr>
+  <tr>
+    <td>
+      <div class='instructions'>
+        <b>INSTRUCTIONS:</b><hr>
+        <p><b>Double click on the input:</b><br>Show/hide the datalist.</p>
+        <p><b>Press esc on the input:</b><br>Hides datalist if visible.</p>
+        <p><b>Onkeypress in the input:</b><br>Displays the datalist filtering according to the entered string.</p>
+        <p><b>On pressing enter:</b><br>Ff there is only 1 element in the datalist, this value will be loaded into the input.</p>
+      </div>
+    <td>
+  </tr>
+</table>
 
 
         <div class="form-group mb-3  ">
