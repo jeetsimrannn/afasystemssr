@@ -1,9 +1,9 @@
 <?php  
         include "dbconnect.php";
 
-        $tsql_callSP = "{call sp_qryCustOrderService};";
+        $tsql_callSP1 = "{call sp_qryCustOrderService};";
 
-        $stmtOrderInfo = sqlsrv_query( $conn, $tsql_callSP);  
+        $stmtOrderInfo = sqlsrv_query( $conn, $tsql_callSP1);  
         if(  $stmtOrderInfo === false )  
         {  
             echo "Error in executing statement 3.\n";  
@@ -16,10 +16,10 @@
             die( print_r( sqlsrv_errors(), true));
         }
 
-        while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-             echo $data['OrderID'];
-             echo $data['OrderNo'];
-             echo $data['CustomerName'];
+        while ($data1=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+             echo $data1['OrderID'];
+             echo $data1['OrderNo'];
+             echo $data1['CustomerName'];
         }
         
         sqlsrv_free_stmt(  $stmtOrderInfo);
