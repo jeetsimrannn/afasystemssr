@@ -185,40 +185,40 @@
     
         </div> -->
 
-        <div class="col-xs-4">
-        <input type="text" class="form-control" placeholder="Select Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination" readonly style="background-color: #ffffff;">
-            </div>
-
+        <div class="form-group mb-3  ">
+            <label for="orderno">Order Number</label>
+            <input type="text" class="form-control" placeholder="Select Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination" readonly style="background-color: #ffffff;">
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document" style="margin-top: 5rem;">
-                <div class="modal-content">
-                <div class="modal-body">
-                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                        <br>
-                    <div class="">
-                        <div class="list-group">
+                <div class="modal-dialog" role="document" style="margin-top: 5rem;">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                            <br>
+                            <div class="">
+                                <div class="list-group">
 
-                        <?php
-                                $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-                                $result5 = sqlsrv_query($conn,$sql5) or die("Couldn't execut query");
-                                while ($data5=sqlsrv_fetch_array($result5, SQLSRV_FETCH_ASSOC)){
-                                echo '<label class="list-group-item" style="width:100%">';
-                                echo '<input type="radio" class="form-check-input me-1" name="gender">';
-                                echo $data5['OrderNo'];
-                                echo '<span style="color:grey;font-weight:light;font-size:0.8rem;"> ';
-                                echo $data5['CustomerName'];
-                                echo '</span></label>';
-                                }
-                            ?>
+                                    <?php
+                                        $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
+                                        $result5 = sqlsrv_query($conn,$sql5) or die("Couldn't execut query");
+                                        while ($data5=sqlsrv_fetch_array($result5, SQLSRV_FETCH_ASSOC)){
+                                        echo '<label class="list-group-item" style="width:100%">';
+                                        echo '<input type="radio" class="form-check-input me-1" name="gender">';
+                                        echo $data5['OrderNo'];
+                                        echo '<span style="color:grey;font-weight:light;font-size:0.8rem;"> ';
+                                        echo $data5['CustomerName'];
+                                        echo '</span></label>';
+                                        }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
-                </div>
-                </div>
             </div>
-            </div>
+        </div>
 
 
         <div class="form-group mb-3  ">
