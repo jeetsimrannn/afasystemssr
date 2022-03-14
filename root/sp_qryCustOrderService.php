@@ -1,7 +1,7 @@
 <?php  
         include "dbconnect.php";
 
-        $tsql_callSP = "{call sp_frmCustOrderInfo};";
+        $tsql_callSP = "{call sp_qryCustOrderService};";
 
         $stmtOrderInfo = sqlsrv_query( $conn, $tsql_callSP);  
         if(  $stmtOrderInfo === false )  

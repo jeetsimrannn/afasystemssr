@@ -71,7 +71,7 @@
 
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_newSR.php'; ?>
-<?php require 'root/sp_frmCustOrderInfo.php'; ?>
+<?php require 'root/sp_qryCustOrderService.php'; ?>
 <div class="submitmain">
 
 <form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
