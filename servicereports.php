@@ -105,44 +105,43 @@
                             <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
                         </div>
                 </div>
-        <div class="form-group mb-3  ">
+        <!-- <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
-            <!-- <input type="text" class="form-control" id="OrderNumber" name="OrderNumber" placeholder="Enter Order Number"   /> -->
 
             <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Select Order Number"/>
             <datalist id="orderno">
              <?php
-             $serverName = 'tcp:teamoffline.database.windows.net,1433';
-             $uid = 'sim1999';
-             $pwd = 'simran@99';
-             $databaseName = 'TEAMOffline';
-             $connectionInfo = array('UID'=>$uid,
-                                     'PWD'=>$pwd,
-                                     'Database'=>$databaseName);
-             $conn = sqlsrv_connect($serverName,$connectionInfo);
-             if($conn){
-                 echo '';
-             }else{
-                 echo 'Connection failure<br />';
-             die(print_r(sqlsrv_errors(),TRUE));
-             }
-                 $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-                 $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-                 $array1 = array();
-                 $array2 = array();
-                 while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                //  echo '<option value="'.$data['OrderID'].'">';
-                //  echo $data['OrderNo']; 
-                //  echo " || ".$data['CustomerName'];
-                array_push($array1, $data['OrderNo']);
-                array_push($array2, $data['CustomerName']);
-                 echo '<option value="'.$data['OrderNo']  .  ' ('. $data['CustomerName'] .')'  . '">';
-                 echo "</option>";
-                }
-             $array3 = array_combine($array1, $array2);
+            //  $serverName = 'tcp:teamoffline.database.windows.net,1433';
+            //  $uid = 'sim1999';
+            //  $pwd = 'simran@99';
+            //  $databaseName = 'TEAMOffline';
+            //  $connectionInfo = array('UID'=>$uid,
+            //                          'PWD'=>$pwd,
+            //                          'Database'=>$databaseName);
+            //  $conn = sqlsrv_connect($serverName,$connectionInfo);
+            //  if($conn){
+            //      echo '';
+            //  }else{
+            //      echo 'Connection failure<br />';
+            //  die(print_r(sqlsrv_errors(),TRUE));
+            //  }
+            //      $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
+            //      $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+            //      $array1 = array();
+            //      $array2 = array();
+            //      while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+            //     //  echo '<option value="'.$data['OrderID'].'">';
+            //     //  echo $data['OrderNo']; 
+            //     //  echo " || ".$data['CustomerName'];
+            //     array_push($array1, $data['OrderNo']);
+            //     array_push($array2, $data['CustomerName']);
+            //      echo '<option value="'.$data['OrderNo']  .  ' ('. $data['CustomerName'] .')'  . '">';
+            //      echo "</option>";
+            //     }
+            //  $array3 = array_combine($array1, $array2);
              ?>
              </datalist>
-        </div>
+        </div> -->
 
         <!-- <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>      
@@ -187,8 +186,8 @@
 
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
-            <input type="text" class="form-control" placeholder="Select Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination" readonly style="background-color: #ffffff;">
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"/>
+            <div class="modal fade" id="OrderNoModal" tabindex="-1" role="dialog" aria-labelledby="OrderNoModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="margin-top: 5rem;">
                     <div class="modal-content">
                         <div class="modal-body">
@@ -198,14 +197,28 @@
                                 <div class="list-group">
 
                                     <?php
-                                        $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-                                        $result5 = sqlsrv_query($conn,$sql5) or die("Couldn't execut query");
-                                        while ($data5=sqlsrv_fetch_array($result5, SQLSRV_FETCH_ASSOC)){
+                                        $serverName = 'tcp:teamoffline.database.windows.net,1433';
+                                        $uid = 'sim1999';
+                                        $pwd = 'simran@99';
+                                        $databaseName = 'TEAMOffline';
+                                        $connectionInfo = array('UID'=>$uid,
+                                                                'PWD'=>$pwd,
+                                                                'Database'=>$databaseName);
+                                        $conn = sqlsrv_connect($serverName,$connectionInfo);
+                                        if($conn){
+                                            echo '';
+                                        }else{
+                                            echo 'Connection failure<br />';
+                                        die(print_r(sqlsrv_errors(),TRUE));
+                                        }
+                                        $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
+                                        $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                                        while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
                                         echo '<label class="list-group-item" style="width:100%">';
                                         echo '<input type="radio" class="form-check-input me-1" name="gender">';
-                                        echo $data5['OrderNo'];
+                                        echo $data['OrderNo'];
                                         echo '<span style="color:grey;font-weight:light;font-size:0.8rem;"> ';
-                                        echo $data5['CustomerName'];
+                                        echo $data['CustomerName'];
                                         echo '</span></label>';
                                         }
                                     ?>
@@ -583,12 +596,12 @@
 </script>
 
 <script>
-function copyTextValue(selectedOption) {
-if(selectedOption.selectedIndex <= 0){
-document.getElementById("destination").value = '';
-return;
-}
- var selectedOptionValue = selectedOption.value;
- document.getElementById("destination").value = selectedOptionValue;
-}
+    function copyTextValue(selectedOption) {
+    if(selectedOption.selectedIndex <= 0){
+    document.getElementById("ordernos").value = '';
+    return;
+    }
+    var selectedOptionValue = selectedOption.value;
+    document.getElementById("ordernos").value = selectedOptionValue;
+    }
 </script>

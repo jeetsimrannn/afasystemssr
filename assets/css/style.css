@@ -349,5 +349,6 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   max-height: 300px;
   margin-bottom: 10px;
   overflow:scroll;
+  overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
