@@ -468,12 +468,14 @@
 <script>
     $(document).ready(function() {
         var passedArray = <?php echo json_encode($arrCustomerName); ?>;
+        var passedArray2 = <?php echo json_encode($arrFullAddress); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
             // document.getElementById("demo").innerHTML = passedArray[result];
             
-            $("#travelto").attr("value", passedArray[result]);
+            $("#Customer").attr("value", passedArray[result]);
+            $("#travelto").attr("value", passedArray2[result]);
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
         //     type: "POST",  // method of sending data
