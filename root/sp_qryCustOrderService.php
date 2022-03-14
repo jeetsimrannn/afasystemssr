@@ -15,13 +15,21 @@
             echo "Error in retrieving row.\n";
             die( print_r( sqlsrv_errors(), true));
         }
-
-        while ($data1=sqlsrv_fetch_array($stmtOrderInfo , SQLSRV_FETCH_ASSOC)){
-             echo $data1['OrderID'];
-             echo $data1['OrderNo'];
-             echo $data1['CustomerName'];
+        $onlyOrderNo = array();
+        $onlyCustomerName = array(); 
+        $onlyFullAddress = array();
+        $onlyCurrencyID = array();
+        while ($data=sqlsrv_fetch_array($stmtOrderInfo , SQLSRV_FETCH_ASSOC)){
+            array_push($onlyOrderNo, $data['OrderNo'];);
+            array_push($onlyCustomerName, $data['CustomerName']);
+            array_push($onlyFullAddress, $data['FullAddress'];);
+            array_push($onlyCurrencyID, $data['CurrencyID']);
         }
+
+        $arrCustomerName = array_combine($onlyOrderNo, $onlyCustomerName);
+        $arrFullAddress = array_combine($onlyOrderNo, $onlyFullAddress);
+        $arrCurrencyID = array_combine($onlyOrderNo, $onlyCurrencyID);
         
-        sqlsrv_free_stmt(  $stmtOrderInfo);
+        sqlsrv_free_stmt($stmtOrderInfo);
         sqlsrv_close( $conn);
 ?>  
