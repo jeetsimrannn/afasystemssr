@@ -185,6 +185,55 @@
     
         </div> -->
 
+        <div class="col-xs-4">
+        <input type="text" class="form-control" placeholder="Select order number" data-toggle="modal" data-target="#exampleModal"  id="destination">
+            </div>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-body">
+                    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                        <br>
+                    <div class="m-4">
+                        <div class="list-group w-50">
+
+                        <?php
+                            $serverName = 'tcp:teamoffline.database.windows.net,1433';
+                            $uid = 'sim1999';
+                            $pwd = 'simran@99';
+                            $databaseName = 'TEAMOffline';
+                            $connectionInfo = array('UID'=>$uid,
+                                                    'PWD'=>$pwd,
+                                                    'Database'=>$databaseName);
+                            $conn = sqlsrv_connect($serverName,$connectionInfo);
+                            if($conn){
+                                echo '';
+                            }else{
+                                echo 'Connection failure<br />';
+                            die(print_r(sqlsrv_errors(),TRUE));
+                            }
+                                $sql5 = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
+                                $result5 = sqlsrv_query($conn,$sql5) or die("Couldn't execut query");
+                                while ($data5=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                                echo '<label class="list-group-item">';
+                                echo '<input type="radio" class="form-check-input me-1" name="gender">';
+                                echo $data5['OrderNo'];
+                                echo '<span style="color:grey;font-weight:light;font-size:1rem;">';
+                                echo $data5['CustomerName'];
+                                echo '</span></label>';
+                                }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
+                </div>
+                </div>
+            </div>
+            </div>
+
 
         <div class="form-group mb-3  ">
             <label for="travelfrom">Travel From</label>
@@ -467,7 +516,6 @@
     $(document).ready(function() {
         var passedArray = <?php echo json_encode($arrCustomerName); ?>;
         var passedArray2 = <?php echo json_encode($arrFullAddress); ?>;
-        var passedArray3 = <?php echo json_encode($arrCurrencyID); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
@@ -479,7 +527,6 @@
             else{
                 $("#Customer").attr("value", passedArray[result]);
                 $("#travelto").attr("value", passedArray2[result]);
-                $("#expcurr").attr("value", passedArray3[result]);
             }
         //   var mainselection = this.value; // get the selection value
         //   $.ajax({
@@ -542,7 +589,7 @@
         $(document).ready(function(){
           $("#myInput").on("keyup", function() {
             var value = $(this).val().toLowerCase();
-            $("#myList option").filter(function() {
+            $(".list-group label").filter(function() {
               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
           });
