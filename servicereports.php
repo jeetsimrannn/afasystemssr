@@ -195,7 +195,7 @@
                 <div class="modal-body">
                     <input class="form-control" id="myInput" type="text" placeholder="Search..">
                         <br>
-                    <div class="m-4">
+                    <div class="">
                         <div class="list-group">
 
                         <?php
