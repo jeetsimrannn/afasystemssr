@@ -19,11 +19,11 @@
         $onlyCustomerName = array(); 
         $onlyFullAddress = array();
         $onlyCurrencyID = array();
-        while ($data=sqlsrv_fetch_array($stmtOrderInfo , SQLSRV_FETCH_ASSOC)){
-            array_push($onlyOrderNo, $data['OrderNo']);
-            array_push($onlyCustomerName, $data['CustomerName']);
-            array_push($onlyFullAddress, $data['FullAddress']);
-            array_push($onlyCurrencyID, $data['CurrencyID']);
+        while ($data1=sqlsrv_fetch_array($stmtOrderInfo , SQLSRV_FETCH_ASSOC)){
+            array_push($onlyOrderNo, $data1['OrderNo']);
+            array_push($onlyCustomerName, $data1['CustomerName']);
+            array_push($onlyFullAddress, $data1['FullAddress']);
+            array_push($onlyCurrencyID, $data1['CurrencyID']);
         }
 
         $arrCustomerName = array_combine($onlyOrderNo, $onlyCustomerName);
