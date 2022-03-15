@@ -1,9 +1,18 @@
-<h2>Here is the information submitted by you:</h2>
-<p>Name: <b><?php echo $_POST["name"] ; ?></b></p>
-<p>gender: <b><?php echo $_POST["gender"] ; ?></b></p>
-<p>Favorite Color: <b><?php echo $_POST["color"]; ?></b></p>
-<p>Hobbies: <b><?php if(isset($_POST["hobbies"])){ echo implode(", ", $_POST["hobbies"]); } ?></b></p>
-<p>Comment: <b><?php echo $_POST["comment"] ; ?></b></p>
+<?php
+if (isset($_POST['username']) && $_POST['username'] && isset($_POST['password']) && $_POST['password']) {
+    // do user authentication as per your requirements
+    // ...
+    // ...
+    // based on successful authentication
+    $name = $_POST['username'];
+    $comment = $_POST['password'];
+    echo "<p>Hi, <b>$name</b>. Your comment has been received successfully.<p>";
+    echo "<p>Here's the comment that you've entered: <b>$comment</b></p>";
+    echo json_encode(array('success' => 1));
+} else {
+    echo json_encode(array('success' => 0));
+}
+?>
 <?php
 // if($_SERVER["REQUEST_METHOD"] == "POST") {
 //     $name = htmlspecialchars(trim($_POST["name"]));
