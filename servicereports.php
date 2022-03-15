@@ -603,15 +603,22 @@
     $(document).ready(function(){
         var passedArray = <?php echo json_encode($arrCustomerName); ?>;
         var passedArray2 = <?php echo json_encode($arrFullAddress); ?>;
-        $("input[type='radio'][name='orderno']").click(function() {
-            var string = "";
-            $("input:checked").each(function() {
-                string += $(this).val();
-            });
-            $("#ordernos").val(string);
+        $("input:radio").change(function() {
+            var result =  $(this).val();
+            $("#ordernos").val(result);
             $("#Customer").attr("value", passedArray[string]);
             $("#travelto").attr("value", passedArray2[string]);
         });
+        
+        
+        
+        // $("input[type='radio'][name='orderno']").click(function() {
+        //     var string = "";
+        //     $("input:checked").each(function() {
+        //         string += $(this).val();
+        //     });
+        //     $("#ordernos").val(string);
+        // });
     });
 </script>
 
