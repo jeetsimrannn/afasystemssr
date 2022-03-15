@@ -66,7 +66,7 @@ $(document).ready(function() {
 	} );
 
 	$('#tblService tbody').on( 'click', 'tr', function () {
-		console.log( table.row( this ).data() );
+		console.log( table.row( this ).find("td:first").data() );
 	} );
 } );
 
