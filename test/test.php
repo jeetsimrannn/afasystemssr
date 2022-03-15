@@ -29,6 +29,7 @@ $(document).ready(function() {
                 // let's redirect
                 if (jsonData.success == "1")
                 {
+                    alert("success");
                     location.href = '../servicereports.php';
                 }
                 else
