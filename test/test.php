@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>JavaScript Ajax POST Demo</title>
 <script>
+    
 function postComment() {
     // Creating the XMLHttpRequest object
     var request = new XMLHttpRequest();
