@@ -2,45 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>JavaScript Ajax POST Demo</title>
+<title>jQuery AJAX Submit Form</title>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script>
-    
-function postComment() {
-    // Creating the XMLHttpRequest object
-    var request = new XMLHttpRequest();
-    
-    // Instantiating the request object
-    request.open("POST", "confirmation.php");
-    
-    // Defining event listener for readystatechange event
-    request.onreadystatechange = function() {
-        // Check if the request is compete and was successful
-        if(this.readyState === 4 && this.status === 200) {
-            // Inserting the response from server into an HTML element
-            document.getElementById("result").innerHTML = this.responseText;
-        }
-    };
-    
-    // Retrieving the form data
-    var myForm = document.getElementById("myForm");
-    var formData = new FormData(myForm);
-
-    // Sending the request to the server
-    request.send(formData);
-}
+$(document).ready(function(){
+    $("form").on("submit", function(event){
+        event.preventDefault();
+ 
+        var formValues= $(this).serialize();
+ 
+        $.post("process_form.php", formValues, function(data){
+            // Display the returned data in browser
+            $("#result").html(data);
+        });
+    });
+});
 </script>
 </head>
 <body>
-    <form id="myForm">
-        <label>Name:</label>
-        <div><input type="text" name="name"></div>
-        <br>
-        <label>Comment:</label>
-        <div><textarea name="comment"></textarea></div>
-        <p><button type="button" onclick="postComment()">Post Comment</button></p>
-    </form>    
-    <div id="result">
-        <p>Content of the result DIV box will be replaced by the server response</p>
-    </div>    
+    <form>
+        <p>
+            <label>Name:</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label>Gender:</label>
+            <label><input type="radio" value="male" name="gender"> Male</label>
+            <label><input type="radio" value="female" name="gender"> Female</label>
+        </p>
+        <p>
+            <label>Hobbies:</label>
+            <label><input type="checkbox" value="music" name="hobbies[]"> Music</label>
+            <label><input type="checkbox" value="sports" name="hobbies[]"> Sports</label>
+            <label><input type="checkbox" value="dance" name="hobbies[]"> Dance</label>
+        </p>
+        <p>
+            <label>Favorite Color:</label>
+            <select name="color">
+                <option>Red</option>
+                <option>Green</option>
+                <option>Blue</option>
+            </select>
+        </p>
+        <p>
+            <label>Comment:</label>
+            <textarea name="comment"></textarea>
+        </p>
+        <input type="submit" value="submit">
+    </form>
+    <div id="result"></div>
 </body>
 </html>
