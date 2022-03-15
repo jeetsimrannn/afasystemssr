@@ -60,15 +60,12 @@ session_start();
 
 				// Get the row fields. Field indices start at 0 and must be retrieved in order.
 				// Retrieving row fields by name is not supported by sqlsrv_get_field.
-				$_SESSION['firstname'] = $_POST['username'];
-				$_SESSION['lastname'] = $_POST['username'];
 				$FirstName = sqlsrv_get_field( $stmt, 0);
 				echo $FirstName." ";
+				$_SESSION['name'] = $FirstName;
+
 				$LastName = sqlsrv_get_field( $stmt, 1);
 				echo $LastName;
-				$_SESSION['firstname'] = $FirstName;
-				$_SESSION['lastname'] = $LastName;
-				echo "now".$_SESSION['firstname']." ".$_SESSION['lastname'];
 			?>!
 		</h5>
 		<div class="container">

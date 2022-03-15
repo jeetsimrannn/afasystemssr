@@ -71,6 +71,7 @@ session_start();
 	$custname = sqlsrv_get_field( $stmt, 0);
     
     echo $_SESSION['ServiceID'];
+    echo $_SESSION['name'];
     
 ?>
 
