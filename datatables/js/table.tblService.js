@@ -65,8 +65,15 @@ $(document).ready(function() {
 		]
 	} );
 
-	$('#tblService tbody').on( 'click', 'tr', function () {
-		console.log( table.row( this ).find("td:first").data() );
+	// $('#tblService tbody').on( 'click', 'tr', function () {
+	// 	console.log( table.row( this ).data() );
+	// } );
+
+	table.on( 'select', function () {
+		var rowData = table.rows( { selected: true } ).data()[0];
+		// now do what you need to do wht the row data
+		console.log(rowData);
+	 
 	} );
 } );
 
