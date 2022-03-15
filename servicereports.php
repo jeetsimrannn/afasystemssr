@@ -606,8 +606,8 @@
         $("input:radio").change(function() {
             var result =  $(this).val();
             $("#ordernos").val(result);
-            $("#Customer").attr("value", passedArray[string]);
-            $("#travelto").attr("value", passedArray2[string]);
+            $("#Customer").attr("value", passedArray[result]);
+            $("#travelto").attr("value", passedArray2[result]);
         });
         
         
