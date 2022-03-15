@@ -513,10 +513,12 @@
           });
        });
 </script> -->
-<script>
+<!-- <script>
     $(document).ready(function() {
-        var passedArray = <?php echo json_encode($arrCustomerName); ?>;
-        var passedArray2 = <?php echo json_encode($arrFullAddress); ?>;
+        var passedArray = <?php 
+            // echo json_encode($arrCustomerName); ?>;
+        var passedArray2 = <?php 
+        // echo json_encode($arrFullAddress); ?>;
         $("#ordernos").on('change', function(){
             var result = $( "#ordernos" ).val();
 
@@ -540,7 +542,7 @@
         //     });
         });
     });
-</script>
+</script> -->
 
 <!-- <script>
   
@@ -599,12 +601,16 @@
 
 <script>
     $(document).ready(function(){
+        var passedArray = <?php echo json_encode($arrCustomerName); ?>;
+        var passedArray2 = <?php echo json_encode($arrFullAddress); ?>;
         $("input[type='radio'][name='orderno']").click(function() {
             var string = "";
             $("input:checked").each(function() {
                 string += $(this).val();
             });
             $("#ordernos").val(string);
+            $("#Customer").attr("value", passedArray[string]);
+            $("#travelto").attr("value", passedArray2[string]);
         });
     });
 </script>
