@@ -214,7 +214,7 @@
                                         $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
                                         $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
                                         while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                        echo '<label class="list-group-item" style="width:100%">';
+                                        echo '<label class="list-group-item" style="width:100%;border-top-width:1px;margin-bottom:-0.2rem;">';
                                         echo '<input type="radio" class="form-check-input me-1" name="orderno" value="';
                                         echo $data['OrderNo'];
                                         echo '">';
