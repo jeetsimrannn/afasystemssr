@@ -28,11 +28,10 @@ html, body {
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="root/setCookie.js"></script>
 
 </head>
 
-<body onload="checkCookie()">
+<body>
 <!-- <div class='preloader dangermessage' id='preloader' style="display:none">
           <div class='loader' style='top: 35%; width: auto; color:white;' >
             <h4 >Invalid Credentials, please try again...</h4>

@@ -24,9 +24,8 @@ session_start();
 		<script type="text/javascript" charset="utf-8" src="js/table.tblService.js"></script>
 		<script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 		
-		<script type="text/javascript" charset="utf-8" src="../root/setCookie.js"></script>
 	</head>
-	<body class="dataTables" onload="checkCookie()">
+	<body class="dataTables">
 	<!-- ======= Header ======= -->
 
 	<header class="header-transparent" id="header">
@@ -69,14 +68,6 @@ session_start();
 				echo $LastName;
 				
 			?>!
-			<?php
-				if(!isset($_COOKIE[$EmployeeID])) {
-				echo "Cookie named '" . $EmployeeID . "' is not set!";
-				} else {
-				echo "Cookie '" . $EmployeeID . "' is set!<br>";
-				echo "Value is: " . $_COOKIE[$EmployeeID];
-				}
-			?>
 		</h5>
 		<div class="container">
 			<table cellpadding="0" cellspacing="0" border="0" class="display nowrap" id="tblService" style="width:100%;">

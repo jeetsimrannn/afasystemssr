@@ -23,7 +23,6 @@ $_SESSION['EmployeeID'] = "";
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="root/setCookie.js"></script>
 </head>
 
 <?php
@@ -143,6 +142,3 @@ if(isset($_POST['login']))
   // header("location:servicereports.php");
 }
 ?>
-<script>
-  setCookie('EmployeeID',<?php echo $custname; ?>,7);
-</script>
