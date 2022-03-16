@@ -141,5 +141,5 @@ if(isset($_POST['login']))
 }
 ?>
 <script>
-  setCookie('EmployeeID',$custname,7);
+  setCookie('EmployeeID',<?php echo $CustName; ?>,7);
 </script>
