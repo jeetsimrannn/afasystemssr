@@ -51,7 +51,7 @@ session_start();
  <script src="assets/vendor/datepicker/datepicker.min.js"></script> -->
 </head>
 
-<body>
+<body onload="checkSRSCookie()">
 
 <?php
 	include "dbconnect.php";

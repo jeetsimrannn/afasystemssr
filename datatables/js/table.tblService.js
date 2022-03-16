@@ -55,6 +55,14 @@ $(document).ready(function() {
 			{
                 text: 'New',
                 action: function ( e, dt, node, config ) {
+					setSRSCookie("SRStatus", 0, 7);
+                    window.location='../servicereports.php';
+                }
+            },
+			{
+                text: 'Update',
+                action: function ( e, dt, node, config ) {
+					setSRSCookie("SRStatus", 1, 7);
                     window.location='../servicereports.php';
                 }
             },
