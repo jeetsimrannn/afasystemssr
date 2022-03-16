@@ -67,6 +67,7 @@ session_start();
 
 				$LastName = sqlsrv_get_field( $stmt, 1);
 				echo $LastName;
+				echo $_COOKIE[$EmployeeID];
 			?>!
 		</h5>
 		<div class="container">
