@@ -72,10 +72,9 @@ if(isset($_POST['login']))
     // Get the row fields. Field indices start at 0 and must be retrieved in order.
     // Retrieving row fields by name is not supported by sqlsrv_get_field.
     $custname = sqlsrv_get_field( $stmt, 0);
-    setCookie("EmployeeID",$custname,7);
-
     echo "
       <script>
+      setCookie('EmployeeID',$custname,7);
       $(window).on('load', function() {
         window.location='datatables/tblService.php'; 
         function modalfunction(){ $('#preloader').modal('show')};
