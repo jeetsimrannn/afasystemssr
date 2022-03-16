@@ -54,9 +54,7 @@ $(document).ready(function() {
 		buttons: [
 			{
                 text: 'New',
-				attr: {
-					id: 'newBtn'             
-				},
+				className: 'newBtn', 
                 action: function ( e, dt, node, config ) {
                     window.location='../servicereports.php';
                 }
