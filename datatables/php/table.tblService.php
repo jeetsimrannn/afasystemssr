@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /*
  * Editor server script for DB table tblService
@@ -41,7 +42,7 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
 		Field::inst( 'tblService.OrderID' ),
 		Field::inst( 'tblCustOrders.OrderNo' )
 	)
-	->where( 'tblService.EmployeeID', '202', '=' )
+	->where( 'tblService.EmployeeID', $_SESSION['EmployeeID'], '=' )
 	->leftJoin( 'tblCustOrders', 'tblCustOrders.OrderID', '=', 'tblService.OrderID' )
 	->leftJoin( 'tblEmployee', 'tblEmployee.EmployeeID', '=', 'tblService.EmployeeID' )
 	// ->join(

@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['user'] = "";
+$_SESSION['EmployeeID'] = "";
 ?>
 <head>
 <title>Service Report Form</title>
@@ -72,6 +74,7 @@ if(isset($_POST['login']))
     // Get the row fields. Field indices start at 0 and must be retrieved in order.
     // Retrieving row fields by name is not supported by sqlsrv_get_field.
     $custname = sqlsrv_get_field( $stmt, 0);
+    $_SESSION['EmployeeID'] = $custname;
     echo "
       <script>
       $(window).on('load', function() {
