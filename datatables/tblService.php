@@ -70,10 +70,10 @@ session_start();
 				
 			?>!
 			<?php
-				if(!isset($_COOKIE[$cookie_name])) {
-				echo "Cookie named '" . $cookie_name . "' is not set!";
+				if(!isset($_COOKIE[$EmployeeID])) {
+				echo "Cookie named '" . $EmployeeID . "' is not set!";
 				} else {
-				echo "Cookie '" . $cookie_name . "' is set!<br>";
+				echo "Cookie '" . $EmployeeID . "' is set!<br>";
 				echo "Value is: " . $_COOKIE[$EmployeeID];
 				}
 			?>
