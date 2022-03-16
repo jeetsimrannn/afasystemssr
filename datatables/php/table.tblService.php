@@ -53,4 +53,4 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
     //         )
     // )
 	->process( $_POST )
-	->json();
+	->json(); 

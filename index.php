@@ -77,7 +77,7 @@ html, body {
 
             <!-- Checkbox -->
             <div class="form-check d-flex justify-content-start mb-4">
-              <input
+              <input 
                 class="form-check-input"
                 type="checkbox"
                 value=""
