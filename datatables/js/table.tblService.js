@@ -58,6 +58,8 @@ $(document).ready(function() {
                     window.location='../servicereports.php';
                 }
             },
+			'New SR',
+			'Update SR',
 			// { extend: 'create', editor: editor },
 			{ extend: 'edit',   editor: editor },
 			{ extend: 'remove', editor: editor },
@@ -76,8 +78,6 @@ $(document).ready(function() {
 		var ame = sessionStorage.getItem("ServiceID");
 		alert(ame);
 		console.log(rowData);
-
-	 
 	} );
 } );
 
