@@ -45,7 +45,7 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
 	->where( 'tblService.EmployeeID', "'".$_SESSION['EmployeeID']."'", '=' )
 	->leftJoin( 'tblCustOrders', 'tblCustOrders.OrderID', '=', 'tblService.OrderID' )
 	->leftJoin( 'tblEmployee', 'tblEmployee.EmployeeID', '=', 'tblService.EmployeeID' )
-	// ->join(
+	// ->join( 
     //     Mjoin::inst( 'tblCustOrders' )
     //         ->link( 'tblService.OrderID', 'tblCustOrders.OrderID' )
     //         ->fields(
