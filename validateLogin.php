@@ -74,7 +74,6 @@ if(isset($_POST['login']))
     $custname = sqlsrv_get_field( $stmt, 0);
     echo "
       <script>
-      setCookie('EmployeeID',<?php echo $CustName; ?>,7);
       $(window).on('load', function() {
         window.location='datatables/tblService.php'; 
         function modalfunction(){ $('#preloader').modal('show')};
@@ -141,4 +140,6 @@ if(isset($_POST['login']))
   // header("location:servicereports.php");
 }
 ?>
-  
+<script>
+  setCookie('EmployeeID',<?php echo $custname; ?>,7);
+</script>
