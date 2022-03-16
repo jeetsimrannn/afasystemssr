@@ -51,19 +51,13 @@ $(document).ready(function() {
 		],
 		select: true,
 		responsive: true,
-		buttons: [ 
+		buttons: [
 			{
                 text: 'New',
-				attr: {
-					id: 'newBtn',
-					onclick: "getSecurityCode();return false;"      
-				},
-                // action: function ( e, dt, node, config ) {
-                //     window.location='../servicereports.php';
-                // }
+                action: function ( e, dt, node, config ) {
+                    window.location='../servicereports.php';
+                }
             },
-			'New SR',
-			'Update SR',
 			// { extend: 'create', editor: editor },
 			{ extend: 'edit',   editor: editor },
 			{ extend: 'remove', editor: editor },

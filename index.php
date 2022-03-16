@@ -32,7 +32,7 @@ html, body {
 
 </head>
 
-<body>
+<body onload="checkCookie()">
 <!-- <div class='preloader dangermessage' id='preloader' style="display:none">
           <div class='loader' style='top: 35%; width: auto; color:white;' >
             <h4 >Invalid Credentials, please try again...</h4>
