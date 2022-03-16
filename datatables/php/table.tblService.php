@@ -46,7 +46,7 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
 	->leftJoin( 'tblCustOrders', 'tblCustOrders.OrderID', '=', 'tblService.OrderID' )
 	->leftJoin( 'tblEmployee', 'tblEmployee.EmployeeID', '=', 'tblService.EmployeeID' )
 	// ->join( 
-    //     Mjoin::inst( 'tblCustOrders' )
+    //     Mjoin::inst( 'tblCustOrders' ) 
     //         ->link( 'tblService.OrderID', 'tblCustOrders.OrderID' )
     //         ->fields(
     //             Field::inst( 'OrderNo' )         
