@@ -24,6 +24,7 @@ session_start();
 		<script type="text/javascript" charset="utf-8" src="js/table.tblService.js"></script>
 		<script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 		
+		<script type="text/javascript" charset="utf-8" src="../root/setCookie.js"></script>
 	</head>
 	<body class="dataTables" onload="checkCookie()">
 	<!-- ======= Header ======= -->
