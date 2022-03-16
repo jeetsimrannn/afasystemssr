@@ -67,8 +67,16 @@ session_start();
 
 				$LastName = sqlsrv_get_field( $stmt, 1);
 				echo $LastName;
-				echo $_COOKIE[$EmployeeID];
+				
 			?>!
+			<?php
+				if(!isset($_COOKIE[$cookie_name])) {
+				echo "Cookie named '" . $cookie_name . "' is not set!";
+				} else {
+				echo "Cookie '" . $cookie_name . "' is set!<br>";
+				echo "Value is: " . $_COOKIE[$EmployeeID];
+				}
+			?>
 		</h5>
 		<div class="container">
 			<table cellpadding="0" cellspacing="0" border="0" class="display nowrap" id="tblService" style="width:100%;">
