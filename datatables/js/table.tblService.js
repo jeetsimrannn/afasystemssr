@@ -77,14 +77,14 @@ $(document).ready(function() {
 	// 	console.log( table.row( this ).data() );
 	// } );
 
-	table.on( 'select', function () {
-		var rowData = table.rows( { selected: true } ).data()[0]['tblService']['ServiceID'];
-		// now do what you need to do wht the row data
-		sessionStorage.setItem("ServiceID", rowData);
-		var ame = sessionStorage.getItem("ServiceID");
-		alert(ame);
-		console.log(rowData);
-	} );
+	// table.on( 'select', function () {
+	// 	var rowData = table.rows( { selected: true } ).data()[0]['tblService']['ServiceID'];
+	// 	// now do what you need to do wht the row data
+	// 	sessionStorage.setItem("ServiceID", rowData);
+	// 	var ame = sessionStorage.getItem("ServiceID");
+	// 	alert(ame);
+	// 	console.log(rowData);
+	// } );
 } );
 
 }(jQuery));

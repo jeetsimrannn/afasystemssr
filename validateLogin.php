@@ -20,6 +20,8 @@ session_start();
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/root/setCookie.js"></script>
 </head>
 
 <?php
@@ -56,6 +58,22 @@ if(isset($_POST['login']))
   // }
   
   if($responseMessage == "Success"){
+    $sql = "SELECT EmployeeID FROM tblEmployee WHERE TEAMUserName ='".$pLoginName."'";
+    $stmt = sqlsrv_query( $conn, $sql);
+    if( $stmt === false ) {
+      die( print_r( sqlsrv_errors(), true));
+    }
+    
+    // Make the first (and in this case, only) row of the result set available for reading.
+    if( sqlsrv_fetch( $stmt ) === false) {
+      die( print_r( sqlsrv_errors(), true));
+    }
+      
+    // Get the row fields. Field indices start at 0 and must be retrieved in order.
+    // Retrieving row fields by name is not supported by sqlsrv_get_field.
+    $custname = sqlsrv_get_field( $stmt, 0);
+    setCookie("EmployeeID",$custname,7);
+
     echo "
       <script>
       $(window).on('load', function() {
