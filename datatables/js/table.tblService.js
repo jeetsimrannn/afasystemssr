@@ -58,9 +58,9 @@ $(document).ready(function() {
 					id: 'newBtn',
 					onclick: "getSecurityCode();return false;"      
 				},
-                action: function ( e, dt, node, config ) {
-                    window.location='../servicereports.php';
-                }
+                // action: function ( e, dt, node, config ) {
+                //     window.location='../servicereports.php';
+                // }
             },
 			'New SR',
 			'Update SR',
