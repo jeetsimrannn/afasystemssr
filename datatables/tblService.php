@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+    $_SESSION['SRStatus'] = -1;
 ?>
 <!doctype html>
 <html>
@@ -24,10 +25,17 @@ session_start();
 		<script type="text/javascript" charset="utf-8" src="js/table.tblService.js"></script>
 		<script type="text/javascript" charset="utf-8" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 		
+		<script>
+            function getSecurityCode(){
+                $.post('newReportSession.php', function(data) {
+                    $('#msg').attr('value',data);
+                });
+            }
+        </script>
 	</head>
 	<body class="dataTables">
 	<!-- ======= Header ======= -->
-
+	<input type="button" id="msg" name="msg" style="background-color: #569; no-repeat; border: none; color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:12px;" value="<?php echo $_SESSION['SRStatus'];?>" />
 	<header class="header-transparent" id="header">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid #0000001a">
 				<div class="container-fluid">

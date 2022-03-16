@@ -46,15 +46,18 @@ $(document).ready(function() {
 				"data": "tblService.OrderID"
 			},
 			{
-				"data": "tblCustOrders.OrderNo"          
+				"data": "tblCustOrders.OrderNo"         
 			}
 		],
 		select: true,
 		responsive: true,
-		buttons: [
+		buttons: [ 
 			{
                 text: 'New',
-				className: 'newBtn', 
+				attr: {
+					id: 'newBtn',
+					onclick: "getSecurityCode();return false;"      
+				},
                 action: function ( e, dt, node, config ) {
                     window.location='../servicereports.php';
                 }
