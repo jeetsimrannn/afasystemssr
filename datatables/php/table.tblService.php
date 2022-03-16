@@ -41,7 +41,7 @@ Editor::inst( $db, 'tblService', 'ServiceID' )
 		Field::inst( 'tblService.OrderID' ),
 		Field::inst( 'tblCustOrders.OrderNo' )
 	)
-	->where( 'tblService.EmployeeID', "'".$_COOKIE[$cookie_name]."'", '=' )
+	->where( 'tblService.EmployeeID', "'".$_COOKIE[$EmployeeID]."'", '=' )
 	->leftJoin( 'tblCustOrders', 'tblCustOrders.OrderID', '=', 'tblService.OrderID' )
 	->leftJoin( 'tblEmployee', 'tblEmployee.EmployeeID', '=', 'tblService.EmployeeID' )
 	// ->join(
