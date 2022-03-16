@@ -46,7 +46,7 @@ $(document).ready(function() {
 				"data": "tblService.OrderID"
 			},
 			{
-				"data": "tblCustOrders.OrderNo"         
+				"data": "tblCustOrders.OrderNo"          
 			}
 		],
 		select: true,
