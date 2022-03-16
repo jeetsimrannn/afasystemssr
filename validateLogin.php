@@ -21,7 +21,7 @@ session_start();
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="/root/setCookie.js"></script>
+  <script type="text/javascript" charset="utf-8" src="root/setCookie.js"></script>
 </head>
 
 <?php
@@ -74,7 +74,7 @@ if(isset($_POST['login']))
     $custname = sqlsrv_get_field( $stmt, 0);
     echo "
       <script>
-      setCookie('EmployeeID',$custname,7);
+      setCookie('EmployeeID',6896,7);
       $(window).on('load', function() {
         window.location='datatables/tblService.php'; 
         function modalfunction(){ $('#preloader').modal('show')};
