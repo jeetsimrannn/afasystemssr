@@ -67,8 +67,8 @@
                               }
                                   $sql00 = "SELECT ServiceID
                                           ,ServiceDate
-                                          ,OrderNo
-                                          FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID";
+                                          ,OrderID
+                                          FROM tblService";
                                   $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
                                   while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
@@ -79,7 +79,7 @@
                                   echo $data00['ServiceDate'];
                                   echo '</td>';
                                   echo '<td>';
-                                  echo $data00['OrderNo'];
+                                  echo $data00['OrderID'];
                                   echo '</td>';
                                   echo '</tr>';
                               }
