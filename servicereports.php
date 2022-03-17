@@ -78,6 +78,32 @@ session_start();
 
     
 ?>
+<?php
+                              $serverName = 'tcp:teamoffline.database.windows.net,1433';
+                              $uid = 'sim1999';
+                              $pwd = 'simran@99';
+                              $databaseName = 'TEAMOffline';
+
+                              $connectionInfo = array( 'UID'=>$uid,
+                                                      'PWD'=>$pwd,
+                                                      'Database'=>$databaseName);
+
+                              $conn = sqlsrv_connect($serverName,$connectionInfo);
+                              if($conn){
+                                  echo '';
+                              }else{
+                                  echo 'Connection failure<br />';
+                              die(print_r(sqlsrv_errors(),TRUE));
+                              }
+                                  $sql00 = "SELECT * FROM tblService";
+                                  $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
+                                  while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
+                                 
+                                  echo $data00['ServiceID'];
+                                  echo $data00['EmployeeID'];
+                                  echo $data00['OrderID'];
+                              }
+                      ?>
 
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_newSR.php'; ?>
