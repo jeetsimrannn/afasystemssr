@@ -53,14 +53,13 @@
           </div>
 
           <table id="fresh-table" class="table">
-            <thead>
+            <!-- <thead>
               <th data-field="id"> Service ID</th>
               <th data-field="servicesate" data-sortable="true">Service Date</th>
               <th data-field="orderno" data-sortable="true">Order No</th>
               <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
-            </thead>
+            </thead> -->
             <tbody>
-            
             <?php
                             $serverName = 'tcp:teamoffline.database.windows.net,1433';
                             $uid = 'sim1999';
