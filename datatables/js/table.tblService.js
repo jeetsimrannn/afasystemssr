@@ -61,7 +61,7 @@ $(document).ready(function() {
             },
 			{
                 text: 'Update',
-                action: function ( e, dt, node, config ) {
+                action: function ( f, dt, node, config ) {
 					$.session.set('SRStatus', '1');
                     window.location='../servicereports.php';
                 }
