@@ -54,11 +54,9 @@
 
           <table id="fresh-table" class="table">
             <thead>
-              <th data-field="id">ID</th>
-              <th data-field="name" data-sortable="true">Name</th>
-              <th data-field="salary" data-sortable="true">Salary</th>
-              <th data-field="country" data-sortable="true">Country</th>
-              <th data-field="city">City</th>
+              <th data-field="id"> Service ID</th>
+              <th data-field="servicesate" data-sortable="true">Service Date</th>
+              <th data-field="orderno" data-sortable="true">Order No</th>
               <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
             </thead>
             <tbody>
