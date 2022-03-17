@@ -55,14 +55,14 @@ $(document).ready(function() {
 			{
                 text: 'New',
                 action: function ( e, dt, node, config ) {
-					setSRSCookie("SRStatus", 0, 7);
+					$.session.set('SRStatus', '0');
                     window.location='../servicereports.php';
                 }
             },
 			{
                 text: 'Update',
                 action: function ( e, dt, node, config ) {
-					setSRSCookie("SRStatus", 1, 7);
+					$.session.set('SRStatus', '1');
                     window.location='../servicereports.php';
                 }
             },

@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['SRStatus'] = "";
 ?>
 <!doctype html>
 <html>
@@ -62,7 +63,6 @@ session_start();
 				// Retrieving row fields by name is not supported by sqlsrv_get_field.
 				$FirstName = sqlsrv_get_field( $stmt, 0);
 				echo $FirstName." ";
-				$_SESSION['name'] = $FirstName;
 
 				$LastName = sqlsrv_get_field( $stmt, 1);
 				echo $LastName;
