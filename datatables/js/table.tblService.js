@@ -55,7 +55,7 @@ $(document).ready(function() {
 			{
                 text: 'New',
                 action: function ( e, dt, node, config ) {
-					$.session.set('SRStatus', '0');
+					// $.session.set('SRStatus', '0');
                     window.location='../servicereports.php';
                 }
             },
