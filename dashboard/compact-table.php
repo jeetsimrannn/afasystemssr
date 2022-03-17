@@ -76,19 +76,14 @@
                                   echo 'Connection failure<br />';
                               die(print_r(sqlsrv_errors(),TRUE));
                               }
-                                  $sql00 = "SELECT ServiceID,EmployeeID,OrderNo FROM dbo.tblService";
+                                  $sql00 = "SELECT ServiceID,ServiceDate, OrderNo FROM tblService INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID";
                                   $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
                                   while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
-                                  echo '<td>';
-                                  echo $data00['ServiceID'];
-                                  echo '</td>';
-                                  echo '<td>';
-                                  echo $data00['EmployeeID'];
-                                  echo '</td>';
-                                  echo '<td>';
-                                  echo $data00['OrderID'];
-                                  echo '</td>';
+                                  echo '<td>'.$data00['ServiceID'].'</td>';
+                                  echo '<td>'.$data00['ServiceDate'].'</td>';
+                                  echo '<td>'.$data00['OrderNo'].'</td>';
+                                  echo '<td></td>';
                                   echo '</tr>';
                               }
                       ?>
