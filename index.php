@@ -16,7 +16,7 @@ html, body {
   height: 100%;
   overflow: hidden
 }
-</style>
+</style> 
 
 <link rel="stylesheet" href="assets\css\style.css"/>
 
