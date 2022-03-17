@@ -76,14 +76,13 @@
                                   echo 'Connection failure<br />';
                               die(print_r(sqlsrv_errors(),TRUE));
                               }
-                                  $sql00 = "SELECT * FROM dbo.tblService";
+                                  $sql00 = "SELECT ServiceID,EmployeeID,OrderNo FROM dbo.tblService";
                                   $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
                                   while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
                                   echo '<td>'.$data00['ServiceID'].'</td>';
-                                  echo '<td>'.$data00['ServiceDate'].'</td>';
+                                  echo '<td>'.$data00['EmployeeID'].'</td>';
                                   echo '<td>'.$data00['OrderID'].'</td>';
-                                  echo '<td></td>';
                                   echo '</tr>';
                               }
                       ?>
