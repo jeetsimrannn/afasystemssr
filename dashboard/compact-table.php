@@ -36,43 +36,94 @@
 			</nav>
 </header><!-- End Header -->
 <table>
-<thead>
-              <th> Service ID</th>
-              <th>Service Date</th>
-              <th>Order No</th>
-</thead>
-<tbody>
-<?php
-                            $serverName = 'tcp:teamoffline.database.windows.net,1433';
-                            $uid = 'sim1999';
-                            $pwd = 'simran@99';
-                            $databaseName = 'TEAMOffline';
+  <thead>
+                <th> Service ID</th>
+                <th>Service Date</th>
+                <th>Order No</th>
+  </thead>
+  <tbody>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  
+       <?php
+                              // $serverName = 'tcp:teamoffline.database.windows.net,1433';
+                              // $uid = 'sim1999';
+                              // $pwd = 'simran@99';
+                              // $databaseName = 'TEAMOffline';
 
-                            $connectionInfo = array( 'UID'=>$uid,
-                                                    'PWD'=>$pwd,
-                                                    'Database'=>$databaseName);
+                              // $connectionInfo = array( 'UID'=>$uid,
+                              //                         'PWD'=>$pwd,
+                              //                         'Database'=>$databaseName);
 
-                            $conn = sqlsrv_connect($serverName,$connectionInfo);
-                            if($conn){
-                                echo '';
-                            }else{
-                                echo 'Connection failure<br />';
-                            die(print_r(sqlsrv_errors(),TRUE));
-                            }
-                                $sql = "SELECT ServiceID
-                                        ,ServiceDate
-                                        ,OrderNo
-                                        FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID";
-                                $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-                                while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                echo '<tr>';
-                                echo '<td>'.$data['ServiceID'].'</td>';
-                                echo '<td>'.$data['ServiceDate'].'</td>';
-                                echo '<td>'.$data['OrderNo'].'</td>';
-                                echo '</tr>';
-                            }
-              ?>
-</tbody>
+                              // $conn = sqlsrv_connect($serverName,$connectionInfo);
+                              // if($conn){
+                              //     echo '';
+                              // }else{
+                              //     echo 'Connection failure<br />';
+                              // die(print_r(sqlsrv_errors(),TRUE));
+                              // }
+                              //     $sql = "SELECT ServiceID
+                              //             ,ServiceDate
+                              //             ,OrderNo
+                              //             FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID";
+                              //     $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
+                              //     while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
+                              //     echo '<tr>';
+                              //     echo '<td>'$data['ServiceID'].'</td>';
+                              //     echo '<td>'.$data['ServiceDate'].'</td>';
+                              //     echo '<td>'.$data['OrderNo'].'</td>';
+                              //     echo '</tr>';
+                              // }
+      ?>
+  </tbody>
 </table>
 
 <div class="wrapper">
