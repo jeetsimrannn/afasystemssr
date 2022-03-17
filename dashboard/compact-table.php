@@ -70,18 +70,18 @@
                                           ,OrderNo
                                           FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID";
                                   $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
-                                  while ($data=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
+                                  while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
                                   echo '<td>';
-                                  echo $data['ServiceID'];
+                                  echo $data00['ServiceID'];
                                   echo '</td>';
                                   echo '<td>';
-                                  echo $data['ServiceDate'];
+                                  echo $data00['ServiceDate'];
                                   echo '</td>';
                                   echo '<td>';
-                                  echo $data['OrderNo'];
+                                  echo $data00['OrderNo'];
                                   echo '</td>';
-                                  echo '</tr>'; 
+                                  echo '</tr>';
                               }
       ?>
   </tbody>
