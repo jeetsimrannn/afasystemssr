@@ -94,34 +94,34 @@
   </tr>
   
        <?php
-                              // $serverName = 'tcp:teamoffline.database.windows.net,1433';
-                              // $uid = 'sim1999';
-                              // $pwd = 'simran@99';
-                              // $databaseName = 'TEAMOffline';
+                              $serverName = 'tcp:teamoffline.database.windows.net,1433';
+                              $uid = 'sim1999';
+                              $pwd = 'simran@99';
+                              $databaseName = 'TEAMOffline';
 
-                              // $connectionInfo = array( 'UID'=>$uid,
-                              //                         'PWD'=>$pwd,
-                              //                         'Database'=>$databaseName);
+                              $connectionInfo = array( 'UID'=>$uid,
+                                                      'PWD'=>$pwd,
+                                                      'Database'=>$databaseName);
 
-                              // $conn = sqlsrv_connect($serverName,$connectionInfo);
-                              // if($conn){
-                              //     echo '';
-                              // }else{
-                              //     echo 'Connection failure<br />';
-                              // die(print_r(sqlsrv_errors(),TRUE));
-                              // }
-                              //     $sql = "SELECT ServiceID
-                              //             ,ServiceDate
-                              //             ,OrderNo
-                              //             FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID";
-                              //     $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-                              //     while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                              //     echo '<tr>';
-                              //     echo '<td>'$data['ServiceID'].'</td>';
-                              //     echo '<td>'.$data['ServiceDate'].'</td>';
-                              //     echo '<td>'.$data['OrderNo'].'</td>';
-                              //     echo '</tr>';
-                              // }
+                              $conn = sqlsrv_connect($serverName,$connectionInfo);
+                              if($conn){
+                                  echo '';
+                              }else{
+                                  echo 'Connection failure<br />';
+                              die(print_r(sqlsrv_errors(),TRUE));
+                              }
+                                  $sql00 = "SELECT ServiceID
+                                          ,ServiceDate
+                                          ,OrderNo
+                                          FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID";
+                                  $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
+                                  while ($data=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
+                                  echo '<tr>';
+                                  echo '<td>4</td>';
+                                  echo '<td>5</td>';
+                                  echo '<td>6</td>';
+                                  echo '</tr>';
+                              }
       ?>
   </tbody>
 </table>
