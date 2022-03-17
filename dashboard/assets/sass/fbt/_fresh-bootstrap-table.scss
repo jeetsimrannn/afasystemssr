@@ -394,6 +394,7 @@
            > thead > tr > th,
            > tbody > tr > td,
            > tfoot > tr > td{
+            white-space: nowrap;
                padding: 12px 8px !important;
                vertical-align: middle;
            }
