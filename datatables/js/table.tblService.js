@@ -59,13 +59,13 @@ $(document).ready(function() {
                     window.location='../servicereports.php';
                 }
             },
-			{
-                text: 'Update',
-                action: function ( f, dt, node, config ) {
-					$.session.set('SRStatus', '1');
-                    window.location='../servicereports.php';
-                }
-            },
+			// {
+            //     text: 'Update',
+            //     action: function ( f, dt, node, config ) {
+			// 		$.session.set('SRStatus', '1');
+            //         window.location='../servicereports.php';
+            //     }
+            // },
 			// { extend: 'create', editor: editor },
 			{ extend: 'edit',   editor: editor },
 			{ extend: 'remove', editor: editor },
