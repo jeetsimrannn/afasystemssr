@@ -173,6 +173,12 @@ $_SESSION['SRStatus'] = "";
             var rowData = table.row('.selected').data();
             console.log(rowData);
         });
+
+        $(".details-control").each(function() {
+            $(this).click(function(){
+                table.rows('.parent').nodes().to$().find('.details-control').not(this).trigger('click');
+            });
+        });
     } );
   </script>
   
