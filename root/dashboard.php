@@ -131,10 +131,8 @@ $_SESSION['SRStatus'] = "";
 } );
   </script>
   
-<script>
+<!-- <script>
   $(document).ready(function() {
-    // $('#tblService_wrapper tr:first-child').remove();
-    // $('#tblService_wrapper div .col-md-6').remove();
     $("#tblService_wrapper div .col-md-6").html("<h1>Hello, World!</h1>");
 } );
-</script>
+</script> -->
