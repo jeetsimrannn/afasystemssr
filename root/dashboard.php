@@ -71,9 +71,11 @@ $_SESSION['SRStatus'] = "";
 			?>!
 </h5>
 
-          <div class="toolbar">
-            <button id="alertBtn" class="btn btn-default">Alert</button>
-          </div>
+    <div class="toolbar">
+        <button type="button" id="new" class="btn btn-outline-primary">New</button>
+        <button type="button" id="update" class="btn btn-outline-primary">Update</button>
+        <button type="button" id="delete" class="btn btn-outline-primary">Delete</button>
+    </div>
     
     <div class="container">
           <table id="tblService" class="table table-striped table-bordered nowrap" style="width:100%">
@@ -127,6 +129,20 @@ $_SESSION['SRStatus'] = "";
   $(document).ready(function() {
     var table = $('#tblService').DataTable( {
         responsive: true
+    } );
+
+    $('#example tbody').on( 'click', 'tr', function () {
+        if ( $(this).hasClass('selected') ) {
+            $(this).removeClass('selected');
+        }
+        else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).addClass('selected');
+        }
+    } );
+ 
+    $('#button').click( function () {
+        table.row('.selected').remove().draw( false );
     } );
 } );
   </script>
