@@ -73,7 +73,7 @@ $_SESSION['SRStatus'] = "";
 
     <div class="toolbar">
         <button type="button" id="new" class="btn btn-outline-primary">New</button>
-        <button type="button" id="update" class="btn btn-outline-primary">Update</button>
+        <button type="button" id="update" class="btn btn-outline-primary disabled" aria-disabled="true">Update</button>
         <button type="button" id="delete" class="btn btn-outline-primary">Delete</button>
     </div>
     
@@ -111,7 +111,7 @@ $_SESSION['SRStatus'] = "";
                     while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                     echo '<tr>';
                     echo '<td>'.$data00['ServiceID'].'</td>';
-                    echo '<td>'.date_format($data00['ServiceDate'], 'M, j Y').'</td>';
+                    echo '<td>'.date_format($data00['ServiceDate'], 'M j Y').'</td>';
                     echo '<td>'.$data00['OrderNo'].'</td>';
                     echo '<td>'.$data00['CustomerName'].'</td>';
                     // echo '<td></td>';
@@ -127,24 +127,26 @@ $_SESSION['SRStatus'] = "";
 
 <script>
   $(document).ready(function() {
-    var table = $('#tblService').DataTable( {
-        responsive: true
-    } );
+        var table = $('#tblService').DataTable( {
+            responsive: true
+        } );
 
-    $('#example tbody').on( 'click', 'tr', function () {
-        if ( $(this).hasClass('selected') ) {
-            $(this).removeClass('selected');
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
+        $('#tblService tbody').on( 'click', 'tr', function () {
+            if ( $(this).hasClass('selected') ) {
+                $(this).removeClass('selected');
+                $("#update").attr("aria-disabled", true);
+            }
+            else {
+                table.$('tr.selected').removeClass('selected');
+                $(this).addClass('selected');
+                $("#update").attr("aria-disabled", false);
+            }
+        } );
+    
+        $('#update').click( function () {
+            table.row('.selected').remove().draw( false );
+        } );
     } );
- 
-    $('#button').click( function () {
-        table.row('.selected').remove().draw( false );
-    } );
-} );
   </script>
   
 <!-- <script>
