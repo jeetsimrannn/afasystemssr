@@ -153,9 +153,6 @@ $_SESSION['SRStatus'] = "";
                 $("#delete").removeClass('disabled');
                 $("#delete").removeClass('btn-secondary');
                 $("#delete").addClass('btn-primary');
-
-                var rowData = table.row.data();
-                console.log(rowData);
             }
         } );
     
@@ -171,6 +168,11 @@ $_SESSION['SRStatus'] = "";
             Cookies.set("SRStatus", 1, { expires: 7, path: '/' });
             // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
+        });
+
+        $('#delete').click( function () {
+            var rowData = table.row.('.selected').data();
+            console.log(rowData);
         });
 
         // table.on( 'select', function () {
