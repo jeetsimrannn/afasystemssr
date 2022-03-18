@@ -77,7 +77,7 @@ if(isset($_POST['login']))
     echo "
       <script>
       $(window).on('load', function() {
-        window.location='datatables/tblService.php'; 
+        window.location='root/dashboard.php'; 
         function modalfunction(){ $('#preloader').modal('show')};
         //for use in production please remove this setTimeOut
         setTimeout(function(){ 
