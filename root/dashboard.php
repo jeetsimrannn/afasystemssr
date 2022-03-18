@@ -153,6 +153,9 @@ $_SESSION['SRStatus'] = "";
                 $("#delete").removeClass('disabled');
                 $("#delete").removeClass('btn-secondary');
                 $("#delete").addClass('btn-primary');
+
+                var rowData = table.rows( { selected: true } ).data();
+                console.log(rowData);
             }
         } );
     
@@ -170,10 +173,10 @@ $_SESSION['SRStatus'] = "";
             window.location = "../servicereports.php";
         });
 
-        table.on( 'select', function () {
-            	var rowData = table.rows( { selected: true } ).data();
-                console.log(rowData);
-        } );
+        // table.on( 'select', function () {
+        //     	var rowData = table.rows( { selected: true } ).data();
+        //         console.log(rowData);
+        // } );
     } );
   </script>
   
