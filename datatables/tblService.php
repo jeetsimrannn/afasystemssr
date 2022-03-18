@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['SRStatus'] = "";
+// $_SESSION['SRStatus'] = "";
 ?>
 <!doctype html>
 <html>
