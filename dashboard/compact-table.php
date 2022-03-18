@@ -70,6 +70,7 @@
               <th data-field="serviceid" data-sortable="true">Service ID</th>
               <th data-field="servicedate" data-sortable="true">Service Date</th>
               <th data-field="ordeerno" data-sortable="true">Order No</th>
+              <th data-field="customername" data-sortable="true">Order No</th>
               <!-- <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th> -->
             </thead>
             <tbody>
@@ -90,13 +91,16 @@
                                   echo 'Connection failure<br />';
                               die(print_r(sqlsrv_errors(),TRUE));
                               }
-                                  $sql00 = "SELECT * FROM dbo.tblService INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID";
+                                  $sql00 = "SELECT * FROM dbo.tblService 
+                                            INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID 
+                                            INNER JOIN dbo.tblCustomers ON dbo.tblCustOrders.CustID = dbo.tblCustomers.CustID ";
                                   $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
                                   while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
                                   echo '<td>'.$data00['ServiceID'].'</td>';
                                   echo '<td>'.date_format($data00['ServiceDate'], 'M j Y').'</td>';
                                   echo '<td>'.$data00['OrderNo'].'</td>';
+                                  echo '<td>'.$data00['CustomerName'].'</td>';
                                   // echo '<td></td>';
                                   echo '</tr>' ;
                               }
