@@ -39,7 +39,7 @@ $_SESSION['SRStatus'] = "";
 			</nav>
 </header><!-- End Header -->
 
-<h5 class="my-3">Welcome 
+<h5 class="my-3 container">Welcome 
 			<?php
 				$serverName = "tcp:teamoffline.database.windows.net,1433";
 				$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
