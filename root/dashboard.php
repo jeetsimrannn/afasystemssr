@@ -168,6 +168,11 @@ $_SESSION['SRStatus'] = "";
             // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
+
+        $('#delete').click( function () {
+            var rowData = table.row('.selected').data();
+            console.log(rowData);
+        });
     } );
   </script>
   
