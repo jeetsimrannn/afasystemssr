@@ -161,7 +161,6 @@ $_SESSION['SRStatus'] = "";
             // setcookie("SRStatus", 0, time()+3600, '/');
             window.location = "../servicereports.php";
             // table.row('.selected').remove().draw( false );
-            
         });
 
         $('#update').click( function () {
@@ -169,16 +168,13 @@ $_SESSION['SRStatus'] = "";
             // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
-
-        $('#delete').click( function () {
+        
+        $('#new').click( function () {
             var rowData = table.row.('.selected').data();
             console.log(rowData);
         });
-
-        // table.on( 'select', function () {
-        //     	var rowData = table.rows( { selected: true } ).data();
-        //         console.log(rowData);
-        // } );
+        
+        
     } );
   </script>
   
