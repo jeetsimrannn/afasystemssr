@@ -76,31 +76,6 @@ session_start();
     
     echo $_SESSION['SRStatus'];
 
-    
-?>
-<?php
-                            $serverName = 'tcp:teamoffline.database.windows.net,1433';
-                            $uid = 'sim1999';
-                            $pwd = 'simran@99';
-                            $databaseName = 'TEAMOffline';
-
-                            $connectionInfo = array( 'UID'=>$uid,
-                                                    'PWD'=>$pwd,
-                                                    'Database'=>$databaseName);
-
-                            $conn = sqlsrv_connect($serverName,$connectionInfo);
-                            if($conn){
-                                echo '';
-                            }else{
-                                echo 'Connection failure<br />';
-                            die(print_r(sqlsrv_errors(),TRUE));
-                            }
-                                $sql = "SELECT * FROM dbo.tblServiceExpenses";
-                                $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-                                while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-                                echo $data['ExpenseID'];
-                                echo $data['ExpenseType']; 
-                            }
 ?>
 
 <?php require 'utilities/header.php'; ?>

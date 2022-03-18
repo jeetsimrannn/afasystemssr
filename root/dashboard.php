@@ -155,9 +155,16 @@ $_SESSION['SRStatus'] = "";
             }
         } );
     
+        $('#new').click( function () {
+            <?php $_SESSION['SRStatus'] = "0";?>
+            window.location = "../servicereports.php";
+            // table.row('.selected').remove().draw( false );
+        });
+
         $('#update').click( function () {
-            table.row('.selected').remove().draw( false );
-        } );
+            <?php $_SESSION['SRStatus'] = "1";?>
+            window.location = "../servicereports.php";
+        });
     } );
   </script>
   
