@@ -122,7 +122,11 @@ $_SESSION['SRStatus'] = "";
     </div>
 </body>
 </html>
-
+<script>
+  $(document).ready(function() {
+    $("#dataTables_length").html("<div class='toolbar container' style='margin-bottom: 0.5rem;'><button type='button' id='new' class='btn btn-primary'>New</button><button type='button' id='update' class='btn btn-secondary disabled'>Update</button><button type='button' id='delete' class='btn btn-secondary disabled'>Delete</button></div>");
+    });
+</script>
 
 <script>
   $(document).ready(function() {
@@ -167,12 +171,3 @@ $_SESSION['SRStatus'] = "";
     } );
   </script>
   
-<script>
-  $(document).ready(function() {
-    $("#dataTables_length").html("<div class="toolbar container" style="margin-bottom: 0.5rem;">
-                                                    <button type="button" id="new" class="btn btn-primary">New</button>
-                                                    <button type="button" id="update" class="btn btn-secondary disabled">Update</button>
-                                                    <button type="button" id="delete" class="btn btn-secondary disabled">Delete</button>
-                                                </div>");
-} );
-</script>
