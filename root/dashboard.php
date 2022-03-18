@@ -71,9 +71,9 @@ $_SESSION['SRStatus'] = "";
 </h5>
 
     <div class="toolbar container" style="margin-bottom: 0.5rem;">
-        <button type="button" id="new" class="btn btn-outline-primary">New</button>
-        <button type="button" id="update" class="btn btn-outline-primary disabled">Update</button>
-        <button type="button" id="delete" class="btn btn-outline-primary">Delete</button>
+        <button type="button" id="new" class="btn btn-primary">New</button>
+        <button type="button" id="update" class="btn btn-secondary disabled">Update</button>
+        <button type="button" id="delete" class="btn btn-secondary disabled">Delete</button>
     </div>
     
     <div class="container">
@@ -134,11 +134,23 @@ $_SESSION['SRStatus'] = "";
             if ( $(this).hasClass('selected') ) {
                 $(this).removeClass('selected');
                 $("#update").addClass('disabled');
+                $("#update").removeClass('btn-primary');
+                $("#update").addClass('btn-secondary');
+
+                $("#delete").addClass('disabled');
+                $("#delete").removeClass('btn-primary');
+                $("#delete").addClass('btn-secondary');
             }
             else {
                 table.$('tr.selected').removeClass('selected');
                 $(this).addClass('selected');
                 $("#update").removeClass('disabled');
+                $("#update").removeClass('btn-secondary');
+                $("#update").addClass('btn-primary');
+                
+                $("#delete").removeClass('disabled');
+                $("#delete").removeClass('btn-secondary');
+                $("#delete").addClass('btn-primary');
             }
         } );
     
