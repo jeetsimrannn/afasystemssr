@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['SRStatus'] = "";
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,7 +12,7 @@
   <meta name="msapplication-TileImage" content="https://www.afasystemsinc.com/wp-content/uploads/2019/12/cropped-AFA_favicon-01-270x270.png" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Fresh Bootstrap Table by Creative Tim</title>
+  <title>Service Expense Reports</title>
 
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 
@@ -43,11 +47,43 @@
 			</nav>
 </header><!-- End Header -->
 
+<h5 class="my-3">Welcome 
+			<?php
+				$serverName = "tcp:teamoffline.database.windows.net,1433";
+				$connectionInfo = array( "Database"=>"TEAMOffline", "UID"=>"sim1999", "PWD"=>"simran@99");
+				$conn = sqlsrv_connect( $serverName, $connectionInfo);
+				if( $conn === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				$sql = "SELECT FirstName,LastName FROM dbo.tblEmployee where TEAMUserName ='".$_SESSION['user']."'";
+                            
+				$stmt = sqlsrv_query( $conn, $sql);
+				if( $stmt === false ) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+				
+				// Make the first (and in this case, only) row of the result set available for reading.
+				if( sqlsrv_fetch( $stmt ) === false) {
+					die( print_r( sqlsrv_errors(), true));
+				}
+
+				// Get the row fields. Field indices start at 0 and must be retrieved in order.
+				// Retrieving row fields by name is not supported by sqlsrv_get_field.
+				$FirstName = sqlsrv_get_field( $stmt, 0);
+				echo $FirstName." ";
+
+				$LastName = sqlsrv_get_field( $stmt, 1);
+				echo $LastName;
+			?>!
+</h5>
+
           <div class="toolbar">
             <button id="alertBtn" class="btn btn-default">Alert</button>
           </div>
-
-          <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
+    
+    <div class="container">
+          <table id="tblService" class="table table-striped table-bordered nowrap" style="width:100%">
             <thead>
               <th data-field="serviceid" data-sortable="true">Service ID</th>
               <th data-field="servicedate" data-sortable="true">Service Date</th>
@@ -89,89 +125,13 @@
             ?>
             </tbody>
         </table>
+    </div>
 </body>
-
-  <script type="text/javascript">
-    var $table = $('#fresh-table')
-    var $alertBtn = $('#alertBtn')
-
-    window.operateEvents = {
-      'click .like': function (e, value, row, index) {
-        alert('You click like icon, row: ' + JSON.stringify(row))
-        console.log(value, row, index)
-      },
-      'click .edit': function (e, value, row, index) {
-        alert('You click edit icon, row: ' + JSON.stringify(row))
-        console.log(value, row, index)
-      },
-      'click .remove': function (e, value, row, index) {
-        $table.bootstrapTable('remove', {
-          field: 'id',
-          values: [row.id]
-        })
-      }
-    }
-
-    function operateFormatter(value, row, index) {
-      return [
-        '<a rel="tooltip" title="Like" class="table-action like" href="javascript:void(0)" title="Like">',
-          '<i class="fa fa-heart"></i>',
-        '</a>',
-        '<a rel="tooltip" title="Edit" class="table-action edit" href="javascript:void(0)" title="Edit">',
-          '<i class="fa fa-edit"></i>',
-        '</a>',
-        '<a rel="tooltip" title="Remove" class="table-action remove" href="javascript:void(0)" title="Remove">',
-          '<i class="fa fa-remove"></i>',
-        '</a>'
-      ].join('')
-    }
-
-    $(function () {
-      $table.bootstrapTable({
-        classes: 'table table-hover table-striped',
-        toolbar: '.toolbar',
-
-        search: true,
-        showRefresh: true,
-        showToggle: true,
-        showColumns: true,
-        pagination: true,
-        striped: true,
-        sortable: true,
-        pageSize: 8,
-        pageList: [8, 10, 25, 50, 100],
-
-        formatShowingRows: function (pageFrom, pageTo, totalRows) {
-          return ''
-        },
-        formatRecordsPerPage: function (pageNumber) {
-          return pageNumber + ' rows visible'
-        }
-      })
-
-      $alertBtn.click(function () {
-        alert('You pressed on Alert')
-      })
-    })
-
-
-  </script>
-
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga')
-
-    ga('create', 'UA-46172202-1', 'auto')
-    ga('send', 'pageview')
-
-  </script>
-
 </html>
+
 <script>
   $(document).ready(function() {
-    var table = $('#example').DataTable( {
+    var table = $('#tblService').DataTable( {
         responsive: true
     } );
  
