@@ -154,7 +154,7 @@ $_SESSION['SRStatus'] = "";
                 $("#delete").removeClass('btn-secondary');
                 $("#delete").addClass('btn-primary');
 
-                var rowData = table.rows( { selected: true } ).data();
+                var rowData = table.row.data();
                 console.log(rowData);
             }
         } );
