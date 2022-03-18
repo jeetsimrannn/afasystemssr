@@ -42,7 +42,8 @@ $_SESSION['SRStatus'] = "";
 					</a>
 				</div>
 			</nav>
-	</header><!-- End Header -->
+	</header>
+	<!-- End Header -->
 		<h5 class="my-3">Welcome 
 			<?php
 				$serverName = "tcp:teamoffline.database.windows.net,1433";
@@ -71,7 +72,6 @@ $_SESSION['SRStatus'] = "";
 
 				$LastName = sqlsrv_get_field( $stmt, 1);
 				echo $LastName;
-				
 			?>!
 		</h5>
 		<div class="container">
