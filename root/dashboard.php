@@ -128,7 +128,6 @@ $_SESSION['SRStatus'] = "";
   $(document).ready(function() {
         var table = $('#tblService').DataTable( {
             responsive: true,
-            "lengthChange": false
         } );
 
         $('#tblService tbody').on( 'click', 'tr', function () {
