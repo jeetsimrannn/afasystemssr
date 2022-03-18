@@ -84,6 +84,10 @@ h5 span {
 	line-height: 1em;
 }
 
+.pagination{
+  padding-top: 0.85em;
+}
+
 .page-item.active .page-link {
   background-color: #00000080;
 }
