@@ -70,11 +70,11 @@ $_SESSION['SRStatus'] = "";
 			?>!
 </h5>
 
-    <!-- <div class="toolbar container" style="margin-bottom: 0.5rem;">
+    <div class="toolbar container" style="margin-bottom: 0.5rem;">
         <button type="button" id="new" class="btn btn-primary">New</button>
         <button type="button" id="update" class="btn btn-secondary disabled">Update</button>
         <button type="button" id="delete" class="btn btn-secondary disabled">Delete</button>
-    </div> -->
+    </div>
     
     <div class="container">
           <table id="tblService" class="table table-striped table-bordered nowrap" style="width:100%">
@@ -122,16 +122,13 @@ $_SESSION['SRStatus'] = "";
     </div>
 </body>
 </html>
-<script>
-  $(document).ready(function() {
-    $(".dataTables_length").html("<div class='toolbar container' style='margin-bottom: 0.5rem;'><button type='button' id='new' class='btn btn-primary'>New</button><button type='button' id='update' class='btn btn-secondary disabled'>Update</button><button type='button' id='delete' class='btn btn-secondary disabled'>Delete</button></div>");
-    });
-</script>
+
 
 <script>
   $(document).ready(function() {
         var table = $('#tblService').DataTable( {
             responsive: true,
+            "lengthChange": false
         } );
 
         $('#tblService tbody').on( 'click', 'tr', function () {
@@ -159,15 +156,20 @@ $_SESSION['SRStatus'] = "";
         } );
     
         $('#new').click( function () {
-            <?php $_SESSION['SRStatus'] = "0";?>
+            setcookie("SRStatus", 0, time()+3600, '/');
             window.location = "../servicereports.php";
             // table.row('.selected').remove().draw( false );
         });
 
         $('#update').click( function () {
-            <?php $_SESSION['SRStatus'] = "1";?>
+            setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
     } );
   </script>
   
+<!-- <script>
+  $(document).ready(function() {
+    $("#tblService_wrapper div .col-md-6").html("<h1>Hello, World!</h1>");
+} );
+</script> -->
