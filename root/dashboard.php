@@ -125,7 +125,7 @@ $_SESSION['SRStatus'] = "";
 <script>
   $(document).ready(function() {
     // $('#tblService_wrapper tr:first-child').remove();
-    jQuery('#tblService_wrapper div').html('');
+    jQuery('#tblService_wrapper div').empty();
 } );
 </script>
 
