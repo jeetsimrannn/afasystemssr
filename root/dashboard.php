@@ -70,7 +70,7 @@ $_SESSION['SRStatus'] = "";
 			?>!
 </h5>
 
-    <div class="toolbar">
+    <div class="toolbar container" style="margin-bottom: 0.5rem;">
         <button type="button" id="new" class="btn btn-outline-primary">New</button>
         <button type="button" id="update" class="btn btn-outline-primary disabled">Update</button>
         <button type="button" id="delete" class="btn btn-outline-primary">Delete</button>
