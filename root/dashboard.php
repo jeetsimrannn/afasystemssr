@@ -70,11 +70,11 @@ $_SESSION['SRStatus'] = "";
 			?>!
 </h5>
 
-    <div class="toolbar container" style="margin-bottom: 0.5rem;">
+    <!-- <div class="toolbar container" style="margin-bottom: 0.5rem;">
         <button type="button" id="new" class="btn btn-primary">New</button>
         <button type="button" id="update" class="btn btn-secondary disabled">Update</button>
         <button type="button" id="delete" class="btn btn-secondary disabled">Delete</button>
-    </div>
+    </div> -->
     
     <div class="container">
           <table id="tblService" class="table table-striped table-bordered nowrap" style="width:100%">
@@ -167,8 +167,12 @@ $_SESSION['SRStatus'] = "";
     } );
   </script>
   
-<!-- <script>
+<script>
   $(document).ready(function() {
-    $("#tblService_wrapper div .col-md-6").html("<h1>Hello, World!</h1>");
+    $("#dataTables_length").html("<div class="toolbar container" style="margin-bottom: 0.5rem;">
+                                                    <button type="button" id="new" class="btn btn-primary">New</button>
+                                                    <button type="button" id="update" class="btn btn-secondary disabled">Update</button>
+                                                    <button type="button" id="delete" class="btn btn-secondary disabled">Delete</button>
+                                                </div>");
 } );
-</script> -->
+</script>
