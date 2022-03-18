@@ -169,7 +169,7 @@ $_SESSION['SRStatus'] = "";
             window.location = "../servicereports.php";
         });
         
-        $('#new').click( function () {
+        $('#delete').click( function () {
             var rowData = table.row.('.selected').data();
             console.log(rowData);
         });
