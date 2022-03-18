@@ -122,12 +122,6 @@ $_SESSION['SRStatus'] = "";
 </body>
 </html>
 
-<script>
-  $(document).ready(function() {
-    // $('#tblService_wrapper tr:first-child').remove();
-    $('#tblService_wrapper div .col-md-6').remove();
-} );
-</script>
 
 <script>
   $(document).ready(function() {
@@ -136,3 +130,10 @@ $_SESSION['SRStatus'] = "";
     } );
 } );
   </script>
+  
+<script>
+  $(document).ready(function() {
+    // $('#tblService_wrapper tr:first-child').remove();
+    $('#tblService_wrapper div .col-md-6').remove();
+} );
+</script>
