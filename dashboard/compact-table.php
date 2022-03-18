@@ -12,16 +12,30 @@
 
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.2/css/fixedHeader.bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdn.datatables.net/fixedheader/3.2.2/js/dataTables.fixedHeader.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+  <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
+
+
+  
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
   <link href="assets/css/fresh-bootstrap-table.css" rel="stylesheet" />
   <link href="assets/css/demo.css" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <!-- <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css"> -->
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table/dist/bootstrap-table.min.js"></script> -->
 
 
 </head>
@@ -51,12 +65,12 @@
             <button id="alertBtn" class="btn btn-default">Alert</button>
           </div>
 
-          <table id="fresh-table" class="table">
+          <table id="example" class="table table-striped table-bordered nowrap" style="width:100%">
             <thead>
               <th data-field="serviceid" data-sortable="true">Service ID</th>
               <th data-field="servicedate" data-sortable="true">Service Date</th>
               <th data-field="ordeerno" data-sortable="true">Order No</th>
-              <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
+              <!-- <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th> -->
             </thead>
             <tbody>
             <?php
@@ -83,7 +97,7 @@
                                   echo '<td>'.$data00['ServiceID'].'</td>';
                                   echo '<td>'.date_format($data00['ServiceDate'], 'M j Y').'</td>';
                                   echo '<td>'.$data00['OrderNo'].'</td>';
-                                  echo '<td></td>';
+                                  // echo '<td></td>';
                                   echo '</tr>' ;
                               }
                       ?>
@@ -176,3 +190,12 @@
   </script>
 
 </html>
+<script>
+  $(document).ready(function() {
+    var table = $('#example').DataTable( {
+        responsive: true
+    } );
+ 
+    new $.fn.dataTable.FixedHeader( table );
+} );
+  </script>
