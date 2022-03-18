@@ -127,7 +127,8 @@ $_SESSION['SRStatus'] = "";
 <script>
   $(document).ready(function() {
         var table = $('#tblService').DataTable( {
-            responsive: true
+            responsive: true,
+            "dom": 'frtip'
         } );
 
         $('#tblService tbody').on( 'click', 'tr', function () {
