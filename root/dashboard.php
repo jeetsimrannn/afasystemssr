@@ -124,6 +124,13 @@ $_SESSION['SRStatus'] = "";
 
 <script>
   $(document).ready(function() {
+    $('#tblService_wrapper tr:first-child').remove();
+    // jQuery('#masterdiv div').html('');
+} );
+</script>
+
+<script>
+  $(document).ready(function() {
     var table = $('#tblService').DataTable( {
         responsive: true
     } );
