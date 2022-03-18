@@ -109,7 +109,7 @@ $_SESSION['SRStatus'] = "";
                     while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                     echo '<tr>';
                     echo '<td>'.$data00['ServiceID'].'</td>';
-                    echo '<td>'.date_format($data00['ServiceDate'], 'M j Y').'</td>';
+                    echo '<td>'.date_format($data00['ServiceDate'], 'M, j Y').'</td>';
                     echo '<td>'.$data00['OrderNo'].'</td>';
                     echo '<td>'.$data00['CustomerName'].'</td>';
                     // echo '<td></td>';
