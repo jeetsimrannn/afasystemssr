@@ -67,7 +67,8 @@
 
                               $connectionInfo = array( 'UID'=>$uid,
                                                       'PWD'=>$pwd,
-                                                      'Database'=>$databaseName);
+                                                      'Database'=>$databaseName,
+                                                      'ReturnDatesAsStrings '=> true);
 
                               $conn = sqlsrv_connect($serverName,$connectionInfo);
                               if($conn){
@@ -81,8 +82,8 @@
                                   while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
                                   echo '<td>'.$data00['ServiceID'].'</td>';
+                                  echo '<td>'.$data00['ServiceDate'].'</td>';
                                   echo '<td>'.$data00['EmployeeID'].'</td>';
-                                  echo '<td>3</td>';
                                   echo '<td></td>';
                                   echo '</tr>';
                               }
