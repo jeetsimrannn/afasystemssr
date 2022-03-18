@@ -26,7 +26,8 @@ $_SESSION['SRStatus'] = "";
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap.min.js"></script>
-
+  <script type="text/javascript" charset="utf-8" src="../assets/vendor/js.cookie.js"></script>
+  
 </head>
 <body>
 <header class="header-transparent" id="header">
@@ -156,14 +157,14 @@ $_SESSION['SRStatus'] = "";
         } );
     
         $('#new').click( function () {
-            $.cookie("SRStatus", 0, { expires: 7, path: '/' });
+            Cookies.set("SRStatus", 0, { expires: 7, path: '/' });
             // setcookie("SRStatus", 0, time()+3600, '/');
             window.location = "../servicereports.php";
             // table.row('.selected').remove().draw( false );
         });
 
         $('#update').click( function () {
-            $.cookie("SRStatus", 1, { expires: 7, path: '/' });
+            Cookies.set("SRStatus", 1, { expires: 7, path: '/' });
             // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
