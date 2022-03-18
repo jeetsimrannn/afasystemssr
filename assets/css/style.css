@@ -72,7 +72,7 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 }
 
 h5 {
-	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Raleway', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-family: 'Helvetica Neue UltraLight', 'Raleway', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     font-weight: 100;
     letter-spacing: 1px;
 	font-size: 3em;
