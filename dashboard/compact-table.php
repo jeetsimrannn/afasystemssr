@@ -55,7 +55,7 @@
             <thead>
               <th data-field="id">Service ID</th>
               <th data-field="name" data-sortable="true">Service Date</th>
-              <th data-field="salary" data-sortable="true">Order ID</th>
+              <th data-field="salary" data-sortable="true">Order No</th>
               <th data-field="actions" data-formatter="operateFormatter" data-events="operateEvents">Actions</th>
             </thead>
             <tbody>
@@ -81,7 +81,7 @@
                                   while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                                   echo '<tr>';
                                   echo '<td>'.$data00['ServiceID'].'</td>';
-                                  echo '<td>'.date_format($data00['ServiceDate'], 'jS, F Y').'</td>';
+                                  echo '<td>'.date_format($data00['ServiceDate'], 'M j Y').'</td>';
                                   echo '<td>'.$data00['OrderNo'].'</td>';
                                   echo '<td></td>';
                                   echo '</tr>' ;
