@@ -42,18 +42,7 @@
 				</div>
 			</nav>
 </header><!-- End Header -->
-<div class="wrapper">
 
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        
-
-        <div class="fresh-table toolbar-color-azure">
-        <!--
-          Available colors for the full background: full-color-blue, full-color-azure, full-color-green, full-color-red, full-color-orange
-          Available colors only for the toolbar: toolbar-color-blue, toolbar-color-azure, toolbar-color-green, toolbar-color-red, toolbar-color-orange
-        -->
           <div class="toolbar">
             <button id="alertBtn" class="btn btn-default">Alert</button>
           </div>
@@ -99,14 +88,7 @@
                 }
             ?>
             </tbody>
-          </table>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
+        </table>
 </body>
 
   <script type="text/javascript">
