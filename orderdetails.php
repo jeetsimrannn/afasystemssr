@@ -16,4 +16,4 @@
 	// Retrieving row fields by name is not supported by sqlsrv_get_field.
 	$custname = sqlsrv_get_field( $stmt, 0);
     echo $custname;
-?>
+?> 
