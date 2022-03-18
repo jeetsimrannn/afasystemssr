@@ -161,6 +161,7 @@ $_SESSION['SRStatus'] = "";
             // setcookie("SRStatus", 0, time()+3600, '/');
             window.location = "../servicereports.php";
             // table.row('.selected').remove().draw( false );
+            
         });
 
         $('#update').click( function () {
@@ -168,6 +169,11 @@ $_SESSION['SRStatus'] = "";
             // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
+
+        table.on( 'select', function () {
+            	var rowData = table.rows( { selected: true } ).data();
+                console.log(rowData);
+        } );
     } );
   </script>
   
