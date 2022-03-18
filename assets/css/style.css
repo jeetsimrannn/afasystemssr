@@ -71,6 +71,19 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
     opacity: 0.8
 }
 
+h5 {
+	font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Raleway', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    letter-spacing: 1px;
+	font-size: 3em;
+	line-height: 1em;
+}
+
+h5 span {
+	font-size: 0.5em;
+	line-height: 1em;
+}
+
 @media only screen and (min-width: 1200px) {
     .main{
         display: flex;
@@ -128,6 +141,10 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
 
     .submitmain label{
         width: 300px;
+    }
+
+    h5 span {
+      display: block;
     }
   }
 
