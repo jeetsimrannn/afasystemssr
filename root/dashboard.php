@@ -72,7 +72,7 @@ $_SESSION['SRStatus'] = "";
 
     <div class="toolbar">
         <button type="button" id="new" class="btn btn-outline-primary">New</button>
-        <button type="button" id="update" class="btn btn-outline-primary disabled" aria-disabled="true">Update</button>
+        <button type="button" id="update" class="btn btn-outline-primary disabled">Update</button>
         <button type="button" id="delete" class="btn btn-outline-primary">Delete</button>
     </div>
     
@@ -133,12 +133,12 @@ $_SESSION['SRStatus'] = "";
         $('#tblService tbody').on( 'click', 'tr', function () {
             if ( $(this).hasClass('selected') ) {
                 $(this).removeClass('selected');
-                $("#update").attr("aria-disabled", true);
+                $("#update").addClass('disabled');
             }
             else {
                 table.$('tr.selected').removeClass('selected');
                 $(this).addClass('selected');
-                $("#update").attr("aria-disabled", false);
+                $("#update").removeClass('disabled');
             }
         } );
     
