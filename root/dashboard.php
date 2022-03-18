@@ -156,13 +156,15 @@ $_SESSION['SRStatus'] = "";
         } );
     
         $('#new').click( function () {
-            setcookie("SRStatus", 0, time()+3600, '/');
+            $.cookie("SRStatus", 0, { expires: 7, path: '/' });
+            // setcookie("SRStatus", 0, time()+3600, '/');
             window.location = "../servicereports.php";
             // table.row('.selected').remove().draw( false );
         });
 
         $('#update').click( function () {
-            setcookie("SRStatus", 1, time()+3600, '/');
+            $.cookie("SRStatus", 1, { expires: 7, path: '/' });
+            // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
     } );
