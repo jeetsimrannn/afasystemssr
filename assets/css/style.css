@@ -85,7 +85,7 @@ h5 span {
 	line-height: 1em;
 }
 div.dataTables_wrapper div.dataTables_filter label {
-  padding: 0.5rem!important;
+  padding-bottom: 0.5rem!important;
 }
 div.dataTables_wrapper div.dataTables_info {
   padding-top: 0.50em!important;
