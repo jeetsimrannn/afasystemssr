@@ -20,8 +20,11 @@
         $input_MileageAllowanceBillable = $_POST['MileageAllowanceBillable'];
         $input_kmTraveled = $_POST['kmTraveled'];
         $input_USExchange = $_POST['USExchange'];
+        $responseMessage = ""; 
+        $NewServiceID = 0; 
 
-        $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
+
+        $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
        
         $params1 = array();
 
@@ -43,7 +46,9 @@
                             array($Reviewed, SQLSRV_PARAM_IN),
                             array($ReviewedDate, SQLSRV_PARAM_IN),
                             array($ReviewedBy, SQLSRV_PARAM_IN),
-                            array($Notes, SQLSRV_PARAM_IN));
+                            array($Notes, SQLSRV_PARAM_IN),
+                            array(&$responseMessage, SQLSRV_PARAM_INOUT),
+                            array(&$NewServiceID, SQLSRV_PARAM_INOUT));
                             
  
         $stmt3 = sqlsrv_query( $conn, $tsql_callSP, $params1);  
