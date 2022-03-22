@@ -46,7 +46,7 @@ session_start();
 </header><!-- End Header -->
 
 <div class="submitmain">
-<form id="fupForm" method="post" action="../insertSP.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
