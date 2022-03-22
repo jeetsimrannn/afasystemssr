@@ -67,16 +67,16 @@ session_start();
         echo 'Connection failure<br />';
     die(print_r(sqlsrv_errors(),TRUE));
     }
-        $sql00 = "SELECT * FROM dbo.tblService 
+        $sqlupdt = "SELECT * FROM dbo.tblService 
                   INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID 
                   INNER JOIN dbo.tblCustomers ON dbo.tblCustOrders.CustID = dbo.tblCustomers.CustID
                   WHERE ServiceID=".$_COOKIE["SRID"];
-        $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
-        while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
-        echo $data00['ServiceID'];
-        echo date_format($data00['ServiceDate'], 'M j Y');
-        echo $data00['OrderNo'];
-        echo $data00['CustomerName'];
+        $resultupdt = sqlsrv_query($conn,$sqlupdt) or die("Couldn't execut query");
+        while ($dataupdt=sqlsrv_fetch_array($resultupdt, SQLSRV_FETCH_ASSOC)){
+        echo $dataupdt['ServiceID'];
+        echo date_format($dataupdt['ServiceDate'], 'M j Y');
+        echo $dataupdt['OrderNo'];
+        echo $dataupdt['CustomerName'];
     }
 ?>
 
