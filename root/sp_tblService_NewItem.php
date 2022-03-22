@@ -68,8 +68,8 @@
                             array($ReviewedDate, SQLSRV_PARAM_IN),
                             array($ReviewedBy, SQLSRV_PARAM_IN),
                             array($Notes, SQLSRV_PARAM_IN),
-                            array(&$responseMessage, SQLSRV_PARAM_OUT),
-                            array(&$NewServiceID, SQLSRV_PARAM_OUT));
+                            array(&$responseMessage, SQLSRV_PARAM_INOUT),
+                            array(&$NewServiceID, SQLSRV_PARAM_INOUT));
                             
  
         $stmt3 = sqlsrv_query( $conn, $tsql_callSP, $params1);  
