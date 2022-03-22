@@ -168,7 +168,7 @@ $_SESSION['SRStatus'] = "";
             var SRID = table.row('.selected').data()[0]
             Cookies.set("SRID", SRID, { expires: 7, path: '/' });
             // setcookie("SRStatus", 1, time()+3600, '/');
-            window.location = "../servicereports.php";
+            window.location = "../root/updateservicereports.php";
         });
 
         $('#delete').click( function () {
