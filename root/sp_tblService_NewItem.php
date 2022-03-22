@@ -20,8 +20,8 @@
         $input_MileageAllowanceBillable = $_POST['MileageAllowanceBillable'];
         $input_kmTraveled = $_POST['kmTraveled'];
         $input_USExchange = $_POST['USExchange'];
-        $responseMessage = "null"; 
-        $NewServiceID = null;  
+        $responseMessage = ""; 
+        $NewServiceID = 1;  
 
 
         $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";

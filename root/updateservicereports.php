@@ -169,18 +169,6 @@ session_start();
                             </div>  
                         </div>  
                     </div> 
-                    <!-- <div class="card-body">
-                        <div id="expense-accordion">
-                            <div class="wrapper">
-                                <div class="input-box d-flex">
-                                <input type="text" name="input_name[]" class="form-control">
-                                <div>
-                                </div>
-                                <button class="btn btn-primary add-btn w-25">Add More</button>
-                                
-                            </div> 
-                        </div>  
-                    </div>  -->
                 </div>
             </div>
 
@@ -197,20 +185,6 @@ session_start();
                                 
                             </div> 
                         </div>
-
-                        <!-- <div class="form-group mb-3 inputfield">
-                            <label for="exptype">Task</label>
-                            <input type="text" class="form-control" id="taskhours" name="taskhours" placeholder="Select Task"/>
-                        </div>
-                        <div class="form-group mb-3 inputfield">
-                            <label for="taskhours">Hours</label>
-                            <input type="text" class="form-control" id="taskhours" name="taskhours" placeholder="Enter Hours"/>
-                        </div>
-
-                        <div class="form-group mb-3 inputfield">
-                            <label for="tasknotes">Notes</label>
-                            <textarea type="text" class="form-control" id="tasknotes" name="tasknotes" rows="3"></textarea>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -284,22 +258,6 @@ session_start();
               </div>
         `); // add input field
         index++;
-        // $('.wrapper').append(`
-        //   <div>
-        //     <a href="#" class="remove-lnk">Remove</a>
-        //      php require 'expenseline.php'; ?>
-        //     <div class="btn btn-danger collapsed" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
-        //                     Close
-        //     </div> 
-        //   </div>
-        // `); // add input field
-       
-        // $('.wrapper').append(`
-        //   <div class="input-box d-flex">
-        //     <input type="text" name="input_name[]" class="form-control"/>
-        //     <a href="#" class="remove-lnk">Remove</a>
-        //   </div>
-        // `); // add input field
       }
     });
 
@@ -364,98 +322,6 @@ session_start();
   });
 </script>
 
-<!-- 
-<script type="text/javascript">
-     $(document).ready(function() {
-      $('#ordernos').on('change', function() {
-        var ordernos = $( "#ordernos" ).val();
-        $("#travelto").attr("value", "");
-            $.ajax({
-                url:"orderdetails.php",
-                method:"POST",
-                data:{ordernos: ordernos}
-                dataType:"text",
-                success:function(data){
-                    $("#travelto").attr("value", data);
-                }
-            });
-          });
-       });
-</script> -->
-<!-- <script>
-    $(document).ready(function() {
-        var passedArray = <?php 
-            // echo json_encode($arrCustomerName); ?>;
-        var passedArray2 = <?php 
-        // echo json_encode($arrFullAddress); ?>;
-        $("#ordernos").on('change', function(){
-            var result = $( "#ordernos" ).val();
-
-            // document.getElementById("demo").innerHTML = passedArray[result];
-            if(passedArray[result] == ""){
-                $("#Customer").attr("value", "");
-                $("#travelto").attr("value", "");
-            }
-            else{
-                $("#Customer").attr("value", passedArray[result]);
-                $("#travelto").attr("value", passedArray2[result]);
-            }
-        //   var mainselection = this.value; // get the selection value
-        //   $.ajax({
-        //     type: "POST",  // method of sending data
-        //     url: "subcategory.php", // name of PHP script
-        //     data:'selection='+mainselection, // parameter name and value
-        //     success: function(result){ // deal with the results
-        //       $("#subcat-list").html(result); // insert in div above
-        //       }
-        //     });
-        });
-    });
-</script> -->
-
-<!-- <script>
-  
-  // onkeyup event will occur when the user 
-  // release the key and calls the function
-  // assigned to this event
-  function GetDetail(str) {
-      if (str.length == 0) {
-        $("#travelto").attr("value", "");
-          return;
-      }
-      else {
-
-          // Creates a new XMLHttpRequest object
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-
-              // Defines a function to be called when
-              // the readyState property changes
-              if (this.readyState == 4 && 
-                      this.status == 200) {
-                    
-                  // Typical action to be performed
-                  // when the document is ready
-                  var myObj = JSON.parse(this.responseText);
-
-                  // Returns the response data as a
-                  // string and store this array in
-                  // a variable assign the value 
-                  // received to first name input field
-                  $("#travelto").attr("value", myObj[0]);
-              }
-          };
-
-          // xhttp.open("GET", "filename", true);
-          xmlhttp.open("GET", "orderdetails.php?orderno=" + str, true);
-            
-          // Sends the request to the server
-          xmlhttp.send();
-      }
-  }
-</script> -->
-
-
 
 <script>
         $(document).ready(function(){
@@ -480,24 +346,5 @@ session_start();
         });
         
         
-        
-        // $("input[type='radio'][name='orderno']").click(function() {
-        //     var string = "";
-        //     $("input:checked").each(function() {
-        //         string += $(this).val();
-        //     });
-        //     $("#ordernos").val(string);
-        // });
     });
 </script>
-
-<!-- <script>
-    function copyTextValue(selectedOption) {
-    if(selectedOption.selectedIndex <= 0){
-    document.getElementById("ordernos").value = '';
-    return;
-    }
-    var selectedOptionValue = selectedOption.value;
-    document.getElementById("ordernos").value = selectedOptionValue;
-    }
-</script> -->
