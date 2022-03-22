@@ -54,9 +54,13 @@ session_start();
         $resultupdt = sqlsrv_query($conn,$sqlupdt) or die("Couldn't execut query");
         while ($dataupdt=sqlsrv_fetch_array($resultupdt, SQLSRV_FETCH_ASSOC)){
         $ServiceID = $dataupdt['ServiceID'];
-        $ServiceDate = date_format($dataupdt['ServiceDate'], 'm/d/y');
+        $ServiceDate = date_format($dataupdt['ServiceDate'], 'Y-m-d');
         $OrderNo = $dataupdt['OrderNo'];
+        $TravelFrom = $dataupdt['TravelFrom'];
+        $TravelTo = $dataupdt['TravelTo'];
         $CustomerName = $dataupdt['CustomerName'];
+        $MileageBillable = $dataupdt['MileageAllowanceBillable'];
+        $USExchange = $dataupdt['USExchange'];
     }
 ?>
 
@@ -150,7 +154,7 @@ session_start();
         </div>
         <div class="form-group mb-3  ">
             <label for="Customer">Customer</label>
-            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer"  />
+            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer" value="<?php echo $CustomerName;?>" />
         </div>
         <!-- <div class="form-group mb-3 inputfield">
             <label for="file">Scan Receipt</label>
@@ -160,11 +164,11 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageBillable;?>" />
             </div>
             <div class="col mb-3">
                 <label for="$USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
             </div>
         </div>
 
