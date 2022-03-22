@@ -59,7 +59,9 @@ session_start();
         $TravelFrom = $dataupdt['TravelFrom'];
         $TravelTo = $dataupdt['TravelTo'];
         $CustomerName = $dataupdt['CustomerName'];
-        $MileageBillable = $dataupdt['MileageAllowanceBillable'];
+        $kmTraveled = $dataupdt['kmTraveled'];
+        $MileageAllowance = $dataupdt['MileageAllowance'];
+        $MileageAllowanceBillable = $dataupdt['MileageAllowanceBillable'];
         $USExchange = $dataupdt['USExchange'];
     }
 ?>
@@ -164,11 +166,23 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageBillable;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
-                <label for="$USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
+                <label for="MileageAllowanceBillable">Mileage Allowance Billable</label>
+                <input type="text" class="form-control" id="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+            </div>
+        </div>
+
+
+        <div class="form-row row">
+            <div class="col mb-3">
+                <label for="kmTraveled">Km Traveled</label>
+                <input type="text" class="form-control" id="kmTraveled" placeholder="" readonly value="<?php echo $kmTraveled;?>" />
+            </div>
+            <div class="col mb-3">
+                <label for="USExchange">US Exchange</label>
+                <input type="text" class="form-control" id="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
             </div>
         </div>
 
