@@ -32,7 +32,7 @@ session_start();
 
 <?php
 	include "dbconnect.php";
-	$sql = "SELECT ServiceID, OrderNo, TravelTo FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID WHERE ServiceID ='".$_COOKIE["SRID"]."'";
+	$sql = "SELECT ServiceID, OrderNo, TravelTo FROM dbo.tblService INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID WHERE ServiceID ='".$_COOKIE["SRID"]."'";
 	$stmt = sqlsrv_query( $conn, $sql);
 	if( $stmt === false ) {
 		die( print_r( sqlsrv_errors(), true));
