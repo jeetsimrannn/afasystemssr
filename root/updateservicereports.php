@@ -31,24 +31,54 @@ session_start();
 <body>
 
 <?php
-	include "dbconnect.php";
-	$sql = "SELECT ServiceID, OrderNo, TravelTo FROM dbo.tblService INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID WHERE ServiceID ='".$_COOKIE["SRID"]."'";
-	$stmt = sqlsrv_query( $conn, $sql);
-	if( $stmt === false ) {
-		die( print_r( sqlsrv_errors(), true));
-	}
+	// include "dbconnect.php";
+	// $sql = "SELECT ServiceID, OrderNo, TravelTo FROM dbo.tblService INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID WHERE ServiceID ='".$_COOKIE["SRID"]."'";
+	// $stmt = sqlsrv_query( $conn, $sql);
+	// if( $stmt === false ) {
+	// 	die( print_r( sqlsrv_errors(), true));
+	// }
 	
-	// Make the first (and in this case, only) row of the result set available for reading.
-	if( sqlsrv_fetch( $stmt ) === false) {
-		die( print_r( sqlsrv_errors(), true));
-	}
+	// // Make the first (and in this case, only) row of the result set available for reading.
+	// if( sqlsrv_fetch( $stmt ) === false) {
+	// 	die( print_r( sqlsrv_errors(), true));
+	// }
     
-	// Get the row fields. Field indices start at 0 and must be retrieved in order.
-	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$ServiceID = sqlsrv_get_field( $stmt, 0);
-    $OrderNo = sqlsrv_get_field( $stmt, 1);
-    $TravelTo = sqlsrv_get_field( $stmt, 2);
+	// // Get the row fields. Field indices start at 0 and must be retrieved in order.
+	// // Retrieving row fields by name is not supported by sqlsrv_get_field.
+	// $ServiceID = sqlsrv_get_field( $stmt, 0);
+    // $OrderNo = sqlsrv_get_field( $stmt, 1);
+    // $TravelTo = sqlsrv_get_field( $stmt, 2);
 ?>
+
+<?php
+    $serverName = 'tcp:teamoffline.database.windows.net,1433';
+    $uid = 'sim1999';
+    $pwd = 'simran@99';
+    $databaseName = 'TEAMOffline';
+
+    $connectionInfo = array( 'UID'=>$uid, 
+                            'PWD'=>$pwd,
+                            'Database'=>$databaseName);
+
+    $conn = sqlsrv_connect($serverName,$connectionInfo);
+    if($conn){
+        echo '';
+    }else{
+        echo 'Connection failure<br />';
+    die(print_r(sqlsrv_errors(),TRUE));
+    }
+        $sql00 = "SELECT * FROM dbo.tblService 
+                  INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID WHERE ServiceID=".$_COOKIE["SRID"];
+        $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
+        while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
+        echo $data00['ServiceID'];
+        echo date_format($data00['ServiceDate'], 'M j Y');
+        echo $data00['OrderNo'];
+        echo $data00['CustomerName'];
+    }
+?>
+
+
 
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_qryCustOrderService.php'; ?>
