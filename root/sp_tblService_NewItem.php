@@ -1,6 +1,4 @@
-<?php
-//  require 'getSRDetails.php';
- ?>
+
 <?php  
         include "dbconnect.php";
 
@@ -37,13 +35,13 @@
         $input_USExchange =1.05;
         $MileageBillable  =1;
         $Processed =1;
-        $ProcessedDate =NULL;
+        $ProcessedDate ='NULL';
         $Submitted =0;
-        $SubmittedDate =NULL;
+        $SubmittedDate ='NULL';
         $Reviewed =0;
-        $ReviewedDate =NULL;
-        $ReviewedBy =NULL;
-        $Notes =NULL;
+        $ReviewedDate ='NULL';
+        $ReviewedBy ='NULL';
+        $Notes ='NULL';
 
         $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
        
