@@ -68,7 +68,9 @@ session_start();
     die(print_r(sqlsrv_errors(),TRUE));
     }
         $sql00 = "SELECT * FROM dbo.tblService 
-                  INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID WHERE ServiceID=".$_COOKIE["SRID"];
+                  INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID 
+                  INNER JOIN dbo.tblCustomers ON dbo.tblCustOrders.CustID = dbo.tblCustomers.CustID
+                  WHERE ServiceID=".$_COOKIE["SRID"];
         $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
         while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
         echo $data00['ServiceID'];
