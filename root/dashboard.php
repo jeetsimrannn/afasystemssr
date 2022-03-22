@@ -170,7 +170,7 @@ $_SESSION['SRStatus'] = "";
         });
 
         $('#delete').click( function () {
-            var rowData = table.row('.selected').data();
+            var rowData = table.row('.selected').data()[0];
             console.log(rowData);
         });
 
