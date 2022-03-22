@@ -21,7 +21,7 @@
         $input_kmTraveled = $_POST['kmTraveled'];
         $input_USExchange = $_POST['USExchange'];
         $responseMessage = ""; 
-        $NewServiceID = -1; 
+        $NewServiceID = -1;  
 
 
         $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
