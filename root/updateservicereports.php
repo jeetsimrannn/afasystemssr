@@ -30,42 +30,8 @@ session_start();
 
 <body>
 
-<?php
-    $serverName = 'tcp:teamoffline.database.windows.net,1433';
-    $uid = 'sim1999';
-    $pwd = 'simran@99';
-    $databaseName = 'TEAMOffline';
 
-    $connectionInfo = array( 'UID'=>$uid, 
-                            'PWD'=>$pwd,
-                            'Database'=>$databaseName);
-
-    $conn = sqlsrv_connect($serverName,$connectionInfo);
-    if($conn){
-        echo '';
-    }else{
-        echo 'Connection failure<br />';
-    die(print_r(sqlsrv_errors(),TRUE));
-    }
-        $sqlupdt = "SELECT * FROM dbo.tblService 
-                  INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID 
-                  INNER JOIN dbo.tblCustomers ON dbo.tblCustOrders.CustID = dbo.tblCustomers.CustID
-                  WHERE ServiceID=".$_COOKIE["SRID"];
-        $resultupdt = sqlsrv_query($conn,$sqlupdt) or die("Couldn't execut query");
-        while ($dataupdt=sqlsrv_fetch_array($resultupdt, SQLSRV_FETCH_ASSOC)){
-        $ServiceID = $dataupdt['ServiceID'];
-        $ServiceDate = date_format($dataupdt['ServiceDate'], 'Y-m-d');
-        $OrderNo = $dataupdt['OrderNo'];
-        $TravelFrom = $dataupdt['TravelFrom'];
-        $TravelTo = $dataupdt['TravelTo'];
-        $CustomerName = $dataupdt['CustomerName'];
-        $kmTraveled = $dataupdt['kmTraveled'];
-        $MileageAllowance = $dataupdt['MileageAllowance'];
-        $MileageAllowanceBillable = $dataupdt['MileageAllowanceBillable'];
-        $USExchange = $dataupdt['USExchange'];
-    }
-?>
-
+<?php require 'getSRDetails.php'; ?>
 <?php require 'sp_qryCustOrderService.php'; ?>
 
 
@@ -166,11 +132,11 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" name="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
-                <label for="MileageAllowanceBillable">Mileage Allowance Billable</label>
-                <input type="text" class="form-control" id="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+                <label for="MileageAllowanceBillable">Mileage Billable</label>
+                <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
             </div>
         </div>
 
@@ -178,11 +144,11 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="kmTraveled">Km Traveled</label>
-                <input type="text" class="form-control" id="kmTraveled" placeholder="" readonly value="<?php echo $kmTraveled;?>" />
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" readonly value="<?php echo $kmTraveled;?>" />
             </div>
             <div class="col mb-3">
                 <label for="USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
+                <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
             </div>
         </div>
 
