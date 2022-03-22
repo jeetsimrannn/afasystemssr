@@ -31,26 +31,6 @@ session_start();
 <body>
 
 <?php
-	// include "dbconnect.php";
-	// $sql = "SELECT ServiceID, OrderNo, TravelTo FROM dbo.tblService INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID WHERE ServiceID ='".$_COOKIE["SRID"]."'";
-	// $stmt = sqlsrv_query( $conn, $sql);
-	// if( $stmt === false ) {
-	// 	die( print_r( sqlsrv_errors(), true));
-	// }
-	
-	// // Make the first (and in this case, only) row of the result set available for reading.
-	// if( sqlsrv_fetch( $stmt ) === false) {
-	// 	die( print_r( sqlsrv_errors(), true));
-	// }
-    
-	// // Get the row fields. Field indices start at 0 and must be retrieved in order.
-	// // Retrieving row fields by name is not supported by sqlsrv_get_field.
-	// $ServiceID = sqlsrv_get_field( $stmt, 0);
-    // $OrderNo = sqlsrv_get_field( $stmt, 1);
-    // $TravelTo = sqlsrv_get_field( $stmt, 2);
-?>
-
-<?php
     $serverName = 'tcp:teamoffline.database.windows.net,1433';
     $uid = 'sim1999';
     $pwd = 'simran@99';
@@ -73,19 +53,27 @@ session_start();
                   WHERE ServiceID=".$_COOKIE["SRID"];
         $resultupdt = sqlsrv_query($conn,$sqlupdt) or die("Couldn't execut query");
         while ($dataupdt=sqlsrv_fetch_array($resultupdt, SQLSRV_FETCH_ASSOC)){
-        echo $dataupdt['ServiceID'];
-        echo date_format($dataupdt['ServiceDate'], 'M j Y');
-        echo $dataupdt['OrderNo'];
-        echo $dataupdt['CustomerName'];
+        $ServiceID = $dataupdt['ServiceID'];
+        $ServiceDate = date_format($dataupdt['ServiceDate'], 'm/d/y');
+        $OrderNo = $dataupdt['OrderNo'];
+        $CustomerName = $dataupdt['CustomerName'];
     }
 ?>
 
-
-
-<?php require '../utilities/header.php'; ?>
 <?php require 'sp_qryCustOrderService.php'; ?>
-<div class="submitmain">
 
+
+<header class="header-transparent" id="header">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid #0000001a">
+				<div class="container-fluid">
+					<a href="../index.php" class="navbar-brand m-1">
+						<img src="../assets/img/logo.png" height="55" alt="AFA Systems">
+					</a>
+				</div>
+			</nav>
+</header><!-- End Header -->
+
+<div class="submitmain">
 <form id="fupForm" method="post" action="../insertSP.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
@@ -95,7 +83,7 @@ session_start();
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
-                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
+                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $ServiceDate;?>"/>
                         </div>
                 </div>
 
