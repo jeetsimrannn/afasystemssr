@@ -165,6 +165,8 @@ $_SESSION['SRStatus'] = "";
 
         $('#update').click( function () {
             Cookies.set("SRStatus", 1, { expires: 7, path: '/' });
+            var SRID = table.row('.selected').data()[0]
+            Cookies.set("SRID", SRID, { expires: 7, path: '/' });
             // setcookie("SRStatus", 1, time()+3600, '/');
             window.location = "../servicereports.php";
         });
@@ -174,11 +176,11 @@ $_SESSION['SRStatus'] = "";
             console.log(rowData);
         });
 
-        $(".details-control").each(function() {
-            $(this).click(function(){
-                table.rows('.parent').nodes().to$().find('.details-control').not(this).trigger('click');
-            });
-        });
+        // $(".details-control").each(function() {
+        //     $(this).click(function(){
+        //         table.rows('.parent').nodes().to$().find('.details-control').not(this).trigger('click');
+        //     });
+        // });
     } );
   </script>
   
