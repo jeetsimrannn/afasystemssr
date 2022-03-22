@@ -31,5 +31,15 @@
         $MileageAllowance = $dataupdt['MileageAllowance'];
         $MileageAllowanceBillable = $dataupdt['MileageAllowanceBillable'];
         $USExchange = $dataupdt['USExchange'];
+
+        $MileageBillable = $dataupdt['MileageBillable'];
+        $Processed = $dataupdt['Processed'];
+        $ProcessedDate = $dataupdt['ProcessedDate'];
+        $Submitted = $dataupdt['Submitted'];
+        $SubmittedDate = $dataupdt['SubmittedDate'];
+        $Reviewed = $dataupdt['Reviewed'];
+        $ReviewedDate = $dataupdt['ReviewedDate'];
+        $ReviewedBy = $dataupdt['ReviewedBy'];
+        $Notes = $dataupdt['Notes'];
     }
 ?>
