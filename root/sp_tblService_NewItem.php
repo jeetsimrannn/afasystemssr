@@ -1,4 +1,6 @@
-<?php require 'getSRDetails.php'; ?>
+<?php
+//  require 'getSRDetails.php';
+ ?>
 <?php  
         include "dbconnect.php";
 
@@ -9,20 +11,39 @@
         if ( sqlsrv_fetch( $getName ) === false )  
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
-        $input_OrderID = sqlsrv_get_field( $getName, 0);  
-        $input_EmployeeID = $_SESSION['EmployeeID'];
+        // $input_OrderID = sqlsrv_get_field( $getName, 0);  
+        // $input_EmployeeID = $_SESSION['EmployeeID'];
 
-        $input_ServiceID = $_POST['ServiceID'];
-        $input_ServiceDate = $_POST["servicedate"];
-        $input_TravelFrom = $_POST['travelfrom'];
-        $input_TravelTo = $_POST['travelto'];
-        $input_MileageAllowance = $_POST['MileageAllowance'];
-        $input_MileageAllowanceBillable = $_POST['MileageAllowanceBillable'];
-        $input_kmTraveled = $_POST['kmTraveled'];
-        $input_USExchange = $_POST['USExchange'];
+        // $input_ServiceID = $_POST['ServiceID'];
+        // $input_ServiceDate = $_POST["servicedate"];
+        // $input_TravelFrom = $_POST['travelfrom'];
+        // $input_TravelTo = $_POST['travelto'];
+        // $input_MileageAllowance = $_POST['MileageAllowance'];
+        // $input_MileageAllowanceBillable = $_POST['MileageAllowanceBillable'];
+        // $input_kmTraveled = $_POST['kmTraveled'];
+        // $input_USExchange = $_POST['USExchange'];
         $responseMessage = ""; 
         $NewServiceID = 1;  
 
+        $input_ServiceID = 10;
+        $input_EmployeeID = 12;
+        $input_ServiceDate ='2010-09-12';
+        $input_TravelFrom ='8 Tilbury Ave, Brampton';
+        $input_TravelTo ='2100 Syntex Court Mississauga ON';
+        $input_OrderID =10;
+        $input_MileageAllowance =0.5;
+        $input_MileageAllowanceBillable =0.650;
+        $input_kmTraveled =38;
+        $input_USExchange =1.05;
+        $MileageBillable  =1;
+        $Processed =1;
+        $ProcessedDate =NULL;
+        $Submitted =0;
+        $SubmittedDate =NULL;
+        $Reviewed =0;
+        $ReviewedDate =NULL;
+        $ReviewedBy =NULL;
+        $Notes =NULL;
 
         $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
        
