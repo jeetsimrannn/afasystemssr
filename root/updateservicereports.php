@@ -82,11 +82,11 @@ session_start();
 
 
 
-<?php require 'utilities/header.php'; ?>
-<?php require 'root/sp_qryCustOrderService.php'; ?>
+<?php require '../utilities/header.php'; ?>
+<?php require 'sp_qryCustOrderService.php'; ?>
 <div class="submitmain">
 
-<form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="../insertSP.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
@@ -320,7 +320,7 @@ session_start();
                   <span class="btn btn-danger remove-btn-expenseline w-25" style="position: absolute; left: 75%;"> Delete</span>
                   <div id="expense`+index+`" class="collapse" aria-labelledby="exphead`+index+`" data-parent="#expense-accordion">
                       <div class="card-body">
-                          <?php require 'expenseline.php'; ?>
+                          <?php require '../expenseline.php'; ?>
                           <div class="btn btn-danger collapsed" data-toggle="collapse" data-target="#expense`+index+`" aria-controls="expense`+index+`">
                               Close
                           </div> 
@@ -386,7 +386,7 @@ session_start();
                   <span class="btn btn-danger remove-btn-taskline w-25" style="position: absolute; left: 75%;"> Delete</span>
                   <div id="task`+index+`" class="collapse" aria-labelledby="taskhead`+index+`" data-parent="#task-accordion">
                       <div class="card-body">
-                          <?php require 'taskline.php'; ?>
+                          <?php require '../taskline.php'; ?>
                           <div class="btn btn-danger collapsed" data-toggle="collapse" data-target="#task`+index+`" aria-controls="task`+index+`">
                               Close
                           </div> 
