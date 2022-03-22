@@ -21,7 +21,7 @@
         $input_kmTraveled = $_POST['kmTraveled'];
         $input_USExchange = $_POST['USExchange'];
         $responseMessage = ""; 
-        $NewServiceID = 0; 
+        $NewServiceID = -1; 
 
 
         $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
@@ -59,7 +59,7 @@
         }  
 
         sqlsrv_next_result($stmt3); 
-        echo "Registration Complete";  
+        echo "Service Report Updated";  
         sqlsrv_free_stmt( $stmt3); 
         
         sqlsrv_close( $conn);
