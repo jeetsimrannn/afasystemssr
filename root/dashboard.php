@@ -106,7 +106,8 @@ $_SESSION['SRStatus'] = "";
                 }
                     $sql00 = "SELECT * FROM dbo.tblService 
                               INNER JOIN dbo.tblCustOrders ON dbo.tblService.OrderID = dbo.tblCustOrders.OrderID 
-                              INNER JOIN dbo.tblCustomers ON dbo.tblCustOrders.CustID = dbo.tblCustomers.CustID ";
+                              INNER JOIN dbo.tblCustomers ON dbo.tblCustOrders.CustID = dbo.tblCustomers.CustID 
+                              WHERE EmployeeID =".$_SESSION['EmployeeID'];
                     $result00 = sqlsrv_query($conn,$sql00) or die("Couldn't execut query");
                     while ($data00=sqlsrv_fetch_array($result00, SQLSRV_FETCH_ASSOC)){
                     echo '<tr>';

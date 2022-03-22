@@ -172,25 +172,6 @@ session_start();
             </div>
         </div>
 
-        <div>
-        <p id="demo"></p>
-            <?php
-                // echo "<pre>";
-                // print_r($arrCustomerName["SP-5820"]);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($arrCustomerName);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($array3);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($arrCurrencyID);
-                // echo "</pre>";
-                // echo print_r($array3["SP-5820"]);
-            ?>
-            </div>
-
         <!-- collapse form for expense line, hours and file attachment -->
         <div id="accordion">
             <div class="card mb-2">
