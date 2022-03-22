@@ -33,7 +33,7 @@ session_start();
 
 <?php
 	include "dbconnect.php";
-	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='3020004'";
+	$sql = "SELECT ServiceID, OrderNo, TravelTo FROM tblService INNER JOIN tblCustOrders ON tblService.OrderID = tblCustOrders.OrderID WHERE ServiceID ='".$_COOKIE["SRID"]."'";
 	$stmt = sqlsrv_query( $conn, $sql);
 	if( $stmt === false ) {
 		die( print_r( sqlsrv_errors(), true));
@@ -46,14 +46,12 @@ session_start();
     
 	// Get the row fields. Field indices start at 0 and must be retrieved in order.
 	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$custname = sqlsrv_get_field( $stmt, 0);
-    
-    echo $_COOKIE["SRStatus"];
-
+	$ServiceID = sqlsrv_get_field( $stmt, 0);
+    $OrderNo = sqlsrv_get_field( $stmt, 1);
+    $TravelTo = sqlsrv_get_field( $stmt, 2);
 ?>
 
 <?php require 'utilities/header.php'; ?>
-<?php require 'root/sp_newSR.php'; ?>
 <?php require 'root/sp_qryCustOrderService.php'; ?>
 <div class="submitmain">
 
@@ -62,114 +60,18 @@ session_start();
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
                             <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly
-                            value="<?php
-                                include "dbconnect.php";
-                                
-                                $sql = "SELECT max(ServiceID) from tblService";
-                                $stmt = sqlsrv_query( $conn, $sql);
-                                if( $stmt === false ) {
-                                    die( print_r( sqlsrv_errors(), true));
-                                }
-                                
-                                // Make the first (and in this case, only) row of the result set available for reading.
-                                if( sqlsrv_fetch( $stmt ) === false) {
-                                    die( print_r( sqlsrv_errors(), true));
-                                }
-
-                                // Get the row fields. Field indices start at 0 and must be retrieved in order.
-                                // Retrieving row fields by name is not supported by sqlsrv_get_field.
-                                $srvid = sqlsrv_get_field( $stmt, 0);
-                                echo $srvid+1;
-                                ?>"
-                            />
+                            value="<?php echo $ServiceID;?>"/>
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
                             <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
                         </div>
                 </div>
-        <!-- <div class="form-group mb-3  ">
-            <label for="orderno">Order Number</label>
-
-            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Select Order Number"/>
-            <datalist id="orderno">
-             <?php
-            //  $serverName = 'tcp:teamoffline.database.windows.net,1433';
-            //  $uid = 'sim1999';
-            //  $pwd = 'simran@99';
-            //  $databaseName = 'TEAMOffline';
-            //  $connectionInfo = array('UID'=>$uid,
-            //                          'PWD'=>$pwd,
-            //                          'Database'=>$databaseName);
-            //  $conn = sqlsrv_connect($serverName,$connectionInfo);
-            //  if($conn){
-            //      echo '';
-            //  }else{
-            //      echo 'Connection failure<br />';
-            //  die(print_r(sqlsrv_errors(),TRUE));
-            //  }
-            //      $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-            //      $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-            //      $array1 = array();
-            //      $array2 = array();
-            //      while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-            //     //  echo '<option value="'.$data['OrderID'].'">';
-            //     //  echo $data['OrderNo']; 
-            //     //  echo " || ".$data['CustomerName'];
-            //     array_push($array1, $data['OrderNo']);
-            //     array_push($array2, $data['CustomerName']);
-            //      echo '<option value="'.$data['OrderNo']  .  ' ('. $data['CustomerName'] .')'  . '">';
-            //      echo "</option>";
-            //     }
-            //  $array3 = array_combine($array1, $array2);
-             ?>
-             </datalist>
-        </div> -->
-
-        <!-- <div class="form-group mb-3  ">
-            <label for="orderno">Order Number</label>      
-        
-            <input type="text" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-bo\dy">
-                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                            <br>
-                        <select id="myList" class="form-select form-control" size="5" aria-label="size 6 multiple select example" onChange="copyTextValue(this);">
-                            <option style="display:none"></option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-    
-        </div> -->
 
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
-            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"/>
+            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"
+            value="<?php echo $OrderNo;?>"/>
             <div class="modal fade" id="OrderNoModal" tabindex="-1" role="dialog" aria-labelledby="OrderNoModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="margin-top: 5rem;">
                     <div class="modal-content">
@@ -225,7 +127,7 @@ session_start();
         </div>
         <div class="form-group mb-3  ">
             <label for="travelto">Travel To</label>
-            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"   />
+            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"  value="<?php echo $TravelTo;?>"  />
         </div>
         <div class="form-group mb-3  ">
             <label for="Customer">Customer</label>
