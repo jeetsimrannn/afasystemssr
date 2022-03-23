@@ -16,7 +16,7 @@ session_start();
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
         $input_OrderID = sqlsrv_get_field( $getName1, 0);  
-        $input_EmployeeID = 12;
+        $input_EmployeeID = $_SESSION['EmployeeID'];
 
         $input_ServiceID = $_POST['ServiceID'];
         $input_ServiceDate = $_POST["servicedate"];

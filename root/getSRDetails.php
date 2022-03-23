@@ -1,4 +1,7 @@
 <?php
+session_start();
+?>
+<?php
     $serverName = 'tcp:teamoffline.database.windows.net,1433';
     $uid = 'sim1999';
     $pwd = 'simran@99';
