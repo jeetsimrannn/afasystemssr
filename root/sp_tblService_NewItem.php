@@ -69,7 +69,7 @@
                             array($ReviewedDate, SQLSRV_PARAM_IN),
                             array($ReviewedBy, SQLSRV_PARAM_IN),
                             array($Notes, SQLSRV_PARAM_IN),
-                            array(&$responseMessage, SQLSRV_PARAM_INOUT),
+                            array($responseMessage, SQLSRV_PARAM_INOUT),
                             array(&$NewServiceID, SQLSRV_PARAM_INOUT));
                             
  
