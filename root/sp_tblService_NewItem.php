@@ -82,6 +82,26 @@
 
         sqlsrv_next_result($stmt31); 
         echo "Service Report Updated";  
+        
+        echo $input_ServiceID;
+        echo $input_EmployeeID;
+        echo $input_ServiceDate;
+        echo $input_TravelFrom;
+        echo $input_TravelTo;
+        echo $input_OrderID;
+        echo $input_MileageAllowance;
+        echo $input_MileageAllowanceBillable;
+        echo $input_kmTraveled;
+        echo $input_USExchange;
+        echo $MileageBillable;
+        echo $Processed;
+        echo $ProcessedDate;
+        echo $Submitted;
+        echo $SubmittedDate;
+        echo $Reviewed;
+        echo $ReviewedDate;
+        echo $ReviewedBy;
+        echo $Notes;
         sqlsrv_free_stmt( $stmt31); 
         
         sqlsrv_close( $conn);
