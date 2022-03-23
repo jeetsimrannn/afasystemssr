@@ -31,33 +31,12 @@ session_start();
 
 <body>
 
-<?php
-	include "dbconnect.php";
-	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='3020004'";
-	$stmt = sqlsrv_query( $conn, $sql);
-	if( $stmt === false ) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-	
-	// Make the first (and in this case, only) row of the result set available for reading.
-	if( sqlsrv_fetch( $stmt ) === false) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-    
-	// Get the row fields. Field indices start at 0 and must be retrieved in order.
-	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$custname = sqlsrv_get_field( $stmt, 0);
-    
-    echo $_COOKIE["SRStatus"];
-
-?>
-
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_newSR.php'; ?>
 <?php require 'root/sp_qryCustOrderService.php'; ?>
 <div class="submitmain">
 
-<form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="root/sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
@@ -251,7 +230,7 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="kmTraveled">Km Traveled</label>
-                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" />
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="Enter Km Traveled" />
             </div>
             <div class="col mb-3">
                 <label for="USExchange">US Exchange</label>

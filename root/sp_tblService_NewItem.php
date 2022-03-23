@@ -32,7 +32,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         $params11 = array();
 
         array_push($params11,array($input_ServiceID, SQLSRV_PARAM_IN),
-                            array($_COOKIE["EmployeeID"], SQLSRV_PARAM_IN), 
+                            array($EmployeeID, SQLSRV_PARAM_IN), 
                             array($input_ServiceDate, SQLSRV_PARAM_IN),
                             array($input_TravelFrom, SQLSRV_PARAM_IN),
                             array($input_TravelTo, SQLSRV_PARAM_IN),
@@ -62,7 +62,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         }  
 
         sqlsrv_next_result($stmt31); 
-        echo "Service Report Updated"; 
+        echo "Service Report Submitted"; 
         sqlsrv_free_stmt( $stmt31); 
         
         sqlsrv_close( $conn);
