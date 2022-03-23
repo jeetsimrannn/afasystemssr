@@ -31,7 +31,6 @@ session_start();
 
 <body>
 
-<?php require 'sp_newSR.php'; ?>
 
 <header class="header-transparent" id="header">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid #0000001a">
