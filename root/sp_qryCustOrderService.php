@@ -1,4 +1,4 @@
-<?php  
+ <?php  
         include "dbconnect.php";
 
         $tsql_callSP1 = "{call sp_qryCustOrderService};";
