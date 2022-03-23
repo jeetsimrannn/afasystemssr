@@ -5,14 +5,14 @@
 <?php  
         include "dbconnect.php";
 
-        $tsql = "SELECT OrderID FROM dbo.tblCustOrders where OrderNo = ?";
-        $getName = sqlsrv_query($conn, $tsql, array($_POST['ordernos']));
-        if( $getName === false )  
+        $tsql1 = "SELECT OrderID FROM dbo.tblCustOrders where OrderNo = ?";
+        $getName1 = sqlsrv_query($conn, $tsql1, array($_POST['ordernos']));
+        if( $getName1 === false )  
                 die( FormatErrors( sqlsrv_errors() ) );  
-        if ( sqlsrv_fetch( $getName ) === false )  
+        if ( sqlsrv_fetch( $getName1 ) === false )  
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
-        $input_OrderID = sqlsrv_get_field( $getName, 0);  
+        $input_OrderID = sqlsrv_get_field( $getName1, 0);  
         $input_EmployeeID = $_SESSION['EmployeeID'];
 
         $input_ServiceID = $_POST['ServiceID'];
@@ -46,11 +46,11 @@
         // $ReviewedBy =NULL;
         // $Notes =NULL;
 
-        $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
+        $tsql_callSP1 = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
        
-        $params1 = array();
+        $params11 = array();
 
-        array_push($params1,array($input_ServiceID, SQLSRV_PARAM_IN),
+        array_push($params11,array($input_ServiceID, SQLSRV_PARAM_IN),
                             array($input_EmployeeID, SQLSRV_PARAM_IN), 
                             array($input_ServiceDate, SQLSRV_PARAM_IN),
                             array($input_TravelFrom, SQLSRV_PARAM_IN),
@@ -73,16 +73,16 @@
                             array(&$NewServiceID, SQLSRV_PARAM_INOUT));
                             
  
-        $stmt3 = sqlsrv_query( $conn, $tsql_callSP, $params1);  
-        if( $stmt3 === false )  
+        $stmt31 = sqlsrv_query( $conn, $tsql_callSP1, $params11);  
+        if( $stmt31 === false )  
         {  
             echo "Error in executing statement 3.\n";  
             die( print_r( sqlsrv_errors(), true));  
         }  
 
-        sqlsrv_next_result($stmt3); 
+        sqlsrv_next_result($stmt31); 
         echo "Service Report Updated";  
-        sqlsrv_free_stmt( $stmt3); 
+        sqlsrv_free_stmt( $stmt31); 
         
         sqlsrv_close( $conn);
 ?>  
