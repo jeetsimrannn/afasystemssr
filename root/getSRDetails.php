@@ -44,5 +44,7 @@ session_start();
         $ReviewedDate = $dataupdt['ReviewedDate'];
         $ReviewedBy = $dataupdt['ReviewedBy'];
         $Notes = $dataupdt['Notes'];
+
+        $EmployeeID = $dataupdt['EmployeeID'];
     }
 ?>

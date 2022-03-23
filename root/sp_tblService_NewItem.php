@@ -29,32 +29,12 @@ session_start();
         $responseMessage = "Success"; 
         $NewServiceID = 1;  
 
-        // $input_ServiceID = 10;
-        // $input_EmployeeID = 12;
-        // $input_ServiceDate ='2010-09-12';
-        // $input_TravelFrom ='8 Tilbury Ave, Brampton';
-        // $input_TravelTo ='2100 Syntex Court Mississauga ON';
-        // $input_OrderID =10;
-        // $input_MileageAllowance =0.5;
-        // $input_MileageAllowanceBillable =0.650;
-        // $input_kmTraveled =38;
-        // $input_USExchange =1.05;
-        // $MileageBillable  =1;
-        // $Processed =1;
-        // $ProcessedDate =NULL;
-        // $Submitted =0;
-        // $SubmittedDate =NULL;
-        // $Reviewed =0;
-        // $ReviewedDate =NULL;
-        // $ReviewedBy =NULL;
-        // $Notes =NULL;
-
         $tsql_callSP1 = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
        
         $params11 = array();
 
         array_push($params11,array($input_ServiceID, SQLSRV_PARAM_IN),
-                            array($input_EmployeeID, SQLSRV_PARAM_IN), 
+                            array($EmployeeID, SQLSRV_PARAM_IN), 
                             array($input_ServiceDate, SQLSRV_PARAM_IN),
                             array($input_TravelFrom, SQLSRV_PARAM_IN),
                             array($input_TravelTo, SQLSRV_PARAM_IN),
