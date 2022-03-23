@@ -239,11 +239,23 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" name="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
-                <label for="$USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+                <label for="MileageAllowanceBillable">Mileage Billable</label>
+                <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+            </div>
+        </div>
+
+
+        <div class="form-row row">
+            <div class="col mb-3">
+                <label for="kmTraveled">Km Traveled</label>
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" />
+            </div>
+            <div class="col mb-3">
+                <label for="USExchange">US Exchange</label>
+                <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
             </div>
         </div>
 
