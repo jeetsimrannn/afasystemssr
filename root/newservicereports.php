@@ -31,7 +31,9 @@ session_start();
 
 <body>
 
-<?php require 'sp_newSR.php'; ?>
+<?php 
+// require 'sp_newSR.php'; 
+?>
 <?php require 'sp_qryCustOrderService.php'; ?>
 
 <header class="header-transparent" id="header">
@@ -132,7 +134,6 @@ session_start();
                 <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
             </div>
         </div>
-
 
         <div class="form-row row">
             <div class="col mb-3">
