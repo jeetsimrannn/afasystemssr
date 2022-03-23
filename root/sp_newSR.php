@@ -1,38 +1,38 @@
 <?php  
         include "dbconnect.php";
 
-        $tsql_callSP2 = "{call sp_tblService_NewItem(?)};";
-        $newEmployeeID = 1;
+        $tsql_callSP = "{call sp_tblService_NewItem(?)};";
+        $EmployeeID = $_COOKIE["EmployeeID"];
         $params = array( 
-            array($newEmployeeID, SQLSRV_PARAM_IN)
+            array($EmployeeID, SQLSRV_PARAM_IN)
           );
 
-        $stmtNewSR2 = sqlsrv_query( $conn, $tsql_callSP2, $params);  
-        if( $stmtNewSR2 === false )  
+        $stmtNewSR = sqlsrv_query( $conn, $tsql_callSP, $params);  
+        if( $stmtNewSR === false )  
         {  
             echo "Error in executing statement 3.\n";  
             die( print_r( sqlsrv_errors(), true));  
         }  
 
-        if( sqlsrv_fetch( $stmtNewSR2 ) === false)
+        if( sqlsrv_fetch( $stmtNewSR ) === false)
         {
             echo "Error in retrieving row.\n";
             die( print_r( sqlsrv_errors(), true));
         }
 
-        $newTravelFrom = sqlsrv_get_field( $stmtNewSR2, 0);
-        $newMileageAllowance= sqlsrv_get_field( $stmtNewSR2, 1);
-        $newMileageAllowanceBillable= sqlsrv_get_field( $stmtNewSR2, 2);
-        $newUSExchange= sqlsrv_get_field( $stmtNewSR2, 3);
-        $newServiceDateTime= sqlsrv_get_field( $stmtNewSR2, 4, SQLSRV_PHPTYPE_STRING("UTF-8"));
-        $newMileageBillable= sqlsrv_get_field( $stmtNewSR2, 5);
-        $newProcessed= sqlsrv_get_field( $stmtNewSR2, 6);
-        $newSubmitted= sqlsrv_get_field( $stmtNewSR2, 7);
-        $newReviewed= sqlsrv_get_field( $stmtNewSR2, 8);
+        $TravelFrom = sqlsrv_get_field( $stmtNewSR, 0);
+        $MileageAllowance= sqlsrv_get_field( $stmtNewSR, 1);
+        $MileageAllowanceBillable= sqlsrv_get_field( $stmtNewSR, 2);
+        $USExchange= sqlsrv_get_field( $stmtNewSR, 3);
+        $ServiceDateTime= sqlsrv_get_field( $stmtNewSR, 4, SQLSRV_PHPTYPE_STRING("UTF-8"));
+        $MileageBillable= sqlsrv_get_field( $stmtNewSR, 5);
+        $Processed= sqlsrv_get_field( $stmtNewSR, 6);
+        $Submitted= sqlsrv_get_field( $stmtNewSR, 7);
+        $Reviewed= sqlsrv_get_field( $stmtNewSR, 8);
         
         // trim the datetime to just date 
-        $newSRDate = explode(' ', trim($newServiceDateTime))[0];
+        $SRDate = explode(' ', trim($ServiceDateTime))[0];
 
-        sqlsrv_free_stmt( $stmtNewSR2);
+        sqlsrv_free_stmt( $stmtNewSR);
         sqlsrv_close( $conn);
 ?>  
