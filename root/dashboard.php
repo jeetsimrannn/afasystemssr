@@ -162,7 +162,7 @@ $_SESSION['SRStatus'] = "";
             Cookies.set("EmployeeID", <?php echo $_SESSION['EmployeeID'];?>, { expires: 7, path: '/' });
             // setcookie("SRStatus", 0, time()+3600, '/');
             window.location = "../servicereports.php";
-            // table.row('.selected').remove().draw( false );
+            
         });
 
         $('#update').click( function () {
@@ -176,6 +176,7 @@ $_SESSION['SRStatus'] = "";
         $('#delete').click( function () {
             var rowData = table.row('.selected').data()[0];
             console.log(rowData);
+            table.row('.selected').remove().draw( false );
         });
 
         // $(".details-control").each(function() {
