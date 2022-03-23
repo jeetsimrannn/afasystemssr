@@ -159,8 +159,9 @@ $_SESSION['SRStatus'] = "";
     
         $('#new').click( function () {
             Cookies.set("SRStatus", 0, { expires: 7, path: '/' });
+            Cookies.set("EmployeeID", <?php echo $_SESSION['EmployeeID'];?>, { expires: 7, path: '/' });
             // setcookie("SRStatus", 0, time()+3600, '/');
-            window.location = "../servicereports.php";
+            window.location = "../root/newservicereports.php";
             // table.row('.selected').remove().draw( false );
         });
 

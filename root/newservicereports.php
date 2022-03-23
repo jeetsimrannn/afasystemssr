@@ -32,7 +32,7 @@ session_start();
 <body>
 
 <?php
-	include "dbconnect.php";
+	include "../dbconnect.php";
 	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='3020004'";
 	$stmt = sqlsrv_query( $conn, $sql);
 	if( $stmt === false ) {
@@ -67,31 +67,11 @@ session_start();
 
 <div class="submitmain">
 
-<form id="fupForm" method="post" action="insertSP.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
-                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly
-                            value="<?php
-                                include "dbconnect.php";
-                                
-                                $sql = "SELECT max(ServiceID) from tblService";
-                                $stmt = sqlsrv_query( $conn, $sql);
-                                if( $stmt === false ) {
-                                    die( print_r( sqlsrv_errors(), true));
-                                }
-                                
-                                // Make the first (and in this case, only) row of the result set available for reading.
-                                if( sqlsrv_fetch( $stmt ) === false) {
-                                    die( print_r( sqlsrv_errors(), true));
-                                }
-
-                                // Get the row fields. Field indices start at 0 and must be retrieved in order.
-                                // Retrieving row fields by name is not supported by sqlsrv_get_field.
-                                $srvid = sqlsrv_get_field( $stmt, 0);
-                                echo $srvid+1;
-                                ?>"
-                            />
+                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly/>
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
@@ -166,13 +146,26 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" name="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
-                <label for="$USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+                <label for="MileageAllowanceBillable">Mileage Billable</label>
+                <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
             </div>
         </div>
+
+
+        <div class="form-row row">
+            <div class="col mb-3">
+                <label for="kmTraveled">Km Traveled</label>
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder=""/>
+            </div>
+            <div class="col mb-3">
+                <label for="USExchange">US Exchange</label>
+                <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
+            </div>
+        </div>
+
 
         <!-- collapse form for expense line, hours and file attachment -->
         <div id="accordion">
@@ -269,7 +262,7 @@ session_start();
                   <span class="btn btn-danger remove-btn-expenseline w-25" style="position: absolute; left: 75%;"> Delete</span>
                   <div id="expense`+index+`" class="collapse" aria-labelledby="exphead`+index+`" data-parent="#expense-accordion">
                       <div class="card-body">
-                          <?php require 'expenseline.php'; ?>
+                          <?php require '../expenseline.php'; ?>
                           <div class="btn btn-danger collapsed" data-toggle="collapse" data-target="#expense`+index+`" aria-controls="expense`+index+`">
                               Close
                           </div> 
@@ -319,7 +312,7 @@ session_start();
                   <span class="btn btn-danger remove-btn-taskline w-25" style="position: absolute; left: 75%;"> Delete</span>
                   <div id="task`+index+`" class="collapse" aria-labelledby="taskhead`+index+`" data-parent="#task-accordion">
                       <div class="card-body">
-                          <?php require 'taskline.php'; ?>
+                          <?php require '../taskline.php'; ?>
                           <div class="btn btn-danger collapsed" data-toggle="collapse" data-target="#task`+index+`" aria-controls="task`+index+`">
                               Close
                           </div> 
