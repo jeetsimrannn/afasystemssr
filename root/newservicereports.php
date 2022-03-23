@@ -25,16 +25,12 @@ session_start();
  <!-- Bootstrap CDN -->
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- <script type="text/javascript" charset="utf-8" src="../assets/vendor/js.cookie.js"></script>
+ <script type="text/javascript" charset="utf-8" src="..\assets\vendor\js.cookie.js"></script>
 
 </head>
 
 <body>
 
-<?php 
-// require 'sp_newSR.php'; 
-?>
-<?php require 'sp_qryCustOrderService.php'; ?>
 
 <header class="header-transparent" id="header">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid #0000001a">
@@ -48,7 +44,7 @@ session_start();
 
 <div class="submitmain">
 
-<form id="fupForm" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupFormNew" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
