@@ -25,11 +25,14 @@ session_start();
  <!-- Bootstrap CDN -->
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- <script type="text/javascript" charset="utf-8" src="..\assets\vendor\js.cookie.js"></script>
 
 </head>
 
 <body>
+
+
+<?php require 'getSRDetails.php'; ?>
+<?php require 'sp_qryCustOrderService.php'; ?>
 
 
 <header class="header-transparent" id="header">
@@ -43,22 +46,23 @@ session_start();
 </header><!-- End Header -->
 
 <div class="submitmain">
-
-<form id="fupFormNew" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
-                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly/>
+                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly
+                            value="<?php echo $ServiceID;?>"/>
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
-                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
+                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $ServiceDate;?>"/>
                         </div>
                 </div>
 
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
-            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"/>
+            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"
+            value="<?php echo $OrderNo;?>"/>
             <div class="modal fade" id="OrderNoModal" tabindex="-1" role="dialog" aria-labelledby="OrderNoModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="margin-top: 5rem;">
                     <div class="modal-content">
@@ -114,12 +118,17 @@ session_start();
         </div>
         <div class="form-group mb-3  ">
             <label for="travelto">Travel To</label>
-            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"   />
+            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"  value="<?php echo $TravelTo;?>"  />
         </div>
         <div class="form-group mb-3  ">
             <label for="Customer">Customer</label>
-            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer"  />
+            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer" value="<?php echo $CustomerName;?>" />
         </div>
+        <!-- <div class="form-group mb-3 inputfield">
+            <label for="file">Scan Receipt</label>
+            <input type="file" class="form-control" id="file" name="file" />
+        </div> -->
+
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
@@ -131,17 +140,17 @@ session_start();
             </div>
         </div>
 
+
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="kmTraveled">Km Traveled</label>
-                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder=""/>
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" readonly value="<?php echo $kmTraveled;?>" />
             </div>
             <div class="col mb-3">
                 <label for="USExchange">US Exchange</label>
                 <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
             </div>
         </div>
-
 
         <!-- collapse form for expense line, hours and file attachment -->
         <div id="accordion">
@@ -335,5 +344,7 @@ session_start();
             $("#Customer").attr("value", passedArray[result]);
             $("#travelto").attr("value", passedArray2[result]);
         });
+        
+        
     });
 </script>
