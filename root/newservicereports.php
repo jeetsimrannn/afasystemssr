@@ -51,7 +51,7 @@ session_start();
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
-                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
+                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $newSRDate;?>"/>
                         </div>
                 </div>
 
@@ -109,7 +109,7 @@ session_start();
 
         <div class="form-group mb-3  ">
             <label for="travelfrom">Travel From</label>
-            <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="<?php echo $TravelFrom;?>"   />
+            <input type="text" class="form-control" id="travelfrom" name="travelfrom" placeholder="Enter Travel From" value="<?php echo $newTravelFrom;?>"   />
         </div>
         <div class="form-group mb-3  ">
             <label for="travelto">Travel To</label>
@@ -127,11 +127,11 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" name="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" name="MileageAllowance" placeholder="" readonly value="<?php echo $newMileageAllowance;?>" />
             </div>
             <div class="col mb-3">
                 <label for="MileageAllowanceBillable">Mileage Billable</label>
-                <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+                <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $newMileageAllowanceBillable;?>" />
             </div>
         </div>
 
@@ -143,7 +143,7 @@ session_start();
             </div>
             <div class="col mb-3">
                 <label for="USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
+                <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $newUSExchange;?>" />
             </div>
         </div>
 
