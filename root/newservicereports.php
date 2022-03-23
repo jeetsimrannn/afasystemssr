@@ -55,7 +55,7 @@ session_start();
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
-                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $ServiceDate;?>"/>
+                            <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
                         </div>
                 </div>
 
@@ -118,11 +118,11 @@ session_start();
         </div>
         <div class="form-group mb-3  ">
             <label for="travelto">Travel To</label>
-            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"  value="<?php echo $TravelTo;?>"  />
+            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To" />
         </div>
         <div class="form-group mb-3  ">
             <label for="Customer">Customer</label>
-            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer" value="<?php echo $CustomerName;?>" />
+            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer"/>
         </div>
         <!-- <div class="form-group mb-3 inputfield">
             <label for="file">Scan Receipt</label>
@@ -144,7 +144,7 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="kmTraveled">Km Traveled</label>
-                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" readonly value="<?php echo $kmTraveled;?>" />
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" />
             </div>
             <div class="col mb-3">
                 <label for="USExchange">US Exchange</label>

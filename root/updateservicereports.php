@@ -144,7 +144,7 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="kmTraveled">Km Traveled</label>
-                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" readonly value="<?php echo $kmTraveled;?>" />
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" value="<?php echo $kmTraveled;?>" />
             </div>
             <div class="col mb-3">
                 <label for="USExchange">US Exchange</label>
