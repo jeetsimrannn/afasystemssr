@@ -25,151 +25,40 @@ session_start();
  <!-- Bootstrap CDN -->
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
- <script type="text/javascript" charset="utf-8" src="../assets/vendor/js.cookie.js"></script>
 
 </head>
 
 <body>
 
-<?php
-	include "../dbconnect.php";
-	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='3020004'";
-	$stmt = sqlsrv_query( $conn, $sql);
-	if( $stmt === false ) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-	
-	// Make the first (and in this case, only) row of the result set available for reading.
-	if( sqlsrv_fetch( $stmt ) === false) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-    
-	// Get the row fields. Field indices start at 0 and must be retrieved in order.
-	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$custname = sqlsrv_get_field( $stmt, 0);
-    
-    echo $_COOKIE["SRStatus"];
 
-?>
 
-<?php require '../utilities/header.php'; ?>
-<?php require 'sp_newSR.php'; ?>
-<?php require 'sp_qryCustOrderService.php'; ?>
+<header class="header-transparent" id="header">
+			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid #0000001a">
+				<div class="container-fluid">
+					<a href="../index.php" class="navbar-brand m-1">
+						<img src="../assets/img/logo.png" height="55" alt="AFA Systems">
+					</a>
+				</div>
+			</nav>
+</header><!-- End Header -->
+
 <div class="submitmain">
-
-<form id="fupForm" method="post" action="../insertSP.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
-                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly
-                            value="<?php
-                                include "../dbconnect.php";
-                                
-                                $sql = "SELECT max(ServiceID) from tblService";
-                                $stmt = sqlsrv_query( $conn, $sql);
-                                if( $stmt === false ) {
-                                    die( print_r( sqlsrv_errors(), true));
-                                }
-                                
-                                // Make the first (and in this case, only) row of the result set available for reading.
-                                if( sqlsrv_fetch( $stmt ) === false) {
-                                    die( print_r( sqlsrv_errors(), true));
-                                }
-
-                                // Get the row fields. Field indices start at 0 and must be retrieved in order.
-                                // Retrieving row fields by name is not supported by sqlsrv_get_field.
-                                $srvid = sqlsrv_get_field( $stmt, 0);
-                                echo $srvid+1;
-                                ?>"
-                            />
+                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly/>
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
                             <input type="date" class="form-control" id="servicedate" name="servicedate" placeholder="Enter Service Date" value="<?php echo $SRDate;?>"/>
                         </div>
                 </div>
-        <!-- <div class="form-group mb-3  ">
-            <label for="orderno">Order Number</label>
-
-            <input list="orderno" name="ordernos" id="ordernos" class="form-control" placeholder="Select Order Number"/>
-            <datalist id="orderno">
-             <?php
-            //  $serverName = 'tcp:teamoffline.database.windows.net,1433';
-            //  $uid = 'sim1999';
-            //  $pwd = 'simran@99';
-            //  $databaseName = 'TEAMOffline';
-            //  $connectionInfo = array('UID'=>$uid,
-            //                          'PWD'=>$pwd,
-            //                          'Database'=>$databaseName);
-            //  $conn = sqlsrv_connect($serverName,$connectionInfo);
-            //  if($conn){
-            //      echo '';
-            //  }else{
-            //      echo 'Connection failure<br />';
-            //  die(print_r(sqlsrv_errors(),TRUE));
-            //  }
-            //      $sql = "SELECT * FROM dbo.tblCustOrders INNER JOIN tblCustomers on (tblCustOrders.CustID = tblCustomers.CustID)";
-            //      $result = sqlsrv_query($conn,$sql) or die("Couldn't execut query");
-            //      $array1 = array();
-            //      $array2 = array();
-            //      while ($data=sqlsrv_fetch_array($result, SQLSRV_FETCH_ASSOC)){
-            //     //  echo '<option value="'.$data['OrderID'].'">';
-            //     //  echo $data['OrderNo']; 
-            //     //  echo " || ".$data['CustomerName'];
-            //     array_push($array1, $data['OrderNo']);
-            //     array_push($array2, $data['CustomerName']);
-            //      echo '<option value="'.$data['OrderNo']  .  ' ('. $data['CustomerName'] .')'  . '">';
-            //      echo "</option>";
-            //     }
-            //  $array3 = array_combine($array1, $array2);
-             ?>
-             </datalist>
-        </div> -->
-
-        <!-- <div class="form-group mb-3  ">
-            <label for="orderno">Order Number</label>      
-        
-            <input type="text" class="form-control" placeholder="Enter Order Number" data-toggle="modal" data-target="#exampleModal"  id="destination">
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-bo\dy">
-                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
-                            <br>
-                        <select id="myList" class="form-select form-control" size="5" aria-label="size 6 multiple select example" onChange="copyTextValue(this);">
-                            <option style="display:none"></option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                            </select>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
-                    </div>
-                    </div>
-                </div>
-                </div>
-    
-        </div> -->
 
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
-            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"/>
+            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"
+            value="<?php echo $OrderNo;?>"/>
             <div class="modal fade" id="OrderNoModal" tabindex="-1" role="dialog" aria-labelledby="OrderNoModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="margin-top: 5rem;">
                     <div class="modal-content">
@@ -214,9 +103,9 @@ session_start();
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Select</button>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
-        </div>
+        </div> 
 
 
         <div class="form-group mb-3  ">
@@ -225,11 +114,11 @@ session_start();
         </div>
         <div class="form-group mb-3  ">
             <label for="travelto">Travel To</label>
-            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To"   />
+            <input type="text" class="form-control" id="travelto" name="travelto" placeholder="Enter Travel To" />
         </div>
         <div class="form-group mb-3  ">
             <label for="Customer">Customer</label>
-            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer"  />
+            <input type="text" class="form-control" id="Customer" name="Customer" placeholder="Enter Customer"/>
         </div>
         <!-- <div class="form-group mb-3 inputfield">
             <label for="file">Scan Receipt</label>
@@ -239,32 +128,25 @@ session_start();
         <div class="form-row row">
             <div class="col mb-3">
                 <label for="MileageAllowance">Mileage Allowance</label>
-                <input type="text" class="form-control" id="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
+                <input type="text" class="form-control" id="MileageAllowance" name="MileageAllowance" placeholder="" readonly value="<?php echo $MileageAllowance;?>" />
             </div>
             <div class="col mb-3">
-                <label for="$USExchange">US Exchange</label>
-                <input type="text" class="form-control" id="$USExchange" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
+                <label for="MileageAllowanceBillable">Mileage Billable</label>
+                <input type="text" class="form-control" id="MileageAllowanceBillable" name="MileageAllowanceBillable" placeholder="" readonly value="<?php echo $MileageAllowanceBillable;?>" />
             </div>
         </div>
 
-        <div>
-        <p id="demo"></p>
-            <?php
-                // echo "<pre>";
-                // print_r($arrCustomerName["SP-5820"]);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($arrCustomerName);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($array3);
-                // echo "</pre>";
-                // echo "<pre>";
-                // var_export($arrCurrencyID);
-                // echo "</pre>";
-                // echo print_r($array3["SP-5820"]);
-            ?>
+
+        <div class="form-row row">
+            <div class="col mb-3">
+                <label for="kmTraveled">Km Traveled</label>
+                <input type="text" class="form-control" id="kmTraveled" name="kmTraveled" placeholder="" />
             </div>
+            <div class="col mb-3">
+                <label for="USExchange">US Exchange</label>
+                <input type="text" class="form-control" id="USExchange" name="USExchange" placeholder="" readonly value="<?php echo $USExchange;?>" />
+            </div>
+        </div>
 
         <!-- collapse form for expense line, hours and file attachment -->
         <div id="accordion">
@@ -283,18 +165,6 @@ session_start();
                             </div>  
                         </div>  
                     </div> 
-                    <!-- <div class="card-body">
-                        <div id="expense-accordion">
-                            <div class="wrapper">
-                                <div class="input-box d-flex">
-                                <input type="text" name="input_name[]" class="form-control">
-                                <div>
-                                </div>
-                                <button class="btn btn-primary add-btn w-25">Add More</button>
-                                
-                            </div> 
-                        </div>  
-                    </div>  -->
                 </div>
             </div>
 
@@ -311,20 +181,6 @@ session_start();
                                 
                             </div> 
                         </div>
-
-                        <!-- <div class="form-group mb-3 inputfield">
-                            <label for="exptype">Task</label>
-                            <input type="text" class="form-control" id="taskhours" name="taskhours" placeholder="Select Task"/>
-                        </div>
-                        <div class="form-group mb-3 inputfield">
-                            <label for="taskhours">Hours</label>
-                            <input type="text" class="form-control" id="taskhours" name="taskhours" placeholder="Enter Hours"/>
-                        </div>
-
-                        <div class="form-group mb-3 inputfield">
-                            <label for="tasknotes">Notes</label>
-                            <textarea type="text" class="form-control" id="tasknotes" name="tasknotes" rows="3"></textarea>
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -398,22 +254,6 @@ session_start();
               </div>
         `); // add input field
         index++;
-        // $('.wrapper').append(`
-        //   <div>
-        //     <a href="#" class="remove-lnk">Remove</a>
-        //      php require 'expenseline.php'; ?>
-        //     <div class="btn btn-danger collapsed" data-toggle="collapse" data-target="#collapseOne" aria-controls="collapseOne">
-        //                     Close
-        //     </div> 
-        //   </div>
-        // `); // add input field
-       
-        // $('.wrapper').append(`
-        //   <div class="input-box d-flex">
-        //     <input type="text" name="input_name[]" class="form-control"/>
-        //     <a href="#" class="remove-lnk">Remove</a>
-        //   </div>
-        // `); // add input field
       }
     });
 
@@ -478,98 +318,6 @@ session_start();
   });
 </script>
 
-<!-- 
-<script type="text/javascript">
-     $(document).ready(function() {
-      $('#ordernos').on('change', function() {
-        var ordernos = $( "#ordernos" ).val();
-        $("#travelto").attr("value", "");
-            $.ajax({
-                url:"orderdetails.php",
-                method:"POST",
-                data:{ordernos: ordernos}
-                dataType:"text",
-                success:function(data){
-                    $("#travelto").attr("value", data);
-                }
-            });
-          });
-       });
-</script> -->
-<!-- <script>
-    $(document).ready(function() {
-        var passedArray = <?php 
-            // echo json_encode($arrCustomerName); ?>;
-        var passedArray2 = <?php 
-        // echo json_encode($arrFullAddress); ?>;
-        $("#ordernos").on('change', function(){
-            var result = $( "#ordernos" ).val();
-
-            // document.getElementById("demo").innerHTML = passedArray[result];
-            if(passedArray[result] == ""){
-                $("#Customer").attr("value", "");
-                $("#travelto").attr("value", "");
-            }
-            else{
-                $("#Customer").attr("value", passedArray[result]);
-                $("#travelto").attr("value", passedArray2[result]);
-            }
-        //   var mainselection = this.value; // get the selection value
-        //   $.ajax({
-        //     type: "POST",  // method of sending data
-        //     url: "subcategory.php", // name of PHP script
-        //     data:'selection='+mainselection, // parameter name and value
-        //     success: function(result){ // deal with the results
-        //       $("#subcat-list").html(result); // insert in div above
-        //       }
-        //     });
-        });
-    });
-</script> -->
-
-<!-- <script>
-  
-  // onkeyup event will occur when the user 
-  // release the key and calls the function
-  // assigned to this event
-  function GetDetail(str) {
-      if (str.length == 0) {
-        $("#travelto").attr("value", "");
-          return;
-      }
-      else {
-
-          // Creates a new XMLHttpRequest object
-          var xmlhttp = new XMLHttpRequest();
-          xmlhttp.onreadystatechange = function () {
-
-              // Defines a function to be called when
-              // the readyState property changes
-              if (this.readyState == 4 && 
-                      this.status == 200) {
-                    
-                  // Typical action to be performed
-                  // when the document is ready
-                  var myObj = JSON.parse(this.responseText);
-
-                  // Returns the response data as a
-                  // string and store this array in
-                  // a variable assign the value 
-                  // received to first name input field
-                  $("#travelto").attr("value", myObj[0]);
-              }
-          };
-
-          // xhttp.open("GET", "filename", true);
-          xmlhttp.open("GET", "orderdetails.php?orderno=" + str, true);
-            
-          // Sends the request to the server
-          xmlhttp.send();
-      }
-  }
-</script> -->
-
-
 
 <script>
         $(document).ready(function(){
@@ -594,24 +342,5 @@ session_start();
         });
         
         
-        
-        // $("input[type='radio'][name='orderno']").click(function() {
-        //     var string = "";
-        //     $("input:checked").each(function() {
-        //         string += $(this).val();
-        //     });
-        //     $("#ordernos").val(string);
-        // });
     });
 </script>
-
-<!-- <script>
-    function copyTextValue(selectedOption) {
-    if(selectedOption.selectedIndex <= 0){
-    document.getElementById("ordernos").value = '';
-    return;
-    }
-    var selectedOptionValue = selectedOption.value;
-    document.getElementById("ordernos").value = selectedOptionValue;
-    }
-</script> -->
