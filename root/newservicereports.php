@@ -31,7 +31,7 @@ session_start();
 <body>
 
 
-<?php require 'getSRDetails.php'; ?>
+<?php require 'sp_newSR.php'; ?>
 <?php require 'sp_qryCustOrderService.php'; ?>
 
 
