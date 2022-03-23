@@ -2,7 +2,7 @@
         include "dbconnect.php";
 
         $tsql_callSP = "{call sp_tblService_NewItem(?)};";
-        $EmployeeID = $_COOKIE["EmployeeID"];
+        $EmployeeID = 1;
         $params = array( 
             array($EmployeeID, SQLSRV_PARAM_IN)
           );

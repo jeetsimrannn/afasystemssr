@@ -30,7 +30,7 @@ session_start();
 
 <body>
 
-
+<?php require 'root/sp_newSR.php'; ?>
 
 <header class="header-transparent" id="header">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom:2px solid #0000001a">
@@ -57,8 +57,7 @@ session_start();
 
         <div class="form-group mb-3  ">
             <label for="orderno">Order Number</label>
-            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"
-            value="<?php echo $OrderNo;?>"/>
+            <input class="form-control" name="ordernos" data-toggle="modal" data-target="#OrderNoModal"  placeholder="Select Order Number" id="ordernos" readonly style="background-color: #ffffff;"/>
             <div class="modal fade" id="OrderNoModal" tabindex="-1" role="dialog" aria-labelledby="OrderNoModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document" style="margin-top: 5rem;">
                     <div class="modal-content">
