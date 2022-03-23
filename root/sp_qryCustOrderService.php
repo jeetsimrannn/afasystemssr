@@ -14,7 +14,7 @@
             array_push($onlyCustomerName, $data1['CustomerName']);
             array_push($onlyFullAddress, $data1['FullAddress']);
             array_push($onlyCurrencyID, $data1['CurrencyID']);
-        }
+        } 
 
         $arrCustomerName = array_combine($onlyOrderNo, $onlyCustomerName);
         $arrFullAddress = array_combine($onlyOrderNo, $onlyFullAddress);
