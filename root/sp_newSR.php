@@ -7,7 +7,7 @@
             array($newEmployeeID, SQLSRV_PARAM_IN)
           );
 
-        $stmtNewSR22 = sqlsrv_query( $conn, $tsql_callSP2, $params);  
+        $stmtNewSR2 = sqlsrv_query( $conn, $tsql_callSP2, $params);  
         if( $stmtNewSR2 === false )  
         {  
             echo "Error in executing statement 3.\n";  
