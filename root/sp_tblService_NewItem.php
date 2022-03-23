@@ -20,7 +20,7 @@
         // $input_MileageAllowanceBillable = $_POST['MileageAllowanceBillable'];
         // $input_kmTraveled = $_POST['kmTraveled'];
         // $input_USExchange = $_POST['USExchange'];
-        $responseMessage = ""; 
+        $responseMessage = "Success"; 
         $NewServiceID = 1;  
 
         $input_ServiceID = 10;
@@ -35,13 +35,13 @@
         $input_USExchange =1.05;
         $MileageBillable  =1;
         $Processed =1;
-        $ProcessedDate ='NULL';
+        $ProcessedDate =NULL;
         $Submitted =0;
-        $SubmittedDate ='NULL';
+        $SubmittedDate =NULL;
         $Reviewed =0;
-        $ReviewedDate ='NULL';
-        $ReviewedBy ='NULL';
-        $Notes ='NULL';
+        $ReviewedDate =NULL;
+        $ReviewedBy =NULL;
+        $Notes =NULL;
 
         $tsql_callSP = "{call sp_tblService_SaveItem(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)};";
        
