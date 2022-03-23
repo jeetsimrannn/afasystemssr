@@ -2,7 +2,7 @@
         include "dbconnect.php";
 
         $tsql_callSP = "{call sp_tblService_NewItem(?)};";
-        $EmployeeID = 0;
+        $EmployeeID = $dataupdt['EmployeeID'];
         $params = array( 
             array($EmployeeID, SQLSRV_PARAM_IN)
           );
