@@ -56,5 +56,5 @@ jobs:
         with:
           app-name: 'afasystemssr'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BA5B5056B8FC4289A1ABE83AD6107404 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_C35C5871B8E545FA8258077FAFBC3927 }}
           package: .
