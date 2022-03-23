@@ -12,7 +12,7 @@ session_start();
 <link rel="apple-touch-icon" href="https://www.afasystemsinc.com/wp-content/uploads/2019/12/cropped-AFA_favicon-01-180x180.png" />
 <meta name="msapplication-TileImage" content="https://www.afasystemsinc.com/wp-content/uploads/2019/12/cropped-AFA_favicon-01-270x270.png" />
 
- <link rel="stylesheet" href="assets\css\style.css"/>
+ <link rel="stylesheet" href="..\assets\css\style.css"/>
  <!-- Google Fonts -->
  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"/>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,27 +30,6 @@ session_start();
 </head>
 
 <body>
-
-<?php
-	include "../dbconnect.php";
-	$sql = "SELECT CustomerName FROM tblCustOrders INNER JOIN tblCustomers ON tblCustOrders.CustID = tblCustomers.CustID WHERE OrderNo ='3020004'";
-	$stmt = sqlsrv_query( $conn, $sql);
-	if( $stmt === false ) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-	
-	// Make the first (and in this case, only) row of the result set available for reading.
-	if( sqlsrv_fetch( $stmt ) === false) {
-		die( print_r( sqlsrv_errors(), true));
-	}
-    
-	// Get the row fields. Field indices start at 0 and must be retrieved in order.
-	// Retrieving row fields by name is not supported by sqlsrv_get_field.
-	$custname = sqlsrv_get_field( $stmt, 0);
-    
-    echo $_COOKIE["SRStatus"];
-
-?>
 
 <?php require 'sp_newSR.php'; ?>
 <?php require 'sp_qryCustOrderService.php'; ?>
