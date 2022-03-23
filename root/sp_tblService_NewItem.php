@@ -1,13 +1,16 @@
-
-<?php
-session_start();
-?>
 <?php  
         include "getSRDetails.php";
 ?>        
 <?php  
         include "dbconnect.php";
+        date_default_timezone_set('America/New_York');
+        
+if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
 
+echo "bye";
+        
+}
+else{
         $tsql1 = "SELECT OrderID FROM dbo.tblCustOrders where OrderNo = ?";
         $getName1 = sqlsrv_query($conn, $tsql1, array($_POST['ordernos']));
         if( $getName1 === false )  
@@ -17,9 +20,9 @@ session_start();
         
         $input_OrderID = sqlsrv_get_field( $getName1, 0);  
         $input_EmployeeID = $_SESSION['EmployeeID'];
-
+        $today = date("Y-m-d H:i:s");
         $input_ServiceID = $_POST['ServiceID'];
-        $input_ServiceDate = $_POST["servicedate"];
+        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");;
         $input_TravelFrom = $_POST['travelfrom'];
         $input_TravelTo = $_POST['travelto'];
         $input_MileageAllowance = $_POST['MileageAllowance'];
@@ -64,46 +67,9 @@ session_start();
         }  
 
         sqlsrv_next_result($stmt31); 
-        echo "Service Report Updated";  
-        
-        echo $input_ServiceID;
-        echo " ";
-        echo $input_EmployeeID;
-        echo " ";
-        echo $input_ServiceDate;
-        echo " ";
-        echo $input_TravelFrom;
-        echo " ";
-        echo $input_TravelTo;
-        echo " ";
-        echo $input_OrderID;
-        echo " ";
-        echo $input_MileageAllowance;
-        echo " ";
-        echo $input_MileageAllowanceBillable;
-        echo " ";
-        echo $input_kmTraveled;
-        echo " ";
-        echo $input_USExchange;
-        echo " ";
-        echo $MileageBillable;
-        echo " ";
-        echo $Processed;
-        echo " ";
-        echo $ProcessedDate;
-        echo " ";
-        echo $Submitted;
-        echo " ";
-        echo $SubmittedDate;
-        echo " ";
-        echo $Reviewed;
-        echo " ";
-        echo $ReviewedDate;
-        echo " ";
-        echo $ReviewedBy;
-        echo " ";
-        echo $Notes;
+        echo "Service Report Updated"; 
         sqlsrv_free_stmt( $stmt31); 
         
         sqlsrv_close( $conn);
+}
 ?>  
