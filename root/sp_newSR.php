@@ -32,17 +32,6 @@
         
         // trim the datetime to just date 
         $SRDate = explode(' ', trim($ServiceDateTime))[0];
-        
-        // echo $TravelFrom;
-        // echo $MileageAllowance;
-        // echo $MileageAllowanceBillable;
-        // echo $USExchange;
-        
-        // echo $SRDate;
-        // echo $MileageBillable;
-        // echo $Processed;
-        // echo $Submitted;
-        // echo $Reviewed;
 
         sqlsrv_free_stmt( $stmtNewSR);
         sqlsrv_close( $conn);
