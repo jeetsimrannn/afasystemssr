@@ -32,7 +32,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         $params11 = array();
 
         array_push($params11,array($input_ServiceID, SQLSRV_PARAM_IN),
-                            array($EmployeeID, SQLSRV_PARAM_IN), 
+                            array($EmployeeID, SQLSRV_PARAM_IN),
                             array($input_ServiceDate, SQLSRV_PARAM_IN),
                             array($input_TravelFrom, SQLSRV_PARAM_IN),
                             array($input_TravelTo, SQLSRV_PARAM_IN),
@@ -63,7 +63,20 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
 
         sqlsrv_next_result($stmt31); 
         echo "Service Report Submitted"; 
+
+        echo $input_ServiceID;
+        echo $EmployeeID;
+        echo $input_ServiceDate;
+        echo $input_TravelFrom;
+        echo $input_TravelTo;
+        echo $input_OrderID;
+        echo $input_MileageAllowance;
+        echo $input_MileageAllowanceBillable;
+        echo $input_kmTraveled;
+        echo $input_USExchange;
+
         sqlsrv_free_stmt( $stmt31); 
+
         
         sqlsrv_close( $conn);
         
