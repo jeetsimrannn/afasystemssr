@@ -58,17 +58,6 @@ date_default_timezone_set('America/New_York');
         sqlsrv_next_result($stmt31); 
         echo "Service Report Submitted"; 
 
-        echo $input_ServiceID;
-        echo $EmpID;
-        echo $input_ServiceDate;
-        echo $input_TravelFrom;
-        echo $input_TravelTo;
-        echo $input_OrderID;
-        echo $input_MileageAllowance;
-        echo $input_MileageAllowanceBillable;
-        echo $input_kmTraveled;
-        echo $input_USExchange;
-
         sqlsrv_free_stmt( $stmt31); 
 
         
