@@ -174,8 +174,8 @@ $_SESSION['SRStatus'] = "";
         });
 
         $('#delete').click( function () {
-            var rowData = table.row('.selected').data()[0];
-            console.log(rowData);
+            var SRID = table.row('.selected').data()[0]
+            Cookies.set("SRID", SRID, { expires: 7, path: '/' });
             table.row('.selected').remove().draw( false );
 
             if (confirm("Are you sure you want to delete this record?")) {

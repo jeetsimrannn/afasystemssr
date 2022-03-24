@@ -1,3 +1,5 @@
 <?php
-    echo "success!!!";
+    echo "success!!! ".$_COOKIE["SRID"];
+
+    
 ?>
