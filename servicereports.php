@@ -35,7 +35,7 @@ session_start();
 <?php require 'root/sp_qryCustOrderService.php'; ?>
 <div class="submitmain">
 
-<form id="fupForm" method="post" action="root/sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
+<form id="fupForm" method="post" action="root/sp_tblService_SaveItem.php" autocomplete="off" enctype="multipart/form-data">
         <input type="text" class="form-control" id="EmployeeID" name="EmployeeID" value="<?php echo $_SESSION['EmployeeID']?>"/>
             <div class="form-row row">
                         <div class="col form-group mb-3">

@@ -18,7 +18,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
         $today = date("Y-m-d H:i:s");
         $input_ServiceID = 0;
-        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");;
+        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");
         $input_TravelFrom = $_POST['travelfrom'];
         $input_TravelTo = $_POST['travelto'];
         $input_MileageAllowance = $_POST['MileageAllowance'];
@@ -93,7 +93,7 @@ else{
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
         $today = date("Y-m-d H:i:s");
         $input_ServiceID = $_POST['ServiceID'];
-        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");;
+        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");
         $input_TravelFrom = $_POST['travelfrom'];
         $input_TravelTo = $_POST['travelto'];
         $input_MileageAllowance = $_POST['MileageAllowance'];
