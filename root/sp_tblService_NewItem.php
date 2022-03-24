@@ -62,9 +62,22 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         }  
 
         sqlsrv_next_result($stmt31); 
-        echo "Service Report Submitted";
+        echo "Service Report Submitted"; 
+
+        echo $input_ServiceID;
+        echo $EmployeeID;
+        echo $input_ServiceDate;
+        echo $input_TravelFrom;
+        echo $input_TravelTo;
+        echo $input_OrderID;
+        echo $input_MileageAllowance;
+        echo $input_MileageAllowanceBillable;
+        echo $input_kmTraveled;
+        echo $input_USExchange;
 
         sqlsrv_free_stmt( $stmt31); 
+
+        
         sqlsrv_close( $conn);
         
 }
