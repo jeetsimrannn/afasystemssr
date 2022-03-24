@@ -16,8 +16,9 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         
         $EmpID = $_POST['EmployeeID'];
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
+        $today = date("Y-m-d H:i:s");
         $input_ServiceID = 0;
-        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");
+        $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");;
         $input_TravelFrom = $_POST['travelfrom'];
         $input_TravelTo = $_POST['travelto'];
         $input_MileageAllowance = $_POST['MileageAllowance'];
@@ -32,7 +33,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         $params11 = array();
 
         array_push($params11,array($input_ServiceID, SQLSRV_PARAM_IN),
-                            array($EmpID, SQLSRV_PARAM_IN),
+                            array($EmpID, SQLSRV_PARAM_IN), 
                             array($input_ServiceDate, SQLSRV_PARAM_IN),
                             array($input_TravelFrom, SQLSRV_PARAM_IN),
                             array($input_TravelTo, SQLSRV_PARAM_IN),
@@ -64,8 +65,19 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         sqlsrv_next_result($stmt31); 
         echo "Service Report Submitted"; 
 
-        sqlsrv_free_stmt( $stmt31); 
+        echo $input_ServiceID;
         echo $EmpID;
+        echo $input_ServiceDate;
+        echo $input_TravelFrom;
+        echo $input_TravelTo;
+        echo $input_OrderID;
+        echo $input_MileageAllowance;
+        echo $input_MileageAllowanceBillable;
+        echo $input_kmTraveled;
+        echo $input_USExchange;
+
+        sqlsrv_free_stmt( $stmt31); 
+
         
         sqlsrv_close( $conn);
         
@@ -79,6 +91,7 @@ else{
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
+        $today = date("Y-m-d H:i:s");
         $input_ServiceID = $_POST['ServiceID'];
         $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");;
         $input_TravelFrom = $_POST['travelfrom'];
