@@ -184,7 +184,7 @@ $_SESSION['SRStatus'] = "";
                 $.ajax({
                     type: "GET", //we are using GET method to get data from server side
                     url: 'deleteSR.php', // get the route value
-                    data: {rowData:rowData}, //set data
+                    data: {SRID:SRID}, //set data
                     beforeSend: function () {//We add this before send to disable the button once we submit it so that we prevent the multiple click
                         
                     },
