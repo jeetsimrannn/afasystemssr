@@ -177,6 +177,26 @@ $_SESSION['SRStatus'] = "";
             var rowData = table.row('.selected').data()[0];
             console.log(rowData);
             table.row('.selected').remove().draw( false );
+
+            if (confirm("Are you sure you want to delete this record?")) {
+                var employeeId = $(this).attr('data-id'); //get the employee ID
+
+                // Ajax config
+                $.ajax({
+                    type: "GET", //we are using GET method to get data from server side
+                    url: 'deleteSR.php', // get the route value
+                    data: {employee_id:employeeId}, //set data
+                    beforeSend: function () {//We add this before send to disable the button once we submit it so that we prevent the multiple click
+                        
+                    },
+                    success: function (response) {//once the request successfully process to the server side it will return result here
+                        // Reload lists of employees
+                        all();
+
+                        alert(response)
+                    }
+                });
+            }
         });
 
         // $(".details-control").each(function() {
