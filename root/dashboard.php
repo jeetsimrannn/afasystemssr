@@ -37,6 +37,9 @@ $_SESSION['SRStatus'] = "";
 						<img src="../assets/img/logo.png" height="55" alt="AFA Systems">
 					</a>
 				</div>
+                <a href="../logout.php">
+                    <input type="submit" name="logout" id="logout" value="Logout" class="btn btn-primary" style="margin-right:2rem;">
+                </a>
 			</nav>
 </header><!-- End Header -->
 
