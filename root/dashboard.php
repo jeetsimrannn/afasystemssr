@@ -188,7 +188,7 @@ $_SESSION['SRStatus'] = "";
                         
                     },
                     success: function (response) {//once the request successfully process to the server side it will return result here
-                        alert(response);.
+                        alert(response);
                         table.row('.selected').remove().draw( false );
                     }
                 });

@@ -40,7 +40,7 @@ session_start();
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>
-                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly value="0"/>
+                            <input type="text" class="form-control" id="ServiceID" name="ServiceID" placeholder="Enter ID" readonly/>
                         </div> 
                         <div class="col form-group mb-3">
                             <label for="servicedate">Service Date</label>
