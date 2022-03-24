@@ -30,7 +30,10 @@ session_start();
 </head>
 
 <body>
-
+<?php 
+echo $_SESSION['EmployeeID'];
+echo $_COOKIE["EmployeeID"];
+?>
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_newSR.php'; ?>
 <?php require 'root/sp_qryCustOrderService.php'; ?>
