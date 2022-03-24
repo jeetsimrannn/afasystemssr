@@ -189,10 +189,7 @@ $_SESSION['SRStatus'] = "";
                         
                     },
                     success: function (response) {//once the request successfully process to the server side it will return result here
-                        // Reload lists of employees
-                        all();
-
-                        alert(response)
+                        alert(response);
                     }
                 });
             }
