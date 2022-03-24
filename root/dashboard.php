@@ -179,13 +179,12 @@ $_SESSION['SRStatus'] = "";
             table.row('.selected').remove().draw( false );
 
             if (confirm("Are you sure you want to delete this record?")) {
-                var employeeId = $(this).attr('data-id'); //get the employee ID
 
                 // Ajax config
                 $.ajax({
                     type: "GET", //we are using GET method to get data from server side
                     url: 'deleteSR.php', // get the route value
-                    data: {employee_id:employeeId}, //set data
+                    data: {rowData:rowData}, //set data
                     beforeSend: function () {//We add this before send to disable the button once we submit it so that we prevent the multiple click
                         
                     },
