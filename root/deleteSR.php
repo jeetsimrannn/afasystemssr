@@ -11,7 +11,7 @@
 	}
     
     
-    echo "deleted row".$srid;
+    echo "Succesfully deleted Service Report!";
 
 
     

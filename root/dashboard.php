@@ -174,11 +174,10 @@ $_SESSION['SRStatus'] = "";
         });
 
         $('#delete').click( function () {
-            var SRID = table.row('.selected').data()[0]
+            var SRID = table.row('.selected').data()[0];
             Cookies.set("SRID", SRID, { expires: 7, path: '/' });
-            table.row('.selected').remove().draw( false );
 
-            if (confirm("Are you sure you want to delete this record?")) {
+            if (confirm("Are you sure you want to delete this Service Report?")) {
 
                 // Ajax config
                 $.ajax({
@@ -189,8 +188,8 @@ $_SESSION['SRStatus'] = "";
                         
                     },
                     success: function (response) {//once the request successfully process to the server side it will return result here
-                        alert(response);
-                        console.log(response);
+                        alert(response);.
+                        table.row('.selected').remove().draw( false );
                     }
                 });
             }
