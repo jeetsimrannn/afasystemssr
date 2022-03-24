@@ -14,6 +14,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         if ( sqlsrv_fetch( $getName1 ) === false )  
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
+        $EmpID = $_COOKIE["EmployeeID"];
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
         $today = date("Y-m-d H:i:s");
         $input_ServiceID = 0;
@@ -32,7 +33,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         $params11 = array();
 
         array_push($params11,array($input_ServiceID, SQLSRV_PARAM_IN),
-                            array($EmployeeID, SQLSRV_PARAM_IN),
+                            array($EmpID, SQLSRV_PARAM_IN),
                             array($input_ServiceDate, SQLSRV_PARAM_IN),
                             array($input_TravelFrom, SQLSRV_PARAM_IN),
                             array($input_TravelTo, SQLSRV_PARAM_IN),
