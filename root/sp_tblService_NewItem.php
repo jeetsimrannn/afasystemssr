@@ -16,7 +16,6 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         
         $EmpID = $_POST['EmployeeID'];
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
-        $today = date("Y-m-d H:i:s");
         $input_ServiceID = 0;
         $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");
         $input_TravelFrom = $_POST['travelfrom'];
@@ -80,7 +79,6 @@ else{
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
-        $today = date("Y-m-d H:i:s");
         $input_ServiceID = $_POST['ServiceID'];
         $input_ServiceDate = $_POST["servicedate"]." ".date("H:i:s");;
         $input_TravelFrom = $_POST['travelfrom'];
