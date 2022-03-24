@@ -30,16 +30,13 @@ session_start();
 </head>
 
 <body>
-<?php 
-echo $_SESSION['EmployeeID'];
-echo $_COOKIE["EmployeeID"];
-?>
 <?php require 'utilities/header.php'; ?>
 <?php require 'root/sp_newSR.php'; ?>
 <?php require 'root/sp_qryCustOrderService.php'; ?>
 <div class="submitmain">
 
 <form id="fupForm" method="post" action="root/sp_tblService_NewItem.php" autocomplete="off" enctype="multipart/form-data">
+        <input type="hidden" class="form-control" id="EmployeeID" name="EmployeeID" value="<?php echo $_SESSION['EmployeeID']?>"/>
             <div class="form-row row">
                         <div class="col form-group mb-3">
                             <label for="name">Service ID</label>

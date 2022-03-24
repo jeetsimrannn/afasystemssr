@@ -14,7 +14,7 @@ if($_POST['ServiceID'] == 0 || empty($_POST['ServiceID'])){
         if ( sqlsrv_fetch( $getName1 ) === false )  
                 die( FormatErrors( sqlsrv_errors() ) ); 
         
-        $EmpID = $_SESSION['EmployeeID'];
+        $EmpID = $_POST['EmployeeID'];
         $input_OrderID = sqlsrv_get_field( $getName1, 0); 
         $today = date("Y-m-d H:i:s");
         $input_ServiceID = 0;
